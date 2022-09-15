@@ -9,7 +9,11 @@ import {
   MediaQuery,
   Burger,
   useMantineTheme,
+  Group,
+  Navbar,
 } from "@mantine/core";
+import MainLogo from "./assets/MainLogo";
+import NavLinks from "./components/NavLinks";
 
 function App() {
   const theme = useMantineTheme();
@@ -34,9 +38,22 @@ function App() {
         </Footer>
       }
       header={
-        <Header height={70} p="md">
-          <div
-            style={{ display: "flex", alignItems: "center", height: "100%" }}
+        <Header height={70} p="md" >
+          <Group sx={{ height: '100%' }} px={20} position="apart">
+           <MainLogo />
+            <NavLinks/>
+          </Group>
+           <MediaQuery largerThan="sm" styles={{ display: "none" }}>
+              <Burger
+                opened={opened}
+                onClick={() => setOpened((o) => !o)}
+                size="sm"
+                color={theme.colors.gray[6]}
+                mr="xl"
+              />
+            </MediaQuery>
+          {/* <div
+            style={{ display: "flex", alignItems: "center", height: "100%", backgroundColor: "red" }}
           >
             <MediaQuery largerThan="sm" styles={{ display: "none" }}>
               <Burger
@@ -47,9 +64,9 @@ function App() {
                 mr="xl"
               />
             </MediaQuery>
-
-            <Text>Application header</Text>
-          </div>
+            <MainLogo />
+            <NavLinks/>
+          </div> */}
         </Header>
       }
     >
