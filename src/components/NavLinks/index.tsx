@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, SimpleGrid, UnstyledButton, Text} from '@mantine/core';
+import { UnstyledButton, Text, Group} from '@mantine/core';
 
 /*
 TO DO: 
@@ -11,9 +11,9 @@ TO DO:
 
 function NavLinks() {
   return ( 
-  <div style={{backgroundColor: "blue"} }>
-  <SimpleGrid cols={4}>
-     <UnstyledButton>
+  <div  >
+    <Group spacing="xl">
+      <UnstyledButton>
       <Text>Home</Text>
      </UnstyledButton>
      <UnstyledButton>
@@ -24,8 +24,7 @@ function NavLinks() {
      </UnstyledButton>
      <UnstyledButton>
       <Text>Contact</Text>
-     </UnstyledButton>
-    </SimpleGrid>
+     </UnstyledButton></Group>
     </div>
     )
 }

@@ -11,6 +11,7 @@ import {
   useMantineTheme,
   Group,
   Navbar,
+  Center,
 } from "@mantine/core";
 import MainLogo from "./assets/MainLogo";
 import NavLinks from "./components/NavLinks";
@@ -39,22 +40,7 @@ function App() {
       }
       header={
         <Header height={70} p="md" >
-          <Group sx={{ height: '100%' }} px={20} position="apart">
-           <MainLogo />
-            <NavLinks/>
-          </Group>
-           <MediaQuery largerThan="sm" styles={{ display: "none" }}>
-              <Burger
-                opened={opened}
-                onClick={() => setOpened((o) => !o)}
-                size="sm"
-                color={theme.colors.gray[6]}
-                mr="xl"
-              />
-            </MediaQuery>
-          {/* <div
-            style={{ display: "flex", alignItems: "center", height: "100%", backgroundColor: "red" }}
-          >
+         <div style={{  display: 'flex', flexDirection: 'row', justifyContent: 'space-between' ,alignItems: 'center', height: '100%', paddingLeft: '5%', paddingRight:'5%'}}>
             <MediaQuery largerThan="sm" styles={{ display: "none" }}>
               <Burger
                 opened={opened}
@@ -64,9 +50,11 @@ function App() {
                 mr="xl"
               />
             </MediaQuery>
-            <MainLogo />
-            <NavLinks/>
-          </div> */}
+           <MainLogo />
+           <NavLinks/>
+          
+            
+         </div> 
         </Header>
       }
     >
