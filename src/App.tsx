@@ -5,13 +5,9 @@ import {
   AppShell,
   Header,
   Footer,
-  Text,
   MediaQuery,
   Burger,
-  useMantineTheme,
-  Group,
-  Navbar,
-  Center,
+  useMantineTheme
 } from "@mantine/core";
 import MainLogo from "./assets/MainLogo";
 import NavLinks from "./components/NavLinks";
@@ -19,12 +15,11 @@ import HomePage from "./components/Pages/HomePage";
 import ResumePage from "./components/Pages/ResumePage";
 import ProjectPage from "./components/Pages/ProjectPage";
 import ContactPage from "./components/Pages/ContactPage";
-import PrinterIcon from "./assets/PrinterIcon";
 
 function App() {
   const theme = useMantineTheme();
   const [opened, setOpened] = useState(false);
-  console.log("theme = ", theme);
+  
 
   return (
     <AppShell

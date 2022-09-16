@@ -1,4 +1,4 @@
-import { Card, Group, ScrollArea, SimpleGrid, Text } from '@mantine/core';
+import { Group, ScrollArea, SimpleGrid, Text } from '@mantine/core';
 import React from 'react';
 import GitIcon from '../../../assets/GitIcon';
 import LinkedIcon from '../../../assets/LinkedIcon';

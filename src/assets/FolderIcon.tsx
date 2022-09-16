@@ -33,7 +33,7 @@ function FolderIcon() {
 <g filter="url(#filter5_ii_45_434)">
 <ellipse cx="456.981" cy="179.339" rx="7.81229" ry="8.1056" transform="rotate(16.53 456.981 179.339)" fill="#D9D9D9"/>
 </g>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M453.138 179.471C453.218 179.468 453.317 179.499 453.317 179.499C453.849 179.695 453.99 180.263 453.99 180.263C454.242 181.176 455.09 181.185 455.437 181.148C455.582 180.837 455.787 180.656 455.979 180.576C454.818 180.094 453.687 179.287 454.26 177.358C454.423 176.808 454.765 176.421 455.216 176.171C455.193 176.026 455.163 175.46 455.659 174.852C455.659 174.852 456.151 174.851 456.989 175.809C457.454 175.825 457.929 175.906 458.389 176.039C458.846 176.178 459.289 176.369 459.687 176.609C460.905 176.262 461.317 176.532 461.317 176.532C461.401 177.311 461.067 177.769 460.975 177.88C461.215 178.335 461.291 178.846 461.127 179.396C460.553 181.331 459.166 181.382 457.928 181.15C458.072 181.357 458.156 181.718 458.016 182.19C457.882 182.641 457.763 183.032 457.684 183.29C457.645 183.418 457.616 183.513 457.6 183.567C457.582 183.628 457.582 183.7 457.617 183.764C457.098 183.735 456.604 183.618 456.157 183.43C455.669 183.341 455.212 183.173 454.807 182.943C454.877 182.909 454.921 182.846 454.94 182.781C454.956 182.728 454.982 182.636 455.018 182.512C455.062 182.359 455.119 182.157 455.187 181.923C453.596 181.782 453.571 180.708 453.571 180.708C453.498 180.054 453.189 179.794 453.189 179.794C453.147 179.745 453.115 179.703 453.092 179.667C453.105 179.601 453.12 179.535 453.138 179.471Z" fill="#403C39"/>
+<path fillRule="evenodd" clipRule="evenodd" d="M453.138 179.471C453.218 179.468 453.317 179.499 453.317 179.499C453.849 179.695 453.99 180.263 453.99 180.263C454.242 181.176 455.09 181.185 455.437 181.148C455.582 180.837 455.787 180.656 455.979 180.576C454.818 180.094 453.687 179.287 454.26 177.358C454.423 176.808 454.765 176.421 455.216 176.171C455.193 176.026 455.163 175.46 455.659 174.852C455.659 174.852 456.151 174.851 456.989 175.809C457.454 175.825 457.929 175.906 458.389 176.039C458.846 176.178 459.289 176.369 459.687 176.609C460.905 176.262 461.317 176.532 461.317 176.532C461.401 177.311 461.067 177.769 460.975 177.88C461.215 178.335 461.291 178.846 461.127 179.396C460.553 181.331 459.166 181.382 457.928 181.15C458.072 181.357 458.156 181.718 458.016 182.19C457.882 182.641 457.763 183.032 457.684 183.29C457.645 183.418 457.616 183.513 457.6 183.567C457.582 183.628 457.582 183.7 457.617 183.764C457.098 183.735 456.604 183.618 456.157 183.43C455.669 183.341 455.212 183.173 454.807 182.943C454.877 182.909 454.921 182.846 454.94 182.781C454.956 182.728 454.982 182.636 455.018 182.512C455.062 182.359 455.119 182.157 455.187 181.923C453.596 181.782 453.571 180.708 453.571 180.708C453.498 180.054 453.189 179.794 453.189 179.794C453.147 179.745 453.115 179.703 453.092 179.667C453.105 179.601 453.12 179.535 453.138 179.471Z" fill="#403C39"/>
 <g opacity="0.6" filter="url(#filter6_ii_45_434)">
 <rect x="170.63" y="116.297" width="301.555" height="93.1633" rx="10" transform="rotate(16.53 170.63 116.297)" fill="#FAA69F"/>
 </g>
@@ -59,8 +59,8 @@ function FolderIcon() {
 <path d="M145.89 12.8098C147.789 6.41056 155.305 3.63294 160.909 7.25921L344.938 126.338C348.663 128.748 350.355 133.325 349.092 137.578L293.191 325.942C292.478 328.347 292.694 330.932 293.797 333.184L308.661 363.547C309.764 365.799 309.98 368.384 309.266 370.789L251.636 564.979C249.724 571.421 242.13 574.182 236.528 570.472L28.6349 432.792C24.9685 430.364 23.3186 425.826 24.5697 421.61L145.89 12.8098Z" fill="url(#paint1_radial_45_434)"/>
 </g>
 <defs>
-<filter id="filter0_ii_45_434" x="21.8115" y="-1.5708" width="467.549" height="519.695" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<filter id="filter0_ii_45_434" x="21.8115" y="-1.5708" width="467.549" height="519.695" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+<feFlood floodOpacity="0" result="BackgroundImageFix"/>
 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset dx="4" dy="-4"/>
@@ -75,8 +75,8 @@ function FolderIcon() {
 <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
 <feBlend mode="normal" in2="effect1_innerShadow_45_434" result="effect2_innerShadow_45_434"/>
 </filter>
-<filter id="filter1_ii_45_434" x="66.5806" y="51.6497" width="450.286" height="448.906" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<filter id="filter1_ii_45_434" x="66.5806" y="51.6497" width="450.286" height="448.906" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+<feFlood floodOpacity="0" result="BackgroundImageFix"/>
 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset dx="4" dy="-4"/>
@@ -91,8 +91,8 @@ function FolderIcon() {
 <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
 <feBlend mode="normal" in2="effect1_innerShadow_45_434" result="effect2_innerShadow_45_434"/>
 </filter>
-<filter id="filter2_ii_45_434" x="56.0547" y="60.1407" width="439.134" height="463.546" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<filter id="filter2_ii_45_434" x="56.0547" y="60.1407" width="439.134" height="463.546" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+<feFlood floodOpacity="0" result="BackgroundImageFix"/>
 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset dx="4" dy="-4"/>
@@ -107,8 +107,8 @@ function FolderIcon() {
 <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
 <feBlend mode="normal" in2="effect1_innerShadow_45_434" result="effect2_innerShadow_45_434"/>
 </filter>
-<filter id="filter3_ii_45_434" x="396.646" y="155.378" width="17.2063" height="17.7146" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<filter id="filter3_ii_45_434" x="396.646" y="155.378" width="17.2063" height="17.7146" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+<feFlood floodOpacity="0" result="BackgroundImageFix"/>
 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset dx="-0.5" dy="1"/>
@@ -123,8 +123,8 @@ function FolderIcon() {
 <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
 <feBlend mode="normal" in2="effect1_innerShadow_45_434" result="effect2_innerShadow_45_434"/>
 </filter>
-<filter id="filter4_ii_45_434" x="422.15" y="162.596" width="18.2063" height="18.2146" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<filter id="filter4_ii_45_434" x="422.15" y="162.596" width="18.2063" height="18.2146" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+<feFlood floodOpacity="0" result="BackgroundImageFix"/>
 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset dx="-1" dy="1"/>
@@ -139,8 +139,8 @@ function FolderIcon() {
 <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
 <feBlend mode="normal" in2="effect1_innerShadow_45_434" result="effect2_innerShadow_45_434"/>
 </filter>
-<filter id="filter5_ii_45_434" x="448.142" y="170.254" width="17.677" height="18.1686" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<filter id="filter5_ii_45_434" x="448.142" y="170.254" width="17.677" height="18.1686" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+<feFlood floodOpacity="0" result="BackgroundImageFix"/>
 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset dx="-1" dy="1"/>
@@ -155,8 +155,8 @@ function FolderIcon() {
 <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
 <feBlend mode="normal" in2="effect1_innerShadow_45_434" result="effect2_innerShadow_45_434"/>
 </filter>
-<filter id="filter6_ii_45_434" x="142.552" y="114.726" width="318.74" height="178.252" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<filter id="filter6_ii_45_434" x="142.552" y="114.726" width="318.74" height="178.252" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+<feFlood floodOpacity="0" result="BackgroundImageFix"/>
 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset dx="-4" dy="4"/>
@@ -171,8 +171,8 @@ function FolderIcon() {
 <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
 <feBlend mode="normal" in2="effect1_innerShadow_45_434" result="effect2_innerShadow_45_434"/>
 </filter>
-<filter id="filter7_ii_45_434" x="111.628" y="218.925" width="318.74" height="178.252" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<filter id="filter7_ii_45_434" x="111.628" y="218.925" width="318.74" height="178.252" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+<feFlood floodOpacity="0" result="BackgroundImageFix"/>
 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset dx="-4" dy="4"/>
@@ -187,8 +187,8 @@ function FolderIcon() {
 <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
 <feBlend mode="normal" in2="effect1_innerShadow_45_434" result="effect2_innerShadow_45_434"/>
 </filter>
-<filter id="filter8_ii_45_434" x="80.7041" y="323.123" width="318.74" height="178.252" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<filter id="filter8_ii_45_434" x="80.7041" y="323.123" width="318.74" height="178.252" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+<feFlood floodOpacity="0" result="BackgroundImageFix"/>
 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset dx="-4" dy="4"/>
@@ -203,8 +203,8 @@ function FolderIcon() {
 <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
 <feBlend mode="normal" in2="effect1_innerShadow_45_434" result="effect2_innerShadow_45_434"/>
 </filter>
-<filter id="filter9_ii_45_434" x="20.1558" y="1.64929" width="333.351" height="574.49" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<filter id="filter9_ii_45_434" x="20.1558" y="1.64929" width="333.351" height="574.49" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+<feFlood floodOpacity="0" result="BackgroundImageFix"/>
 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset dx="4" dy="-4"/>
@@ -220,12 +220,12 @@ function FolderIcon() {
 <feBlend mode="normal" in2="effect1_innerShadow_45_434" result="effect2_innerShadow_45_434"/>
 </filter>
 <radialGradient id="paint0_radial_45_434" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(255.586 262.972) rotate(-163.471) scale(176.338 221.976)">
-<stop stop-color="#68E1FD"/>
-<stop offset="1" stop-color="#59C5DE" stop-opacity="0.760417"/>
+<stop stopColor="#68E1FD"/>
+<stop offset="1" stopColor="#59C5DE" stopOpacity="0.760417"/>
 </radialGradient>
 <radialGradient id="paint1_radial_45_434" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(198.742 288.966) rotate(-163.471) scale(129.236 263.069)">
-<stop stop-color="#68E1FD"/>
-<stop offset="0.984375" stop-color="#59C5DE"/>
+<stop stopColor="#68E1FD"/>
+<stop offset="0.984375" stopColor="#59C5DE"/>
 </radialGradient>
 </defs>
 </svg>
