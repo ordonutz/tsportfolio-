@@ -14,16 +14,16 @@ function NavLinks() {
   <div  >
     <Group spacing="xl">
       <UnstyledButton>
-      <Text>Home</Text>
+      <Text size={18}>Home</Text>
      </UnstyledButton>
      <UnstyledButton>
-      <Text>Projects</Text>
+      <Text size={18}>Projects</Text>
      </UnstyledButton>
      <UnstyledButton>
-      <Text>Resume</Text>
+      <Text size={18}>Resume</Text>
      </UnstyledButton>
      <UnstyledButton>
-      <Text>Contact</Text>
+      <Text size={18}>Contact</Text>
      </UnstyledButton></Group>
     </div>
     )
