@@ -12,7 +12,7 @@ import {
 import { useDisclosure } from "@mantine/hooks";
 import MainLogo from "../../assets/MainLogo";
 
-const HEADER_HEIGHT = "5";
+const HEADER_HEIGHT = "70px";
 
 const useStyles = createStyles((theme) => ({
   root: {
@@ -23,7 +23,7 @@ const useStyles = createStyles((theme) => ({
 
   dropdown: {
     position: "absolute",
-    top: HEADER_HEIGHT,
+    top: "70px",
     left: 0,
     right: 0,
     zIndex: 0,

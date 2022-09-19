@@ -32,33 +32,48 @@ function App() {
     <AppShell
       styles={{
         main: {
-          background: "white",
+          background: "yellow",
         },
       }}
       navbarOffsetBreakpoint="sm"
       asideOffsetBreakpoint="sm"
-      footer={
-        // <Footer
-        //   height={60}
-        //   p="md"
-        //   style={{ backgroundColor: "transparent" }}
-        //   withBorder={false}
-        // >
-        //   Application footer
-        // </Footer>
-        <FooterResponsive links={temp} />
-      }
+      footer={<FooterResponsive links={temp} />}
       header={<HeaderResponsive links={temp} />}
-      // header={<Header children={<div>hi</div>} height="10" />}
     >
-      {/* <div style={{ paddingLeft: "5%", paddingRight: "5%", background: "red" }}> */}
       <HomePage />
-      {/* </div> */}
-      {/* <div style={{ background: "green", width: "auto" }}>
-        <ResumePage />
-      </div>
-      <ProjectPage />
-      <ContactPage /> */}
+      <ResumePage />
+      <ProjectPage
+        supTitle="awesome projects"
+        description="you will hire me"
+        data={[
+          {
+            image:
+              "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
+            title: "Project 1 This website",
+            description: "this shows how smart i am and u should hire me",
+          },
+          {
+            image:
+              "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
+            title: "Project 2 Credit one stuff",
+            description: "this shows how smart i am and u should hire me",
+          },
+          {
+            image:
+              "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
+            title:
+              "Project 3 taking old c++ assignments and adding visualizers",
+            description: "this shows how smart i am and u should hire me",
+          },
+          {
+            image:
+              "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
+            title: "Project 4 tbd",
+            description: "this shows how smart i am and u should hire me",
+          },
+        ]}
+      />
+      <ContactPage />
     </AppShell>
   );
 }
