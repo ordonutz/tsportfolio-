@@ -119,7 +119,7 @@ export default function CarouselProjects() {
 
   return (
     <Carousel
-      style={{ background: "green" }}
+      //   style={{ background: "green" }}
       sx={{ maxWidth: 600 }}
       mx="auto"
       withIndicators

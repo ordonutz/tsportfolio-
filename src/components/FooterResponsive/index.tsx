@@ -8,7 +8,7 @@ const useStyles = createStyles((theme) => ({
 
   inner: {
     maxWidth: "1440px",
-    background: "red",
+    // background: "red",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
@@ -47,7 +47,7 @@ export function FooterResponsive({ links }: FooterSimpleProps) {
   ));
 
   return (
-    <div style={{ background: "blue" }} className={classes.footer}>
+    <div className={classes.footer}>
       <Container className={classes.inner}>
         <MainLogo />
         <Group className={classes.links}>{items}</Group>

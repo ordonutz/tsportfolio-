@@ -16,7 +16,7 @@ function BlobIcon() {
         justifyContent: "center",
         alignItems: "center",
         paddingLeft: "11%",
-        background: "blue",
+        // background: "blue",
       }}
     >
       <svg

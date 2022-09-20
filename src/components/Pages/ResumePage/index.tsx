@@ -108,7 +108,7 @@ export function ResumePage() {
     <Container
       py="xl"
       style={{
-        background: "orange",
+        // background: "orange",
         maxHeight: "25%",
         overflow: "scroll",
         marginTop: "5%",

@@ -10,13 +10,11 @@ import {
   ThemeIcon,
 } from "@mantine/core";
 import FolderIcon from "../../../assets/FolderIcon";
-// import { IconCheck } from "@tabler/icons";
-// import image from "./image.svg";
 
 const useStyles = createStyles((theme) => ({
   inner: {
     // maxWidth: "1440px",
-    background: "red",
+    // background: "red",
     display: "flex",
     justifyContent: "space-between",
     paddingTop: theme.spacing.xl * 3,
@@ -25,7 +23,7 @@ const useStyles = createStyles((theme) => ({
 
   content: {
     marginRight: theme.spacing.xl * 3,
-    background: "blue",
+    // background: "blue",
 
     [theme.fn.smallerThan("md")]: {
       maxWidth: "100%",
@@ -34,7 +32,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   title: {
-    color: theme.colorScheme === "dark" ? theme.white : theme.black,
+    color: theme.colorScheme === "dark" ? theme.white : theme.colors.gray[8],
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
     fontSize: 44,
     lineHeight: 1.2,
@@ -53,7 +51,7 @@ const useStyles = createStyles((theme) => ({
 
   image: {
     flex: "auto",
-    background: "yellow",
+    // background: "yellow",
     [theme.fn.smallerThan("md")]: {
       display: "none",
     },
@@ -74,13 +72,19 @@ export default function HomePage() {
   const { classes } = useStyles();
   console.log(classes);
   return (
-    <div style={{ background: "pink" }}>
-      <Container style={{ background: "green", maxWidth: "1320px" }}>
+    <div style={{}}>
+      <Container style={{ maxWidth: "1320px" }}>
         <div className={classes.inner}>
           <div className={classes.content}>
             <Title className={classes.title}>
-              A <span className={classes.highlight}>modern</span> React <br />{" "}
-              components library
+              hi! I'm leslie <br />{" "}
+              <Text
+                component="span"
+                variant="gradient"
+                gradient={{ from: "blue", to: "green", deg: 45 }}
+              >
+                Software Engineer
+              </Text>
             </Title>
             <Text color="dimmed" mt="md">
               Build fully functional accessible web applications faster than

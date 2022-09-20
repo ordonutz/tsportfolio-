@@ -16,9 +16,9 @@ const HEADER_HEIGHT = "70px";
 
 const useStyles = createStyles((theme) => ({
   root: {
-    backgroundColor: "black",
     position: "relative",
     zIndex: 1,
+    background: theme.colors.gray[8],
   },
 
   dropdown: {
@@ -38,8 +38,8 @@ const useStyles = createStyles((theme) => ({
   },
 
   header: {
+    background: theme.colors.gray[8],
     maxWidth: "1440px",
-    background: "yellow",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
@@ -67,7 +67,7 @@ const useStyles = createStyles((theme) => ({
     color:
       theme.colorScheme === "dark"
         ? theme.colors.dark[0]
-        : theme.colors.gray[7],
+        : theme.colors.pink[1],
     fontSize: theme.fontSizes.sm,
     fontWeight: 500,
 
@@ -75,7 +75,7 @@ const useStyles = createStyles((theme) => ({
       backgroundColor:
         theme.colorScheme === "dark"
           ? theme.colors.dark[6]
-          : theme.colors.gray[0],
+          : theme.colors.gray[6],
     },
 
     [theme.fn.smallerThan("sm")]: {
@@ -85,14 +85,14 @@ const useStyles = createStyles((theme) => ({
   },
 
   linkActive: {
-    "&, &:hover": {
-      backgroundColor: theme.fn.variant({
-        variant: "light",
-        color: theme.primaryColor,
-      }).background,
-      color: theme.fn.variant({ variant: "light", color: theme.primaryColor })
-        .color,
-    },
+    // "&, &:hover": {
+    //   backgroundColor: theme.fn.variant({
+    //     variant: "light",
+    //     color: theme.primaryColor,
+    //   }).background,
+    //   color: theme.fn.variant({ variant: "light", color: theme.primaryColor })
+    //     .color,
+    // },
   },
 }));
 
@@ -116,6 +116,7 @@ export function HeaderResponsive({ links }: HeaderResponsiveProps) {
         event.preventDefault();
         setActive(link.link);
         close();
+        console.log("i was clicked");
       }}
     >
       {link.label}
@@ -127,10 +128,12 @@ export function HeaderResponsive({ links }: HeaderResponsiveProps) {
       height={HEADER_HEIGHT}
       className={classes.root}
       withBorder={false}
-      style={{ background: "red" }}
+      // style={{ background: "red" }}
     >
       <Container className={classes.header}>
-        <MainLogo />
+        <div>
+          <MainLogo />
+        </div>
         <Group spacing={5} className={classes.links}>
           {items}
         </Group>

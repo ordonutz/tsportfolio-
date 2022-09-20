@@ -108,7 +108,7 @@ export default function ProjectPage({
     <Container
       size="lg"
       className={classes.wrapper}
-      style={{ background: "blue" }}
+      // style={{ background: "blue" }}
     >
       <Text className={classes.supTitle}>{supTitle}</Text>
 
