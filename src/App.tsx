@@ -7,7 +7,10 @@ import {
   Footer,
   MediaQuery,
   Burger,
-  useMantineTheme
+  useMantineTheme,
+  MantineThemeOverride,
+  MantineProvider,
+  Button,
 } from "@mantine/core";
 import MainLogo from "./assets/MainLogo";
 import NavLinks from "./components/NavLinks";
@@ -15,60 +18,82 @@ import HomePage from "./components/Pages/HomePage";
 import ResumePage from "./components/Pages/ResumePage";
 import ProjectPage from "./components/Pages/ProjectPage";
 import ContactPage from "./components/Pages/ContactPage";
+import { HeaderResponsive } from "./components/HeaderResponsive/index";
+import { FooterResponsive } from "./components/FooterResponsive";
 
 function App() {
   const theme = useMantineTheme();
   const [opened, setOpened] = useState(false);
-  
+  const temp = [
+    { link: "link", label: "Projects" },
+    { link: "link", label: "Resume" },
+    { link: "link", label: "Contact" },
+  ];
+
+  const myTheme: MantineThemeOverride = {
+    colorScheme: "light",
+    primaryColor: "pink",
+    primaryShade: { light: 3, dark: 3 },
+    loader: "dots",
+  };
+  console.log("theme =", theme);
+  console.log("my theme =", myTheme);
+  console.log("prim", theme.primaryColor);
+  console.log("white", theme.white);
+  console.log(theme.colors.pink[4]);
 
   return (
-    <AppShell
-      styles={{
-        main: {
-          background:
-            "linear-gradient(180deg, #989898 0%, #CBC8C8 14.58%, #E3DFDF 25.52%, #F0EBEB 31.77%, #D5D1D1 44.79%, #DAD7D7 58.85%, #E2DEDE 74.48%, #B3B3B3 94.27%)"
-        },
-      }}
-      navbarOffsetBreakpoint="sm"
-      asideOffsetBreakpoint="sm"
-      footer={
-        <Footer height={60} p="md" style={{backgroundColor: "transparent"}} withBorder={false}>
-          Application footer
-        </Footer>
-      }
-      header={
-        
-        <Header height={90} p="md" withBorder= {false} style={{backgroundColor: "transparent"}}>
-         <div style={{  display: 'flex', flexDirection: 'row', justifyContent: 'space-between' ,alignItems: 'center', height: '100%', paddingLeft: '5%', paddingRight:'5%'}}>
-            <MediaQuery largerThan="sm" styles={{ display: "none" }}>
-              <Burger
-                opened={opened}
-                onClick={() => setOpened((o) => !o)}
-                size="sm"
-                color={theme.colors.gray[6]}
-                mr="xl"
-              />
-            </MediaQuery>
-           <MainLogo />
-           <NavLinks/>
-          
-            
-         </div> 
-        </Header>
-      }
-    >
-      <div style={{paddingLeft: '5%', paddingRight: '5%', background: "red"}}>
-
-      <HomePage/>
-      
-      </div>
-      <div style={{background: "green", width: "auto"}}>
-      <ResumePage/>
-  
-      </div>
-      <ProjectPage/>
-      <ContactPage/>
-    </AppShell>
+    <MantineProvider theme={myTheme} withGlobalStyles withNormalizeCSS>
+      <AppShell
+        navbarOffsetBreakpoint="sm"
+        asideOffsetBreakpoint="sm"
+        footer={<FooterResponsive links={temp} />}
+        header={<HeaderResponsive links={temp} />}
+        styles={(theme) => ({
+          main: {
+            backgroundColor:
+              theme.colorScheme === "dark"
+                ? theme.colors.dark[8]
+                : theme.colors.gray[8],
+          },
+        })}
+      >
+        <HomePage />
+        <ResumePage />
+        <ProjectPage
+          supTitle="awesome projects"
+          description="you will hire me"
+          data={[
+            {
+              image:
+                "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
+              title: "Project 1 This website",
+              description: "this shows how smart i am and u should hire me",
+            },
+            {
+              image:
+                "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
+              title: "Project 2 Credit one stuff",
+              description: "this shows how smart i am and u should hire me",
+            },
+            {
+              image:
+                "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
+              title:
+                "Project 3 taking old c++ assignments and adding visualizers",
+              description: "this shows how smart i am and u should hire me",
+            },
+            {
+              image:
+                "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
+              title: "Project 4 tbd",
+              description: "this shows how smart i am and u should hire me",
+            },
+          ]}
+        />
+        <ContactPage />
+      </AppShell>
+    </MantineProvider>
   );
 }
 

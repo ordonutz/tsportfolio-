@@ -1,15 +1,141 @@
-import { SimpleGrid, } from '@mantine/core';
-import React from 'react';
-import BlobIcon from '../../../assets/BlobIcon';
-import FolderIcon from '../../../assets/FolderIcon';
+import {
+  createStyles,
+  Image,
+  Container,
+  Title,
+  Button,
+  Group,
+  Text,
+  List,
+  ThemeIcon,
+} from "@mantine/core";
+import FolderIcon from "../../../assets/FolderIcon";
 
-function HomePage() {
-  return (<SimpleGrid cols={2} spacing="sm">
-    <BlobIcon/>
-    
-    <FolderIcon/>
-     
-  </SimpleGrid>)
+const useStyles = createStyles((theme) => ({
+  inner: {
+    // maxWidth: "1440px",
+    // background: "red",
+    display: "flex",
+    justifyContent: "space-between",
+    paddingTop: theme.spacing.xl * 3,
+    paddingBottom: theme.spacing.xl * 3,
+  },
+
+  content: {
+    marginRight: theme.spacing.xl * 3,
+    // background: "blue",
+
+    [theme.fn.smallerThan("md")]: {
+      maxWidth: "100%",
+      marginRight: 0,
+    },
+  },
+
+  title: {
+    color: theme.colorScheme === "dark" ? theme.white : theme.colors.gray[8],
+    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+    fontSize: 44,
+    lineHeight: 1.2,
+    fontWeight: 900,
+
+    [theme.fn.smallerThan("xs")]: {
+      fontSize: 28,
+    },
+  },
+
+  control: {
+    [theme.fn.smallerThan("xs")]: {
+      flex: 1,
+    },
+  },
+
+  image: {
+    flex: "auto",
+    // background: "yellow",
+    [theme.fn.smallerThan("md")]: {
+      display: "none",
+    },
+  },
+
+  highlight: {
+    position: "relative",
+    backgroundColor: theme.fn.variant({
+      variant: "light",
+      color: theme.primaryColor,
+    }).background,
+    borderRadius: theme.radius.sm,
+    padding: "4px 12px",
+  },
+}));
+
+export default function HomePage() {
+  const { classes } = useStyles();
+  console.log(classes);
+  return (
+    <div style={{}}>
+      <Container style={{ maxWidth: "1320px" }}>
+        <div className={classes.inner}>
+          <div className={classes.content}>
+            <Title className={classes.title}>
+              hi! I'm leslie <br />{" "}
+              <Text
+                component="span"
+                variant="gradient"
+                gradient={{ from: "blue", to: "green", deg: 45 }}
+              >
+                Software Engineer
+              </Text>
+            </Title>
+            <Text color="dimmed" mt="md">
+              Build fully functional accessible web applications faster than
+              ever – Mantine includes more than 120 customizable components and
+              hooks to cover you in any situation
+            </Text>
+
+            <List
+              mt={30}
+              spacing="sm"
+              size="sm"
+              icon={
+                <ThemeIcon size={20} radius="xl">
+                  {/* <IconCheck size={12} stroke={1.5} /> */}
+                </ThemeIcon>
+              }
+            >
+              <List.Item>
+                <b>TypeScript based</b> – build type safe applications, all
+                components and hooks export types
+              </List.Item>
+              <List.Item>
+                <b>Free and open source</b> – all packages have MIT license, you
+                can use Mantine in any project
+              </List.Item>
+              <List.Item>
+                <b>No annoying focus ring</b> – focus ring will appear only when
+                user navigates with keyboard
+              </List.Item>
+            </List>
+
+            <Group mt={30}>
+              <Button radius="xl" size="md" className={classes.control}>
+                Get started
+              </Button>
+              <Button
+                variant="default"
+                radius="xl"
+                size="md"
+                className={classes.control}
+              >
+                Source code
+              </Button>
+            </Group>
+          </div>
+          <div className={classes.image}>
+            {" "}
+            <FolderIcon />
+          </div>
+        </div>
+      </Container>
+    </div>
+  );
 }
-
-export default HomePage;
