@@ -3,52 +3,52 @@ import React from "react";
 import { useState } from "react";
 import {
   AppShell,
-  Header,
-  Footer,
-  MediaQuery,
-  Burger,
   useMantineTheme,
   MantineThemeOverride,
   MantineProvider,
-  Button,
+  BackgroundImage,
+  Image,
 } from "@mantine/core";
-import MainLogo from "./assets/MainLogo";
-import NavLinks from "./components/NavLinks";
 import HomePage from "./components/Pages/HomePage";
 import ResumePage from "./components/Pages/ResumePage";
 import ProjectPage from "./components/Pages/ProjectPage";
 import ContactPage from "./components/Pages/ContactPage";
 import { HeaderResponsive } from "./components/HeaderResponsive/index";
 import { FooterResponsive } from "./components/FooterResponsive";
+import "./assets/backgroundImage.png";
+import CustomBackgroundImage from "./assets/CustomBackgroundImage";
 
 function App() {
   const theme = useMantineTheme();
-  const [opened, setOpened] = useState(false);
-  const temp = [
+
+  /**
+   * links in header and footer to redirect user to
+   * projects, resume, or contact section on the one page site
+   * will need to use scroll into view hook so this might change
+   */
+  const pageSectionLinks = [
     { link: "link", label: "Projects" },
     { link: "link", label: "Resume" },
     { link: "link", label: "Contact" },
   ];
 
-  const myTheme: MantineThemeOverride = {
+  /**
+   * custom object theme to override Mantine default theme
+   */
+  const MY_THEME: MantineThemeOverride = {
     colorScheme: "light",
     primaryColor: "pink",
     primaryShade: { light: 3, dark: 3 },
     loader: "dots",
   };
-  console.log("theme =", theme);
-  console.log("my theme =", myTheme);
-  console.log("prim", theme.primaryColor);
-  console.log("white", theme.white);
-  console.log(theme.colors.pink[4]);
 
   return (
-    <MantineProvider theme={myTheme} withGlobalStyles withNormalizeCSS>
+    <MantineProvider theme={MY_THEME} withGlobalStyles withNormalizeCSS>
       <AppShell
         navbarOffsetBreakpoint="sm"
         asideOffsetBreakpoint="sm"
-        footer={<FooterResponsive links={temp} />}
-        header={<HeaderResponsive links={temp} />}
+        footer={<FooterResponsive links={pageSectionLinks} />}
+        header={<HeaderResponsive links={pageSectionLinks} />}
         styles={(theme) => ({
           main: {
             backgroundColor:
