@@ -82,6 +82,7 @@ const useStyles = createStyles((theme) => ({
 
 export function ResumePage() {
   const { classes } = useStyles();
+  console.log("what are you", classes);
 
   const cards = mockdata.map((article) => (
     <Card
@@ -108,7 +109,7 @@ export function ResumePage() {
     <Container
       py="xl"
       style={{
-        // background: "orange",
+        background: "orange",
         maxHeight: "25%",
         overflow: "scroll",
         marginTop: "5%",
