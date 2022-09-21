@@ -12,9 +12,16 @@ import {
 import FolderIcon from "../../../assets/FolderIcon";
 
 const useStyles = createStyles((theme) => ({
+  outerContainer: {
+    height: "20%",
+    display: "flex",
+    flexDirection: "column",
+    flexWrap: "nowrap",
+    justifyContent: "center",
+    alignItems: "center",
+    alignContent: "center",
+  },
   inner: {
-    // maxWidth: "1440px",
-    // background: "red",
     display: "flex",
     justifyContent: "space-between",
     paddingTop: theme.spacing.xl * 3,
@@ -22,9 +29,8 @@ const useStyles = createStyles((theme) => ({
   },
 
   content: {
+    background: theme.colors.gray[8],
     marginRight: theme.spacing.xl * 3,
-    // background: "blue",
-
     [theme.fn.smallerThan("md")]: {
       maxWidth: "100%",
       marginRight: 0,
@@ -32,17 +38,30 @@ const useStyles = createStyles((theme) => ({
   },
 
   title: {
-    color: theme.colorScheme === "dark" ? theme.white : theme.colors.gray[8],
+    color: theme.colorScheme === "dark" ? theme.white : theme.colors.gray[2],
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-    fontSize: 44,
+    fontSize: 65,
     lineHeight: 1.2,
-    fontWeight: 900,
+    fontWeight: 700,
 
     [theme.fn.smallerThan("xs")]: {
       fontSize: 28,
     },
   },
 
+  subTitle: {
+    fontSize: 25,
+    color: theme.colors.cyan[2],
+    [theme.fn.smallerThan("md")]: {
+      display: "none",
+    },
+  },
+
+  listItemsText: {
+    fontSize: 20,
+    color: theme.colors.gray[2],
+    fontWeight: 300,
+  },
   control: {
     [theme.fn.smallerThan("xs")]: {
       flex: 1,
@@ -51,7 +70,7 @@ const useStyles = createStyles((theme) => ({
 
   image: {
     flex: "auto",
-    // background: "yellow",
+
     [theme.fn.smallerThan("md")]: {
       display: "none",
     },
@@ -71,54 +90,50 @@ const useStyles = createStyles((theme) => ({
 export default function HomePage() {
   const { classes } = useStyles();
   console.log(classes);
+
   return (
-    <div style={{}}>
-      <Container style={{ maxWidth: "1320px" }}>
-        <div className={classes.inner}>
+    <div className={classes.outerContainer} style={{ background: "green" }}>
+      <Container style={{ maxWidth: "1320px", background: "gray" }}>
+        <div className={classes.inner} style={{ background: "black" }}>
           <div className={classes.content}>
             <Title className={classes.title}>
-              hi! I'm leslie <br />{" "}
+              hi! I'm leslie
+              <br />{" "}
               <Text
                 component="span"
                 variant="gradient"
-                gradient={{ from: "blue", to: "green", deg: 45 }}
+                gradient={{ from: "yellow", to: "cyan", deg: 90 }}
               >
                 Software Engineer
               </Text>
             </Title>
-            <Text color="dimmed" mt="md">
-              Build fully functional accessible web applications faster than
-              ever – Mantine includes more than 120 customizable components and
-              hooks to cover you in any situation
+            <Text mt="md" className={classes.subTitle}>
+              intrigued, curious, and excited about everything web development
             </Text>
 
             <List
               mt={30}
               spacing="sm"
-              size="sm"
-              icon={
-                <ThemeIcon size={20} radius="xl">
-                  {/* <IconCheck size={12} stroke={1.5} /> */}
-                </ThemeIcon>
-              }
+              size="md"
+              className={classes.listItemsText}
             >
               <List.Item>
-                <b>TypeScript based</b> – build type safe applications, all
-                components and hooks export types
+                <b>
+                  Industry experience in front end web development for internal
+                  tools
+                </b>
               </List.Item>
               <List.Item>
-                <b>Free and open source</b> – all packages have MIT license, you
-                can use Mantine in any project
+                <b>Recent computer science b.s. grad</b>
               </List.Item>
               <List.Item>
-                <b>No annoying focus ring</b> – focus ring will appear only when
-                user navigates with keyboard
+                <b>Proficient educational background in C++</b>
               </List.Item>
             </List>
 
-            <Group mt={30}>
+            <Group mt={30} position="center">
               <Button radius="xl" size="md" className={classes.control}>
-                Get started
+                Resume
               </Button>
               <Button
                 variant="default"
@@ -126,11 +141,19 @@ export default function HomePage() {
                 size="md"
                 className={classes.control}
               >
-                Source code
+                Projects
+              </Button>
+              <Button
+                variant="default"
+                radius="xl"
+                size="md"
+                className={classes.control}
+              >
+                Contact
               </Button>
             </Group>
           </div>
-          <div className={classes.image}>
+          <div className={classes.image} style={{ background: "white" }}>
             {" "}
             <FolderIcon />
           </div>
