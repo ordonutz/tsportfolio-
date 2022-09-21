@@ -1,6 +1,5 @@
 import {
   createStyles,
-  Image,
   Container,
   Title,
   Button,
@@ -8,9 +7,13 @@ import {
   Text,
   List,
   ThemeIcon,
+  CheckIcon,
 } from "@mantine/core";
 import FolderIcon from "../../../assets/FolderIcon";
 
+/**
+ * @param theme MantineTheme object that stores styling properties to be used everywhere in the app
+ */
 const useStyles = createStyles((theme) => ({
   outerContainer: {
     height: "20%",
@@ -24,8 +27,8 @@ const useStyles = createStyles((theme) => ({
   inner: {
     display: "flex",
     justifyContent: "space-between",
-    paddingTop: theme.spacing.xl * 3,
-    paddingBottom: theme.spacing.xl * 3,
+    // paddingTop: theme.spacing.xl * 3,
+    // paddingBottom: theme.spacing.xl * 3,
   },
 
   content: {
@@ -53,23 +56,33 @@ const useStyles = createStyles((theme) => ({
     fontSize: 25,
     color: theme.colors.cyan[2],
     [theme.fn.smallerThan("md")]: {
-      display: "none",
+      fontSize: 15,
     },
   },
 
   listItemsText: {
     fontSize: 20,
     color: theme.colors.gray[2],
-    fontWeight: 300,
+    fontWeight: 350,
+    [theme.fn.smallerThan("xs")]: {
+      fontSize: 16,
+    },
   },
   control: {
+    color: theme.colors.gray[9],
+
     [theme.fn.smallerThan("xs")]: {
       flex: 1,
     },
   },
 
   image: {
-    flex: "auto",
+    display: "flex",
+    flexDirection: "column",
+    flexWrap: "nowrap",
+    justifyContent: "center",
+    alignItems: "center",
+    alignContent: "center",
 
     [theme.fn.smallerThan("md")]: {
       display: "none",
@@ -85,20 +98,33 @@ const useStyles = createStyles((theme) => ({
     borderRadius: theme.radius.sm,
     padding: "4px 12px",
   },
+  buttonGroup: {
+    Button: {
+      color: theme.colors.gray[9],
+      [theme.fn.smallerThan("xs")]: {
+        flex: 1,
+      },
+    },
+  },
 }));
 
+/**
+ * TODO: add onClick functionality to buttons, clean up styling, update jsdoc
+ *       add background image to make it look less basic, add animations
+ * About me section that acts like a landing page
+ * @returns container with text and an svg image
+ */
 export default function HomePage() {
   const { classes } = useStyles();
-  console.log(classes);
 
   return (
-    <div className={classes.outerContainer} style={{ background: "green" }}>
-      <Container style={{ maxWidth: "1320px", background: "gray" }}>
-        <div className={classes.inner} style={{ background: "black" }}>
+    <div className={classes.outerContainer}>
+      <Container style={{ maxWidth: "1320px" }}>
+        <div className={classes.inner}>
           <div className={classes.content}>
             <Title className={classes.title}>
               hi! I'm leslie
-              <br />{" "}
+              <br />
               <Text
                 component="span"
                 variant="gradient"
@@ -116,12 +142,14 @@ export default function HomePage() {
               spacing="sm"
               size="md"
               className={classes.listItemsText}
+              icon={
+                <ThemeIcon color="teal" size={24} radius="xl">
+                  <CheckIcon />
+                </ThemeIcon>
+              }
             >
               <List.Item>
-                <b>
-                  Industry experience in front end web development for internal
-                  tools
-                </b>
+                <b>Industry experience in front end web development</b>
               </List.Item>
               <List.Item>
                 <b>Recent computer science b.s. grad</b>
@@ -130,34 +158,28 @@ export default function HomePage() {
                 <b>Proficient educational background in C++</b>
               </List.Item>
             </List>
-
-            <Group mt={30} position="center">
-              <Button radius="xl" size="md" className={classes.control}>
-                Resume
-              </Button>
-              <Button
-                variant="default"
-                radius="xl"
-                size="md"
-                className={classes.control}
-              >
-                Projects
-              </Button>
-              <Button
-                variant="default"
-                radius="xl"
-                size="md"
-                className={classes.control}
-              >
-                Contact
-              </Button>
-            </Group>
           </div>
-          <div className={classes.image} style={{ background: "white" }}>
+          <div className={classes.image}>
             {" "}
             <FolderIcon />
           </div>
         </div>
+        <Group mt={30} position="center" className={classes.buttonGroup}>
+          <Button
+            radius="xl"
+            size="md"
+            variant="gradient"
+            gradient={{ from: "#ed6ea0", to: "#ec8c69", deg: 35 }}
+          >
+            Resume
+          </Button>
+          <Button radius="xl" size="md" variant="default">
+            Projects
+          </Button>
+          <Button radius="xl" size="md" variant="default">
+            Contact
+          </Button>
+        </Group>
       </Container>
     </div>
   );
