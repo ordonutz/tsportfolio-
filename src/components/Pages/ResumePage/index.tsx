@@ -11,15 +11,6 @@
 //   <div style={{margin: "auto", width: "70%", background:"blue"}}>
 //     <ScrollArea style={{height: 500, background: "orange"}}>
 //      <SimpleGrid style={{background: "white"}}>
-//       <Group style={{background: "yellow"}}  position='apart' spacing="sm">
-//         <Text>Leslie Ordonez</Text>
-//         <Group>
-//         <PhoneIcon/>
-//         <MailIcon/>
-//         <LinkedIcon/>
-//         <GitIcon/>
-//       </Group>
-//       </Group>
 
 //   </SimpleGrid>
 //   </ScrollArea>
@@ -35,7 +26,17 @@ import {
   Text,
   Container,
   AspectRatio,
+  Paper,
+  ScrollArea,
+  Group,
+  Title,
+  useMantineTheme,
 } from "@mantine/core";
+
+import GitIcon from "../../../assets/GitIcon";
+import LinkedIcon from "../../../assets/LinkedIcon";
+import MailIcon from "../../../assets/MailIcon";
+import PhoneIcon from "../../../assets/PhoneIcon";
 
 const mockdata = [
   {
@@ -66,7 +67,10 @@ const mockdata = [
 
 const useStyles = createStyles((theme) => ({
   card: {
+    background: theme.colors.pink[2],
     transition: "transform 150ms ease, box-shadow 150ms ease",
+    width: "80%",
+    margin: "1% auto",
 
     "&:hover": {
       transform: "scale(1.01)",
@@ -78,12 +82,24 @@ const useStyles = createStyles((theme) => ({
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
     fontWeight: 600,
   },
+  resumeTitle: {},
+
+  paperResume: {
+    shadow: "xl",
+    height: "25%",
+    background: theme.colors.gray[2],
+    width: "60%",
+    margin: "7% auto",
+  },
+  cardGrid: {},
+  resumeHeader: {
+    margin: "5% 5%",
+  },
 }));
 
 export function ResumePage() {
   const { classes } = useStyles();
-  console.log("what are you", classes);
-
+  const theme = useMantineTheme();
   const cards = mockdata.map((article) => (
     <Card
       key={article.title}
@@ -106,21 +122,45 @@ export function ResumePage() {
   ));
 
   return (
-    <Container
-      py="xl"
-      style={{
-        background: "orange",
-        maxHeight: "25%",
-        overflow: "scroll",
-        marginTop: "5%",
-        maxWidth: "60%",
-      }}
-    >
-      <SimpleGrid cols={1} breakpoints={[{ maxWidth: "sm", cols: 1 }]}>
-        {cards}
-      </SimpleGrid>
-    </Container>
+    <Paper radius="md" shadow="xl" className={classes.paperResume}>
+      <ScrollArea style={{ height: "100%" }} type="always" scrollbarSize={20}>
+        <Group className={classes.resumeHeader} position="apart" spacing="md">
+          <Title color={theme.colors.gray[7]} classNames={classes.title}>
+            Leslie Ordonez
+          </Title>
+          <Group>
+            <PhoneIcon />
+            <MailIcon />
+            <LinkedIcon />
+            <GitIcon />
+          </Group>
+        </Group>
+        <SimpleGrid
+          className={classes.cardGrid}
+          cols={1}
+          breakpoints={[{ maxWidth: "sm", cols: 1 }]}
+        >
+          {cards}
+        </SimpleGrid>
+      </ScrollArea>
+    </Paper>
   );
 }
 
 export default ResumePage;
+
+{
+  /* <Container
+  py="xl"
+  style={{
+    background: "orange",
+    maxHeight: "50%",
+    marginTop: "5%",
+    maxWidth: "60%",
+  }}
+>
+  <SimpleGrid style={{}} cols={1} breakpoints={[{ maxWidth: "sm", cols: 1 }]}>
+    {cards}
+  </SimpleGrid>
+</Container>; */
+}
