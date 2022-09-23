@@ -11,6 +11,9 @@ import {
   useMantineTheme,
   List,
   ThemeIcon,
+  Divider,
+  Stack,
+  Button,
 } from "@mantine/core";
 import { DonutIcon } from "../../../assets/DonutIcon";
 
@@ -130,12 +133,20 @@ const resumeData: Array<resumeSectionData> = [
 ];
 
 const useStyles = createStyles((theme) => ({
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    flexWrap: "nowrap",
+    justifyContent: "center",
+    alignItems: "center",
+    alignContent: "center",
+  },
   card: {
     background:
       "radial-gradient(circle, rgba(226,192,204,1) 0%, rgba(217,203,208,1) 100%)",
     transition: "transform 150ms ease, box-shadow 150ms ease",
     width: "90%",
-    margin: "1% auto",
+    margin: "0 auto",
 
     "&:hover": {
       transform: "scale(1.01)",
@@ -154,7 +165,7 @@ const useStyles = createStyles((theme) => ({
     background:
       "radial-gradient(circle, rgba(226,192,204,1) 0%, rgba(217,203,208,1) 100%)",
     width: "70%",
-    margin: "7% auto",
+    margin: "0 auto",
   },
   resumeHeader: {
     width: "auto",
@@ -184,6 +195,11 @@ const useStyles = createStyles((theme) => ({
     fontWeight: 500,
     fontSize: 20,
     color: theme.colors.gray[9],
+  },
+  resumeButton: {
+    width: "auto",
+    marginTop: "10%",
+    marginBottom: "2%",
   },
 }));
 
@@ -341,35 +357,55 @@ export function ResumePage() {
   ));
 
   return (
-    <Paper radius="md" shadow="xl" className={classes.paperResume}>
-      <ScrollArea style={{ height: "100%" }} type="always" scrollbarSize={20}>
-        <Group className={classes.resumeHeader} position="apart">
-          <Text
-            color="#77431D"
-            style={{
-              fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-              fontWeight: 500,
-              fontSize: 40,
-            }}
-          >
-            Leslie Ordonez-Hernandez
-          </Text>
-          <Group>
-            <PhoneIcon />
-            <MailIcon />
-            <LinkedIcon />
-            <GitIcon />
+    <div className={classes.container}>
+      <Button
+        radius="xl"
+        size="md"
+        className={classes.resumeButton}
+        variant="gradient"
+        leftIcon={<PrinterIcon />}
+      >
+        PDF Version
+      </Button>
+      <Paper radius="md" shadow="xl" className={classes.paperResume}>
+        <ScrollArea style={{ height: "100%" }} type="always" scrollbarSize={20}>
+          <Group className={classes.resumeHeader} position="apart">
+            <Text
+              color="#77431D"
+              style={{
+                fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+                fontWeight: 500,
+                fontSize: 40,
+              }}
+            >
+              Leslie Ordonez-Hernandez
+            </Text>
+            <Group>
+              <PhoneIcon />
+              <MailIcon />
+              <LinkedIcon />
+              <GitIcon />
+            </Group>
           </Group>
-        </Group>
-        <SimpleGrid
-          className={classes.cardGrid}
-          cols={1}
-          breakpoints={[{ maxWidth: "sm", cols: 1 }]}
-        >
-          {cards}
-        </SimpleGrid>
-      </ScrollArea>
-    </Paper>
+          <Divider color="#F2A74E" my="sm" size="sm" />
+          <SimpleGrid
+            className={classes.cardGrid}
+            cols={1}
+            breakpoints={[{ maxWidth: "sm", cols: 1 }]}
+          >
+            {cards}
+          </SimpleGrid>
+        </ScrollArea>
+      </Paper>
+      <Button
+        radius="xl"
+        size="md"
+        className={classes.resumeButton}
+        variant="gradient"
+      >
+        PDF Version
+      </Button>
+    </div>
   );
 }
 
