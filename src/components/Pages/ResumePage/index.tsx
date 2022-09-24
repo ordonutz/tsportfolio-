@@ -11,6 +11,7 @@ import {
   ThemeIcon,
   Button,
 } from "@mantine/core";
+import { PDFViewer } from "@react-pdf/renderer";
 import { DonutIcon } from "../../../assets/DonutIcon";
 
 import GitIcon from "../../../assets/GitIcon";
@@ -18,6 +19,7 @@ import LinkedIcon from "../../../assets/LinkedIcon";
 import MailIcon from "../../../assets/MailIcon";
 import PhoneIcon from "../../../assets/PhoneIcon";
 import PrinterIcon from "../../../assets/PrinterIcon";
+import ResumePdf from "./ResumePdf";
 
 /**
  * object used to store details about
@@ -366,6 +368,9 @@ export function ResumePage() {
           </SimpleGrid>
         </ScrollArea>
       </Paper>
+      <PDFViewer>
+        <ResumePdf />
+      </PDFViewer>
       <Button
         radius="xl"
         size="md"
