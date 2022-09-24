@@ -20,15 +20,28 @@ const ResumePdf = (props: Props) => {
   return (
     <Document>
       <Page>
-        <View style={styles.section}>
-          <Text>Section #1</Text>
-        </View>
-        <View style={styles.section}>
-          <Text>Section #2</Text>
-        </View>
+        <Text>Section #1</Text>
+
+        <Text>
+          Section #2 once upon a time they hired me at google and it was awesome
+          i got to work front end for youtube
+        </Text>
       </Page>
     </Document>
   );
 };
 
 export default ResumePdf;
+
+{
+  /* <Document>
+  <Page>
+    <View style={styles.section}>
+      <Text>Section #1</Text>
+    </View>
+    <View style={styles.section}>
+      <Text>Section #2</Text>
+    </View>
+  </Page>
+</Document>; */
+}

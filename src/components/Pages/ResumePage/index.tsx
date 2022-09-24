@@ -11,7 +11,7 @@ import {
   ThemeIcon,
   Button,
 } from "@mantine/core";
-import { PDFViewer } from "@react-pdf/renderer";
+import { PDFDownloadLink, PDFViewer } from "@react-pdf/renderer";
 import { DonutIcon } from "../../../assets/DonutIcon";
 
 import GitIcon from "../../../assets/GitIcon";
@@ -144,6 +144,11 @@ const resumeData: Array<resumeSectionData> = [
   },
 ];
 
+// background: "#FAA69F",
+// opacity: "0.6",
+// boxShadow: "inset 4px -4px 4px rgba(0, 0, 0, 0.25), inset -4px 4px 4px rgba(255, 255, 255, 0.25)",
+// borderRadius: "10px",
+
 /**
  * css classes
  */
@@ -155,13 +160,20 @@ const useStyles = createStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     alignContent: "center",
+    marginTop: "10%",
   },
   card: {
-    background:
-      "radial-gradient(circle, rgba(226,192,204,1) 0%, rgba(217,203,208,1) 100%)",
+    // background:
+    //   "radial-gradient(circle, rgba(226,192,204,1) 0%, rgba(217,203,208,1) 100%)",
+    background: "#FAA69F",
+    opacity: "0.6",
+    boxShadow:
+      "inset 4px -4px 4px rgba(0, 0, 0, 0.25), inset -4px 4px 4px rgba(255, 255, 255, 0.25)",
+    borderRadius: "10px",
     transition: "transform 150ms ease, box-shadow 150ms ease",
     width: "90%",
     margin: "0 auto",
+    marginBottom: "1%",
 
     "&:hover": {
       transform: "scale(1.01)",
@@ -176,9 +188,10 @@ const useStyles = createStyles((theme) => ({
   cardGrid: {},
   paperResume: {
     shadow: "xl",
-    background:
-      "radial-gradient(circle, rgba(226,192,204,1) 0%, rgba(217,203,208,1) 100%)",
-    width: "70%",
+    background: "#E9E9E9",
+    boxShadow:
+      "inset -4px 4px 4px rgba(255, 255, 255, 0.25), inset 4px -4px 4px rgba(0, 0, 0, 0.25)",
+    width: "60%",
   },
   resumeHeader: {
     width: "auto",
@@ -330,15 +343,35 @@ export function ResumePage() {
 
   return (
     <div className={classes.container}>
-      <Button
-        radius="xl"
-        size="md"
-        className={classes.resumeButtonTop}
-        variant="gradient"
-        leftIcon={<PrinterIcon />}
-      >
-        PDF Version
-      </Button>
+      <Group>
+        <PDFDownloadLink document={<ResumePdf />} fileName="leslieOhResume">
+          {({ loading, error }) =>
+            loading ? (
+              "Loading Document..."
+            ) : (
+              <Button
+                radius="xl"
+                size="md"
+                className={classes.resumeButtonTop}
+                variant="gradient"
+                leftIcon={<PrinterIcon />}
+              >
+                Download PDF
+              </Button>
+            )
+          }
+        </PDFDownloadLink>
+        <Button
+          radius="xl"
+          size="md"
+          className={classes.resumeButtonTop}
+          variant="gradient"
+          leftIcon={<PrinterIcon />}
+        >
+          View PDF
+        </Button>
+      </Group>
+
       <Paper radius="md" shadow="xl" className={classes.paperResume}>
         <ScrollArea style={{ height: 900 }} type="auto" scrollbarSize={20}>
           <Group className={classes.resumeHeader} position="apart">
@@ -368,9 +401,6 @@ export function ResumePage() {
           </SimpleGrid>
         </ScrollArea>
       </Paper>
-      <PDFViewer>
-        <ResumePdf />
-      </PDFViewer>
       <Button
         radius="xl"
         size="md"
