@@ -3,16 +3,12 @@ import {
   SimpleGrid,
   Card,
   Text,
-  Container,
   Paper,
   ScrollArea,
   Group,
-  Title,
   useMantineTheme,
   List,
   ThemeIcon,
-  Divider,
-  Stack,
   Button,
 } from "@mantine/core";
 import { DonutIcon } from "../../../assets/DonutIcon";
@@ -23,12 +19,20 @@ import MailIcon from "../../../assets/MailIcon";
 import PhoneIcon from "../../../assets/PhoneIcon";
 import PrinterIcon from "../../../assets/PrinterIcon";
 
+/**
+ * object used to store details about
+ * each subsection in the @resumeSectionData object
+ */
 interface resumeSubSection {
   name: string;
   date: string;
   description: Array<string>;
 }
 
+/**
+ * object used to store info for each section
+ * of the resume i.e. each section (education, experience, etc.) have these attributes
+ */
 interface resumeSectionData {
   title: string;
   subsection0: resumeSubSection;
@@ -36,6 +40,11 @@ interface resumeSectionData {
   subsection2?: resumeSubSection;
 }
 
+/**
+ * stores all entire resume data to be mapped into card component and lists
+ * ideally in the future it would be nice to parse the text from the document
+ * so it outputs this object
+ */
 const resumeData: Array<resumeSectionData> = [
   {
     title: "Education",
@@ -65,9 +74,10 @@ const resumeData: Array<resumeSectionData> = [
       name: "Developer II, Credit One Bank, Las Vegas, NV",
       date: "December 2021 - June 2022",
       description: [
-        "Collaborated in an agile team of 9 for front-end web development using React.js, JavaScript, TypeScript, Sass, and internal UI Framework ",
-        "Implemented functional components, custom hooks, and REST API calls for a page within an internal tool app ",
-        "Maintained code through GitLab, code reviews, and at least 80% coverage using Jest unit testing framework ",
+        "Learned React.js, JavaScript, TypeScript, Sass, and internal UI Framework without prior experience in 4 months",
+        "Collaborated with an agile team of 9 for front-end web development",
+        "Implemented functional components, custom hooks, and REST API calls for a page within an internal tool",
+        "Maintained code through GitLab, code reviews, and at minimum 80% coverage of Jest unit testing ",
       ],
     },
     subsection1: {
@@ -93,7 +103,7 @@ const resumeData: Array<resumeSectionData> = [
       name: "Portfolio Website, React.js, TypeScript, Mantine Component Library",
       date: "September 2022",
       description: [
-        "Designed and developed a responsive personal website with Mantine UI",
+        "Designed and developed a responsive portfolio website with Mantine UI",
       ],
     },
     subsection1: {
@@ -108,7 +118,7 @@ const resumeData: Array<resumeSectionData> = [
     title: "Leadership Experience",
     subsection0: {
       name: "Credit One Bank College Programs and Recruitment",
-      date: "February 2022",
+      date: "February 2022 - April 2020",
       description: [
         "Traveled with HR to the University of AZ and University of UT to assist with recruitment at the career fair booths",
         "Volunteered and collaborated with colleagues at the Las Vegas Rescue Mission to serve over 200 meals",
@@ -132,6 +142,9 @@ const resumeData: Array<resumeSectionData> = [
   },
 ];
 
+/**
+ * css classes
+ */
 const useStyles = createStyles((theme) => ({
   container: {
     display: "flex",
@@ -161,11 +174,9 @@ const useStyles = createStyles((theme) => ({
   cardGrid: {},
   paperResume: {
     shadow: "xl",
-    height: "25%",
     background:
       "radial-gradient(circle, rgba(226,192,204,1) 0%, rgba(217,203,208,1) 100%)",
     width: "70%",
-    margin: "0 auto",
   },
   resumeHeader: {
     width: "auto",
@@ -176,91 +187,50 @@ const useStyles = createStyles((theme) => ({
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
     fontWeight: 600,
     fontSize: 40,
-    color: "#77431D",
+    color: "#2B2118",
   },
   resumeSubTitle: {
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
     fontWeight: 500,
     fontSize: 20,
-    color: theme.colors.gray[9],
+    color: "#2B2118",
   },
   resumeDate: {
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
     fontWeight: 500,
     fontSize: 20,
-    color: theme.colors.gray[9],
+    color: "#2B2118",
   },
   resumeDescription: {
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
     fontWeight: 500,
     fontSize: 20,
-    color: theme.colors.gray[9],
+    color: "#2B2118",
   },
-  resumeButton: {
+  resumeButtonTop: {
     width: "auto",
     marginTop: "10%",
     marginBottom: "2%",
   },
+  resumeButtonBottom: {
+    marginTop: "2%",
+    marginBottom: "10%",
+  },
 }));
 
-const formatResumeData = (
-  classes: Record<
-    | "card"
-    | "title"
-    | "paperResume"
-    | "cardGrid"
-    | "resumeHeader"
-    | "resumeTitle"
-    | "resumeSubTitle"
-    | "resumeDate"
-    | "resumeDescription",
-    string
-  >,
-  section: resumeSectionData,
-  sectionNumber: number
-) => {
-  return (
-    <>
-      <Text className={classes.resumeTitle}>{section.title}</Text>
-
-      <Group position="apart" spacing="xs">
-        <Text className={classes.resumeSubTitle}>
-          {section.subsection0?.name}
-        </Text>
-        <Text className={classes.resumeDate}>{section.subsection0?.date}</Text>
-      </Group>
-
-      <ul className={classes.resumeDescription}>
-        {Array.isArray(section.subsection0?.description) ? (
-          section.subsection0?.description.map((info: string) => (
-            <li>{info}</li>
-          ))
-        ) : (
-          <li>{section.subsection0?.description}</li>
-        )}
-      </ul>
-    </>
-  );
-};
-
-// const formatData = (section: resumeSectionData) => {
-//   const resumeKeyPairArray: [string, string | resumeSectionData][] =
-//     Object.entries(section);
-//   let element = <div></div>;
-
-//   resumeKeyPairArray.map((subSection) => {
-//     if (subSection[0] === "title") {
-//       console.log("title", subSection[1]);
-//       console.log(element);
-//     } else {
-//       console.log("subsection", subSection[1]);
-//     }
-//   });
-// };
+/**
+ * Resume section where user can view resume or print pdf
+ * @returns container with scrollable digital resume and button to print/download resume
+ */
 export function ResumePage() {
   const { classes } = useStyles();
   const theme = useMantineTheme();
 
+  /**
+   * maps through the resume data and creates a card
+   * populating all the information needed for each section of the
+   * resume into a card (there are 4 sections in resume so 4 cards returned)
+   */
   const cards = resumeData.map((section) => (
     <Card
       key={section.title}
@@ -361,17 +331,17 @@ export function ResumePage() {
       <Button
         radius="xl"
         size="md"
-        className={classes.resumeButton}
+        className={classes.resumeButtonTop}
         variant="gradient"
         leftIcon={<PrinterIcon />}
       >
         PDF Version
       </Button>
       <Paper radius="md" shadow="xl" className={classes.paperResume}>
-        <ScrollArea style={{ height: "100%" }} type="always" scrollbarSize={20}>
+        <ScrollArea style={{ height: 900 }} type="auto" scrollbarSize={20}>
           <Group className={classes.resumeHeader} position="apart">
             <Text
-              color="#77431D"
+              color="#53917E"
               style={{
                 fontFamily: `Greycliff CF, ${theme.fontFamily}`,
                 fontWeight: 500,
@@ -387,7 +357,6 @@ export function ResumePage() {
               <GitIcon />
             </Group>
           </Group>
-          <Divider color="#F2A74E" my="sm" size="sm" />
           <SimpleGrid
             className={classes.cardGrid}
             cols={1}
@@ -400,8 +369,9 @@ export function ResumePage() {
       <Button
         radius="xl"
         size="md"
-        className={classes.resumeButton}
         variant="gradient"
+        leftIcon={<PrinterIcon />}
+        className={classes.resumeButtonBottom}
       >
         PDF Version
       </Button>
@@ -410,19 +380,3 @@ export function ResumePage() {
 }
 
 export default ResumePage;
-
-{
-  /* <Container
-  py="xl"
-  style={{
-    background: "orange",
-    maxHeight: "50%",
-    marginTop: "5%",
-    maxWidth: "60%",
-  }}
->
-  <SimpleGrid style={{}} cols={1} breakpoints={[{ maxWidth: "sm", cols: 1 }]}>
-    {cards}
-  </SimpleGrid>
-</Container>; */
-}
