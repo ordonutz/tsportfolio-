@@ -22,6 +22,13 @@ const styles = StyleSheet.create({
     padding: 10,
     flexGrow: 1,
   },
+  headerName: {
+    color: "#434343",
+    fontSize: "12pt",
+    fontWeight: "normal",
+    fontFamily: "Encode Sans",
+    textAlign: "left",
+  },
 });
 
 const getSubSectionData = (section: resumeSubSection) => {
@@ -57,7 +64,11 @@ const ResumePdf = (props: Props) => {
   const dataCopy = JSON.parse(JSON.stringify(resumeData));
 
   const page = dataCopy.map((section: resumeSectionData) => (
-    <>{getSectionData(section)}</>
+    <>
+      <Text>Leslie Ordonez-Hernandez</Text>
+      <Text>github.com/ordonutz</Text>
+      {getSectionData(section)}
+    </>
   ));
   return (
     <Document>
