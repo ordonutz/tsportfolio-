@@ -25,7 +25,7 @@ import ResumePdf from "./ResumePdf";
  * object used to store details about
  * each subsection in the @resumeSectionData object
  */
-interface resumeSubSection {
+export interface resumeSubSection {
   name: string;
   date: string;
   description: Array<string>;
@@ -35,7 +35,7 @@ interface resumeSubSection {
  * object used to store info for each section
  * of the resume i.e. each section (education, experience, etc.) have these attributes
  */
-interface resumeSectionData {
+export interface resumeSectionData {
   title: string;
   subsection0: resumeSubSection;
   subsection1?: resumeSubSection;
@@ -47,7 +47,7 @@ interface resumeSectionData {
  * ideally in the future it would be nice to parse the text from the document
  * so it outputs this object
  */
-const resumeData: Array<resumeSectionData> = [
+export const resumeData: Array<resumeSectionData> = [
   {
     title: "Education",
     subsection0: {
@@ -134,7 +134,7 @@ const resumeData: Array<resumeSectionData> = [
       ],
     },
     subsection2: {
-      name: "Lead Designer, Customisitc",
+      name: "Lead Designer, Customistic",
       date: " February 2018 - February 2020",
       description: [
         "Managed and trained a team of 5 employees and facilitated over 40% of all client transactions",
@@ -343,6 +343,9 @@ export function ResumePage() {
 
   return (
     <div className={classes.container}>
+      <PDFViewer width={1500} height={900}>
+        <ResumePdf></ResumePdf>
+      </PDFViewer>
       <Group>
         <PDFDownloadLink document={<ResumePdf />} fileName="leslieOhResume">
           {({ loading, error }) =>
