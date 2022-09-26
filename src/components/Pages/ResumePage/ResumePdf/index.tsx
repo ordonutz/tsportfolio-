@@ -70,6 +70,7 @@ const ResumePdf = (props: Props) => {
       {getSectionData(section)}
     </>
   ));
+
   return (
     <Document>
       <Page size="A4" style={styles.body}>

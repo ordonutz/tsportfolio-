@@ -343,10 +343,38 @@ export function ResumePage() {
 
   return (
     <div className={classes.container}>
-      <PDFViewer width={1500} height={900}>
-        <ResumePdf></ResumePdf>
-      </PDFViewer>
       <Group>
+        <Button
+          radius="xl"
+          size="md"
+          className={classes.resumeButtonTop}
+          variant="gradient"
+          leftIcon={<PrinterIcon />}
+          onClick={() =>
+            window.open(
+              "Leslie_Ordonez_Hernandez_Resume.pdf",
+              "_blank",
+              "noopener,noreferrer"
+            )
+          }
+        >
+          View PDF
+        </Button>
+        <a
+          href="Leslie_Ordonez_Hernandez_Resume.pdf"
+          download="Leslie_Ordonez_Hernandez_Resume.pdf"
+        >
+          <Button
+            radius="xl"
+            size="md"
+            className={classes.resumeButtonTop}
+            variant="gradient"
+            leftIcon={<PrinterIcon />}
+          >
+            Download PDF
+          </Button>
+        </a>
+
         <PDFDownloadLink document={<ResumePdf />} fileName="leslieOhResume">
           {({ loading, error }) =>
             loading ? (
