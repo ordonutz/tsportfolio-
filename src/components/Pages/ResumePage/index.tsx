@@ -32,13 +32,18 @@ const useStyles = createStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     alignContent: "center",
+    marginTop: "10%",
   },
   card: {
-    background:
-      "radial-gradient(circle, rgba(226,192,204,1) 0%, rgba(217,203,208,1) 100%)",
+    background: "#FAA69F",
+    opacity: "0.6",
+    boxShadow:
+      "inset 4px -4px 4px rgba(0, 0, 0, 0.25), inset -4px 4px 4px rgba(255, 255, 255, 0.25)",
+    borderRadius: "10px",
     transition: "transform 150ms ease, box-shadow 150ms ease",
     width: "90%",
     margin: "0 auto",
+    marginBottom: "1%",
 
     "&:hover": {
       transform: "scale(1.01)",
@@ -50,12 +55,12 @@ const useStyles = createStyles((theme) => ({
     fontWeight: 500,
     fontSize: 40,
   },
-  cardGrid: {},
   paperResume: {
     shadow: "xl",
-    background:
-      "radial-gradient(circle, rgba(226,192,204,1) 0%, rgba(217,203,208,1) 100%)",
-    width: "70%",
+    background: "#E9E9E9",
+    boxShadow:
+      "inset -4px 4px 4px rgba(255, 255, 255, 0.25), inset 4px -4px 4px rgba(0, 0, 0, 0.25)",
+    width: "60%",
   },
   resumeHeader: {
     width: "auto",
@@ -239,11 +244,7 @@ export function ResumePage() {
               <GitIcon />
             </Group>
           </Group>
-          <SimpleGrid
-            className={classes.cardGrid}
-            cols={1}
-            breakpoints={[{ maxWidth: "sm", cols: 1 }]}
-          >
+          <SimpleGrid cols={1} breakpoints={[{ maxWidth: "sm", cols: 1 }]}>
             {cards}
           </SimpleGrid>
         </ScrollArea>
