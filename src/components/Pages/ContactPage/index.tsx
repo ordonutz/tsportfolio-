@@ -1,3 +1,4 @@
+import React, { LegacyRef } from "react";
 import {
   Paper,
   Text,
@@ -8,9 +9,12 @@ import {
   SimpleGrid,
   createStyles,
 } from "@mantine/core";
-// import { ContactIconsList } from "../ContactIcons/ContactIcons";
-// import bg from "./bg.svg";
 
+import emailjs from "@emailjs/browser";
+import { useRef, useState } from "react";
+import { useForm, UseFormReturnType } from "@mantine/form";
+import { RefObject } from "react";
+import { MutableRefObject } from "react";
 const useStyles = createStyles((theme) => {
   const BREAKPOINT = theme.fn.smallerThan("sm");
 
@@ -104,8 +108,69 @@ const useStyles = createStyles((theme) => {
   };
 });
 
+/**
+ * values for contact form
+ */
+interface formValues {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
 export function ContactPage() {
   const { classes } = useStyles();
+  const form = useForm({
+    initialValues: {
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    },
+    validate: {
+      email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
+    },
+  });
+
+  const handleSubmit = (e: any) => {
+    form.onSubmit((values) => {
+      console.log("vals", values);
+      emailjs
+        .sendForm(
+          "service_zxgnuxb",
+          "template_ublqfzp",
+          JSON.stringify(values),
+          "IFkPW2qVHPTPcujnk"
+        )
+        .then(
+          (result) => {
+            console.log("success", result.text);
+          },
+          (error) => {
+            console.log("fail", error.text);
+          }
+        );
+    });
+  };
+  function sendEmail(e: any) {
+    e.preventDefault();
+    console.log("form", form);
+    // emailjs
+    //   .sendForm(
+    //     "service_zxgnuxb",
+    //     "template_ublqfzp",
+    //     e.target,
+    //     "IFkPW2qVHPTPcujnk"
+    //   )
+    //   .then(
+    //     (result) => {
+    //       console.log(result.text);
+    //     },
+    //     (error) => {
+    //       console.log(error.text);
+    //     }
+    //   );
+  }
 
   return (
     <Paper shadow="md" radius="lg">
@@ -124,8 +189,33 @@ export function ContactPage() {
         </div>
 
         <form
+          id="contact-form"
           className={classes.form}
-          onSubmit={(event) => event.preventDefault()}
+          onSubmit={form.onSubmit((values) => {
+            console.log("vals", values);
+            const form = document.querySelector(
+              "#contact-form"
+            ) as HTMLFormElement;
+            console.log("form", form);
+            emailjs
+              .sendForm(
+                "service_zxgnuxb",
+                "contact-form",
+                form,
+                "IFkPW2qVHPTPcujnk"
+              )
+              .then(
+                (result) => {
+                  console.log("success", result.text);
+                },
+                (error) => {
+                  console.log("fail", error.text);
+                }
+              )
+              .catch((error) => {
+                console.log("fail", error);
+              });
+          })}
         >
           <Text size="lg" weight={700} className={classes.title}>
             Get in touch
@@ -133,25 +223,50 @@ export function ContactPage() {
 
           <div className={classes.fields}>
             <SimpleGrid cols={2} breakpoints={[{ maxWidth: "sm", cols: 1 }]}>
-              <TextInput label="Your name" placeholder="Your name" />
               <TextInput
+                name="user_name"
+                aria-label="Your name"
+                label="Your name"
+                placeholder="Your name"
+                {...form.getInputProps("name")}
+              />
+              <TextInput
+                name="user_email"
+                aria-label="Your email"
                 label="Your email"
-                placeholder="hello@mantine.dev"
+                placeholder="you@email.com"
                 required
+                {...form.getInputProps("email")}
               />
             </SimpleGrid>
 
-            <TextInput mt="md" label="Subject" placeholder="Subject" required />
+            <TextInput
+              name="subject"
+              aria-label="Subject"
+              mt="md"
+              label="Subject"
+              placeholder="Subject"
+              required
+              {...form.getInputProps("subject")}
+            />
 
             <Textarea
+              name="message"
+              aria-label="Your message"
               mt="md"
               label="Your message"
-              placeholder="Please include all relevant information"
+              placeholder="Thanks for reaching out :) feedback appreciated"
               minRows={3}
+              required
+              {...form.getInputProps("message")}
             />
 
             <Group position="right" mt="md">
-              <Button type="submit" className={classes.control}>
+              <Button
+                aria-label="submit"
+                type="submit"
+                className={classes.control}
+              >
                 Send message
               </Button>
             </Group>
