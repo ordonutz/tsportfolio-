@@ -1,29 +1,41 @@
 import React from "react";
 
-function MailIcon() {
+interface mailIconProps {
+  onClick: () => any;
+  className: string;
+}
+
+function MailIcon(props: mailIconProps) {
   return (
-    <div>
+    <div onClick={props.onClick}>
       <svg
-        width="40"
-        height="40"
-        viewBox="0 0 40 40"
+        className={props.className}
+        width="37"
+        height="37"
+        viewBox="0 0 37 37"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g filter="url(#filter0_ii_147_470)">
-          <ellipse cx="20" cy="19.9987" rx="20" ry="19.9987" fill="#D9D9D9" />
+        <g filter="url(#filter0_ii_0_1)">
+          <ellipse
+            cx="18.5"
+            cy="18.4988"
+            rx="18.5"
+            ry="18.4988"
+            fill="#D9D9D9"
+          />
         </g>
         <path
-          d="M7.1106 11.6659C7.1106 10.9292 7.39153 10.2227 7.89159 9.70184C8.39166 9.18094 9.06989 8.8883 9.77708 8.8883H31.109C31.8162 8.8883 32.4944 9.18094 32.9945 9.70184C33.4946 10.2227 33.7755 10.9292 33.7755 11.6659V28.3314C33.7755 29.0681 33.4946 29.7746 32.9945 30.2955C32.4944 30.8164 31.8162 31.109 31.109 31.109H9.77708C9.06989 31.109 8.39166 30.8164 7.89159 30.2955C7.39153 29.7746 7.1106 29.0681 7.1106 28.3314V11.6659ZM11.8023 11.6659L20.443 19.5418L29.0838 11.6659H11.8036H11.8023ZM31.109 13.5116L21.3217 22.4332C21.0785 22.6551 20.7663 22.7775 20.443 22.7775C20.1198 22.7775 19.8076 22.6551 19.5644 22.4332L9.77708 13.5116V28.3314H31.109V13.5116Z"
+          d="M28.7906 9H7.51937C7.11641 9 6.72995 9.16008 6.44501 9.44501C6.16008 9.72995 6 10.1164 6 10.5194V25.7131C6 26.1161 6.16008 26.5025 6.44501 26.7875C6.72995 27.0724 7.11641 27.2325 7.51937 27.2325H28.7906C29.1936 27.2325 29.58 27.0724 29.865 26.7875C30.1499 26.5025 30.31 26.1161 30.31 25.7131V10.5194C30.31 10.1164 30.1499 9.72995 29.865 9.44501C29.58 9.16008 29.1936 9 28.7906 9ZM27.6207 25.7131H8.78046L14.0983 20.213L13.0043 19.157L7.51937 24.8319V11.6741L16.9623 21.0714C17.247 21.3544 17.6321 21.5133 18.0335 21.5133C18.4348 21.5133 18.8199 21.3544 19.1046 21.0714L28.7906 11.4386V24.7331L23.1993 19.1418L22.1282 20.213L27.6207 25.7131ZM8.51457 10.5194H27.5599L18.0335 19.9927L8.51457 10.5194Z"
           fill="#0D0D0D"
         />
         <defs>
           <filter
-            id="filter0_ii_147_470"
+            id="filter0_ii_0_1"
             x="-0.5"
             y="-0.5"
-            width="41"
-            height="41.4973"
+            width="38"
+            height="38.4975"
             filterUnits="userSpaceOnUse"
             color-interpolation-filters="sRGB"
           >
@@ -50,7 +62,7 @@ function MailIcon() {
             <feBlend
               mode="normal"
               in2="shape"
-              result="effect1_innerShadow_147_470"
+              result="effect1_innerShadow_0_1"
             />
             <feColorMatrix
               in="SourceAlpha"
@@ -67,8 +79,8 @@ function MailIcon() {
             />
             <feBlend
               mode="normal"
-              in2="effect1_innerShadow_147_470"
-              result="effect2_innerShadow_147_470"
+              in2="effect1_innerShadow_0_1"
+              result="effect2_innerShadow_0_1"
             />
           </filter>
         </defs>

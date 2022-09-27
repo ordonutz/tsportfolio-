@@ -102,6 +102,13 @@ const useStyles = createStyles((theme) => ({
     marginTop: "2%",
     marginBottom: "10%",
   },
+  resumeButtons: {
+    "&:hover": {
+      transform: "scale(1.01)",
+      boxShadow: theme.shadows.md,
+      cursor: "pointer",
+    },
+  },
 }));
 
 /**
@@ -233,10 +240,27 @@ export function ResumePage() {
               Leslie Ordonez-Hernandez
             </Text>
             <Group>
-              <PhoneIcon />
-              <MailIcon />
-              <LinkedIcon />
-              <GitIcon />
+              <MailIcon
+                onClick={() => {
+                  window.open("", "_blank");
+                }}
+                className={classes.resumeButtons}
+              />
+              <LinkedIcon
+                onClick={() => {
+                  window.open(
+                    "https://www.linkedin.com/in/leslie-ordonez/",
+                    "_blank"
+                  );
+                }}
+                className={classes.resumeButtons}
+              />
+              <GitIcon
+                onClick={() => {
+                  window.open("https://github.com/ordonutz", "_blank");
+                }}
+                className={classes.resumeButtons}
+              />
             </Group>
           </Group>
           <SimpleGrid cols={1} breakpoints={[{ maxWidth: "sm", cols: 1 }]}>
