@@ -60,37 +60,7 @@ function App() {
       >
         <HomePage />
         <ResumePage />
-        <ProjectPage
-          supTitle="awesome projects"
-          description="you will hire me"
-          data={[
-            {
-              image:
-                "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
-              title: "Project 1 This website",
-              description: "this shows how smart i am and u should hire me",
-            },
-            {
-              image:
-                "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
-              title: "Project 2 Credit one stuff",
-              description: "this shows how smart i am and u should hire me",
-            },
-            {
-              image:
-                "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
-              title:
-                "Project 3 taking old c++ assignments and adding visualizers",
-              description: "this shows how smart i am and u should hire me",
-            },
-            {
-              image:
-                "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80",
-              title: "Project 4 tbd",
-              description: "this shows how smart i am and u should hire me",
-            },
-          ]}
-        />
+        <ProjectPage />
         <ContactPage />
       </AppShell>
     </MantineProvider>
