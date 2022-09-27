@@ -20,7 +20,7 @@ import MailIcon from "../../../assets/MailIcon";
 import PhoneIcon from "../../../assets/PhoneIcon";
 import PreviewIcon from "../../../assets/PreviewIcon";
 import PrinterIcon from "../../../assets/PrinterIcon";
-import { resumeSectionData } from "./interfaces";
+import { resumeSectionData, resumeSubSection } from "./interfaces";
 import { resumeData } from "./resumeData";
 
 /**
@@ -114,10 +114,64 @@ export function ResumePage() {
   const resumeCopy: resumeSectionData[] = JSON.parse(
     JSON.stringify(resumeData)
   );
+
   /**
-   * maps through the resume data and creates a card
+   *
+   * @param subSection subsection in each section of the resume includes bullet points
+   *                that expand on each individual example in each section i.e.
+   *                section == Education
+   *                subSection == School Name, major, dates, bullet list description
+   * @returns Formatted Text and List elements inside of each section
+   */
+  const getSubSectionData = (subSection: resumeSubSection) => {
+    return (
+      <>
+        <Group position="apart" spacing="xs">
+          <Text className={classes.resumeSubTitle}>{subSection.name}</Text>
+          <Text className={classes.resumeDate}>{subSection.date}</Text>
+          <List
+            spacing="sm"
+            center
+            icon={
+              <ThemeIcon color="none" radius="lg" size={24}>
+                <DonutIcon />
+              </ThemeIcon>
+            }
+            className={classes.resumeDescription}
+            withPadding
+          >
+            {subSection.description.map((info: string) => (
+              <List.Item>{info}</List.Item>
+            ))}
+          </List>
+        </Group>
+      </>
+    );
+  };
+
+  /**
+   * Takes in a section object and returns text and list elements for each
+   * subSection in the section object
+   * @param section each section in resume i.e. education, experience, etc.
+   * @returns Text and List elements for each section in resume
+   */
+  const getSectionData = (section: resumeSectionData) => {
+    return (
+      <>
+        <Text className={classes.resumeTitle}>{section.title}</Text>
+        {getSubSectionData(section.subsection0)}
+        {section.subsection1 !== undefined &&
+          getSubSectionData(section.subsection1)}
+        {section.subsection2 !== undefined &&
+          getSubSectionData(section.subsection2)}
+      </>
+    );
+  };
+
+  /**
+   * maps through the resume data array and creates a card
    * populating all the information needed for each section of the
-   * resume into a card (there are 4 sections in resume so 4 cards returned)
+   * resume into a card (there are 4 sections in the resume so 4 cards returned)
    */
 
   const cards = resumeCopy.map((section) => (
@@ -128,90 +182,7 @@ export function ResumePage() {
       component="a"
       className={classes.card}
     >
-      <Text className={classes.resumeTitle}>{section.title}</Text>
-
-      <Group position="apart" spacing="xs">
-        <Text className={classes.resumeSubTitle}>
-          {section.subsection0?.name}
-        </Text>
-        <Text className={classes.resumeDate}>{section.subsection0?.date}</Text>
-      </Group>
-
-      <List
-        spacing="sm"
-        center
-        icon={
-          <ThemeIcon color="none" radius="lg" size={24}>
-            <DonutIcon />
-          </ThemeIcon>
-        }
-        className={classes.resumeDescription}
-        withPadding
-      >
-        {Array.isArray(section.subsection0?.description) ? (
-          section.subsection0?.description.map((info: string) => (
-            <List.Item>{info}</List.Item>
-          ))
-        ) : section.subsection0?.description !== undefined ? (
-          <List.Item>{section.subsection0?.description}</List.Item>
-        ) : (
-          ""
-        )}
-      </List>
-
-      <Group position="apart" spacing="xs">
-        <Text className={classes.resumeSubTitle}>
-          {section.subsection1?.name}
-        </Text>
-        <Text className={classes.resumeDate}>{section.subsection1?.date}</Text>
-      </Group>
-
-      <List
-        spacing="sm"
-        center
-        icon={
-          <ThemeIcon color="none" radius="lg" size={24}>
-            <DonutIcon />
-          </ThemeIcon>
-        }
-        className={classes.resumeDescription}
-        withPadding
-      >
-        {Array.isArray(section.subsection1?.description) ? (
-          section.subsection1?.description.map((info: string) => (
-            <List.Item>{info}</List.Item>
-          ))
-        ) : (
-          <List.Item>{section.subsection1?.description}</List.Item>
-        )}
-      </List>
-
-      <Group position="apart" spacing="xs">
-        <Text className={classes.resumeSubTitle}>
-          {section.subsection2?.name}
-        </Text>
-        <Text className={classes.resumeDate}>{section.subsection2?.date}</Text>
-      </Group>
-
-      <List
-        spacing="sm"
-        center
-        icon={
-          <ThemeIcon color="none" radius="lg" size={24}>
-            <DonutIcon />
-          </ThemeIcon>
-        }
-        className={classes.resumeDescription}
-        withPadding
-      >
-        {Array.isArray(section.subsection2?.description) ? (
-          section.subsection2?.description.map((info: string) => (
-            <List.Item>{info}</List.Item>
-          ))
-        ) : (
-          <List.Item>{section.subsection2?.description}</List.Item>
-        )}
-      </List>
+      {getSectionData(section)}
     </Card>
   ));
 
