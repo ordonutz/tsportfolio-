@@ -12,11 +12,13 @@ import {
   Button,
 } from "@mantine/core";
 import { DonutIcon } from "../../../assets/DonutIcon";
+import DownloadIcon from "../../../assets/DownloadIcon";
 
 import GitIcon from "../../../assets/GitIcon";
 import LinkedIcon from "../../../assets/LinkedIcon";
 import MailIcon from "../../../assets/MailIcon";
 import PhoneIcon from "../../../assets/PhoneIcon";
+import PreviewIcon from "../../../assets/PreviewIcon";
 import PrinterIcon from "../../../assets/PrinterIcon";
 import { resumeSectionData } from "./interfaces";
 import { resumeData } from "./resumeData";
@@ -215,15 +217,37 @@ export function ResumePage() {
 
   return (
     <div className={classes.container}>
+      <a
+        href="Leslie_Ordonez_Hernandez_Resume.pdf"
+        download="Leslie_Ordonez_Hernandez_Resume.pdf"
+      >
+        <Button
+          radius="xl"
+          size="md"
+          className={classes.resumeButtonTop}
+          variant="gradient"
+          leftIcon={<PrinterIcon />}
+        >
+          Download PDF
+        </Button>
+      </a>
       <Button
         radius="xl"
         size="md"
         className={classes.resumeButtonTop}
         variant="gradient"
-        leftIcon={<PrinterIcon />}
+        leftIcon={<PreviewIcon />}
+        onClick={() =>
+          window.open(
+            "Leslie_Ordonez_Hernandez_Resume.pdf",
+            "_blank",
+            "noopener,noreferrer"
+          )
+        }
       >
-        PDF Version
+        View PDF
       </Button>
+
       <Paper radius="md" shadow="xl" className={classes.paperResume}>
         <ScrollArea style={{ height: 900 }} type="auto" scrollbarSize={20}>
           <Group className={classes.resumeHeader} position="apart">
@@ -249,15 +273,6 @@ export function ResumePage() {
           </SimpleGrid>
         </ScrollArea>
       </Paper>
-      <Button
-        radius="xl"
-        size="md"
-        variant="gradient"
-        leftIcon={<PrinterIcon />}
-        className={classes.resumeButtonBottom}
-      >
-        PDF Version
-      </Button>
     </div>
   );
 }
