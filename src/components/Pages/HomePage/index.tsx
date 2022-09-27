@@ -23,6 +23,7 @@ const useStyles = createStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     alignContent: "center",
+    marginTop: "5%",
   },
   inner: {
     display: "flex",
