@@ -1,6 +1,4 @@
 import React from "react";
-
-import { useState } from "react";
 import {
   AppShell,
   useMantineTheme,
@@ -15,7 +13,7 @@ import ContactPage from "./components/Pages/ContactPage";
 import { HeaderResponsive } from "./components/HeaderResponsive/index";
 import { FooterResponsive } from "./components/FooterResponsive";
 import "./assets/backgroundImage.png";
-// import "./assets/backgroundOverlay.png";
+
 const useStyles = createStyles((theme) => {
   return {
     wrapper: {
@@ -24,6 +22,7 @@ const useStyles = createStyles((theme) => {
       backgroundAttachment: "scroll",
       backgroundSize: "cover",
       backgroundPosition: "center top",
+      height: "100%",
       backgroundRepeat: "no-repeat",
       [theme.fn.smallerThan("sm")]: {
         backgroundAttachment: "fixed",
@@ -41,7 +40,7 @@ const useStyles = createStyles((theme) => {
   };
 });
 
-function App() {
+export default function App() {
   const theme = useMantineTheme();
   const { classes } = useStyles();
   /**
@@ -62,7 +61,7 @@ function App() {
     colorScheme: "light",
     primaryColor: "pink",
     primaryShade: { light: 3, dark: 3 },
-    loader: "dots",
+    loader: "oval",
   };
 
   return (
@@ -72,10 +71,8 @@ function App() {
           style={{
             backgroundColor: "transparent",
           }}
-          navbarOffsetBreakpoint="sm"
-          asideOffsetBreakpoint="sm"
-          footer={<FooterResponsive links={pageSectionLinks} />}
           header={<HeaderResponsive links={pageSectionLinks} />}
+          footer={<FooterResponsive links={pageSectionLinks} />}
           styles={(theme) => ({
             main: {
               backgroundColor: "transparent",
@@ -85,11 +82,9 @@ function App() {
           <HomePage />
           <ResumePage />
           <ProjectPage />
-          <ContactPage />
+          {/* <ContactPage /> */}
         </AppShell>
       </MantineProvider>
     </div>
   );
 }
-
-export default App;

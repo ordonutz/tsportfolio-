@@ -9,7 +9,7 @@ const useStyles = createStyles((theme) => ({
 
   inner: {
     maxWidth: "1440px",
-    // background: "red",
+    background: "transparent",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
