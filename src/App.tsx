@@ -19,14 +19,21 @@ import "./assets/backgroundImage.png";
 const useStyles = createStyles((theme) => {
   return {
     wrapper: {
-      backgroundImage: "url(" + "/backgroundOverlay.png" + ")",
+      backgroundImage: "url(" + "/backgroundOverlayLg.png" + ")",
       backgroundColor: "#343a40",
       backgroundAttachment: "scroll",
-      minHeight: "100vh",
-      backgroundPosition: "center",
+      backgroundSize: "cover",
+      backgroundPosition: "top",
       backgroundRepeat: "no-repeat",
-      [theme.fn.smallerThan("xs")]: {},
-      [theme.fn.smallerThan("md")]: {},
+      [theme.fn.smallerThan("sm")]: {
+        backgroundImage: "url(" + "/backgroundOverlayMd.png" + ")",
+      },
+      [theme.fn.smallerThan("xs")]: {
+        backgroundImage: "url(" + "/backgroundOverlayMd.png" + ")",
+      },
+      [theme.fn.smallerThan("md")]: {
+        backgroundImage: "url(" + "/backgroundOverlayMd.png" + ")",
+      },
     },
   };
 });
