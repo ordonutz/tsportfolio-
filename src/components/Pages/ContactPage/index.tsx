@@ -8,6 +8,8 @@ import {
   Group,
   SimpleGrid,
   createStyles,
+  Alert,
+  CheckIcon,
 } from "@mantine/core";
 
 import emailjs from "@emailjs/browser";
@@ -15,21 +17,18 @@ import { useRef, useState } from "react";
 import { useForm, UseFormReturnType } from "@mantine/form";
 import { RefObject } from "react";
 import { MutableRefObject } from "react";
+import ContactIcons from "./ContactIcons";
+
 const useStyles = createStyles((theme) => {
   const BREAKPOINT = theme.fn.smallerThan("sm");
 
   return {
     wrapper: {
       display: "flex",
-      backgroundColor:
-        theme.colorScheme === "dark" ? theme.colors.dark[8] : theme.white,
+      backgroundColor: theme.colors.dark[8],
       borderRadius: theme.radius.lg,
       padding: 4,
-      border: `1px solid ${
-        theme.colorScheme === "dark"
-          ? theme.colors.dark[8]
-          : theme.colors.gray[2]
-      }`,
+      border: `1px solid ${theme.colors.gray[2]}`,
 
       [BREAKPOINT]: {
         flexDirection: "column",
@@ -78,7 +77,11 @@ const useStyles = createStyles((theme) => {
       boxSizing: "border-box",
       position: "relative",
       borderRadius: theme.radius.lg - 2,
-      //   backgroundImage: `url(${bg.src})`,
+
+      background:
+        "linear-gradient(242deg, rgba(245,192,182,1) 0%, rgba(250,166,159,1) 100%)",
+      boxShadow:
+        "inset 4px -4px 4px rgba(0, 0, 0, 0.25), inset -4px 4px 4px rgba(255, 255, 255, 0.25)",
       backgroundSize: "cover",
       backgroundPosition: "center",
       border: "1px solid transparent",
@@ -120,6 +123,13 @@ interface formValues {
 
 export function ContactPage() {
   const { classes } = useStyles();
+  const [subSuccess, setSubSuccess] = useState(false); // true if form is successfully submitted to conditionally render success message
+  const [subErr, setSubErr] = useState(false); // true if form failed to submit to conditionally render error message
+  const [showAlert, setShowAlert] = useState(false); // true if alert is visible the onClose of alert changes it to false
+
+  /**
+   * @param hi
+   */
   const form = useForm({
     initialValues: {
       name: "",
@@ -132,45 +142,29 @@ export function ContactPage() {
     },
   });
 
-  const handleSubmit = (e: any) => {
-    form.onSubmit((values) => {
-      console.log("vals", values);
-      emailjs
-        .sendForm(
-          "service_zxgnuxb",
-          "template_ublqfzp",
-          JSON.stringify(values),
-          "IFkPW2qVHPTPcujnk"
-        )
-        .then(
-          (result) => {
-            console.log("success", result.text);
-          },
-          (error) => {
-            console.log("fail", error.text);
-          }
-        );
+  const mockPromise = (flag: boolean) => {
+    return new Promise((resolve, reject) => {
+      console.log("Making request ....");
+      flag ? resolve("Mock Success") : reject("Mock error");
     });
   };
-  function sendEmail(e: any) {
-    e.preventDefault();
-    console.log("form", form);
-    // emailjs
-    //   .sendForm(
-    //     "service_zxgnuxb",
-    //     "template_ublqfzp",
-    //     e.target,
-    //     "IFkPW2qVHPTPcujnk"
-    //   )
-    //   .then(
-    //     (result) => {
-    //       console.log(result.text);
-    //     },
-    //     (error) => {
-    //       console.log(error.text);
-    //     }
-    //   );
-  }
+
+  /**
+   * @param
+   */
+  const handleSubmit = async () => {
+    try {
+      const res = await mockPromise(false);
+      console.log("!!!", res);
+      setSubSuccess(true);
+      setShowAlert(true);
+    } catch (err) {
+      console.log("fail", err);
+      setSubErr(true);
+      setShowAlert(true);
+    }
+    form.reset();
+  };
 
   return (
     <Paper shadow="md" radius="lg">
@@ -184,57 +178,65 @@ export function ContactPage() {
           >
             Contact information
           </Text>
-
-          {/* <ContactIconsList variant="white" /> */}
+          <Text>something</Text>
+          <ContactIcons />
         </div>
-
+        {subSuccess && showAlert && (
+          <Alert
+            icon={<CheckIcon />}
+            title="Success!"
+            color="lime"
+            radius="md"
+            variant="light"
+            withCloseButton
+            closeButtonLabel="Close alert"
+            onClose={() => setShowAlert(false)}
+          >
+            Thank you, your message has been received. I'll get back to you
+            shortly. In the meantime connect with me through LinkedIn or GitHub.
+          </Alert>
+        )}
+        {subErr && showAlert && (
+          <Alert
+            icon={<CheckIcon />}
+            title="Fail!"
+            color="red"
+            radius="md"
+            variant="light"
+            withCloseButton
+            closeButtonLabel="Close alert"
+            onClose={() => setShowAlert(false)}
+          >
+            oh no try again
+          </Alert>
+        )}
         <form
           id="contact-form"
           className={classes.form}
-          onSubmit={form.onSubmit((values) => {
-            console.log("vals", values);
-            const form = document.querySelector(
-              "#contact-form"
-            ) as HTMLFormElement;
-            console.log("form", form);
-            emailjs
-              .sendForm(
-                "service_zxgnuxb",
-                "contact-form",
-                form,
-                "IFkPW2qVHPTPcujnk"
-              )
-              .then(
-                (result) => {
-                  console.log("success", result.text);
-                },
-                (error) => {
-                  console.log("fail", error.text);
-                }
-              )
-              .catch((error) => {
-                console.log("fail", error);
-              });
-          })}
+          onSubmit={(event) => {
+            event.preventDefault();
+            if (form.validate().hasErrors) {
+            } else {
+              handleSubmit();
+            }
+          }}
         >
           <Text size="lg" weight={700} className={classes.title}>
             Get in touch
           </Text>
 
           <div className={classes.fields}>
-            <SimpleGrid cols={2} breakpoints={[{ maxWidth: "sm", cols: 1 }]}>
+            <SimpleGrid cols={1} breakpoints={[{ maxWidth: "sm", cols: 1 }]}>
               <TextInput
                 name="user_name"
                 aria-label="Your name"
                 label="Your name"
-                placeholder="Your name"
                 {...form.getInputProps("name")}
               />
               <TextInput
                 name="user_email"
                 aria-label="Your email"
                 label="Your email"
-                placeholder="you@email.com"
                 required
                 {...form.getInputProps("email")}
               />
@@ -245,7 +247,6 @@ export function ContactPage() {
               aria-label="Subject"
               mt="md"
               label="Subject"
-              placeholder="Subject"
               required
               {...form.getInputProps("subject")}
             />
@@ -254,7 +255,6 @@ export function ContactPage() {
               name="message"
               aria-label="Your message"
               mt="md"
-              label="Your message"
               placeholder="Thanks for reaching out :) feedback appreciated"
               minRows={3}
               required
