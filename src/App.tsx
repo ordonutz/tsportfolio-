@@ -23,15 +23,18 @@ const useStyles = createStyles((theme) => {
       backgroundColor: "#343a40",
       backgroundAttachment: "scroll",
       backgroundSize: "cover",
-      backgroundPosition: "top",
+      backgroundPosition: "center top",
       backgroundRepeat: "no-repeat",
       [theme.fn.smallerThan("sm")]: {
+        backgroundAttachment: "fixed",
         backgroundImage: "url(" + "/backgroundOverlayMd.png" + ")",
       },
       [theme.fn.smallerThan("xs")]: {
+        backgroundAttachment: "fixed",
         backgroundImage: "url(" + "/backgroundOverlayMd.png" + ")",
       },
       [theme.fn.smallerThan("md")]: {
+        backgroundAttachment: "fixed",
         backgroundImage: "url(" + "/backgroundOverlayMd.png" + ")",
       },
     },
