@@ -18,7 +18,7 @@ const useStyles = createStyles((theme) => ({
   root: {
     position: "relative",
     zIndex: 1,
-    background: theme.colors.gray[8],
+    background: "transparent",
   },
 
   dropdown: {
@@ -38,7 +38,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   header: {
-    background: theme.colors.gray[8],
+    background: "transparent",
     maxWidth: "1440px",
     display: "flex",
     justifyContent: "space-between",

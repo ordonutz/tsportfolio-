@@ -4,6 +4,7 @@ import MainLogo from "../../assets/MainLogo";
 const useStyles = createStyles((theme) => ({
   footer: {
     marginTop: 20,
+    background: "transparent",
   },
 
   inner: {

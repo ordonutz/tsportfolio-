@@ -33,7 +33,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   content: {
-    background: theme.colors.gray[8],
+    background: "transparent",
     marginRight: theme.spacing.xl * 3,
     [theme.fn.smallerThan("md")]: {
       maxWidth: "100%",
@@ -92,10 +92,7 @@ const useStyles = createStyles((theme) => ({
 
   highlight: {
     position: "relative",
-    backgroundColor: theme.fn.variant({
-      variant: "light",
-      color: theme.primaryColor,
-    }).background,
+    backgroundColor: "transparent",
     borderRadius: theme.radius.sm,
     padding: "4px 12px",
   },

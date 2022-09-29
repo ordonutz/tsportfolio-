@@ -6,8 +6,7 @@ import {
   useMantineTheme,
   MantineThemeOverride,
   MantineProvider,
-  BackgroundImage,
-  Image,
+  createStyles,
 } from "@mantine/core";
 import HomePage from "./components/Pages/HomePage";
 import ResumePage from "./components/Pages/ResumePage";
@@ -16,11 +15,25 @@ import ContactPage from "./components/Pages/ContactPage";
 import { HeaderResponsive } from "./components/HeaderResponsive/index";
 import { FooterResponsive } from "./components/FooterResponsive";
 import "./assets/backgroundImage.png";
-import CustomBackgroundImage from "./assets/CustomBackgroundImage";
+// import "./assets/backgroundOverlay.png";
+const useStyles = createStyles((theme) => {
+  return {
+    wrapper: {
+      backgroundImage: "url(" + "/backgroundOverlay.png" + ")",
+      backgroundColor: "#343a40",
+      backgroundAttachment: "scroll",
+      minHeight: "100vh",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+      [theme.fn.smallerThan("xs")]: {},
+      [theme.fn.smallerThan("md")]: {},
+    },
+  };
+});
 
 function App() {
   const theme = useMantineTheme();
-
+  const { classes } = useStyles();
   /**
    * links in header and footer to redirect user to
    * projects, resume, or contact section on the one page site
@@ -43,27 +56,29 @@ function App() {
   };
 
   return (
-    <MantineProvider theme={MY_THEME} withGlobalStyles withNormalizeCSS>
-      <AppShell
-        navbarOffsetBreakpoint="sm"
-        asideOffsetBreakpoint="sm"
-        footer={<FooterResponsive links={pageSectionLinks} />}
-        header={<HeaderResponsive links={pageSectionLinks} />}
-        styles={(theme) => ({
-          main: {
-            backgroundColor:
-              theme.colorScheme === "dark"
-                ? theme.colors.dark[8]
-                : theme.colors.gray[8],
-          },
-        })}
-      >
-        <HomePage />
-        <ResumePage />
-        <ProjectPage />
-        <ContactPage />
-      </AppShell>
-    </MantineProvider>
+    <div className={classes.wrapper}>
+      <MantineProvider theme={MY_THEME} withGlobalStyles withNormalizeCSS>
+        <AppShell
+          style={{
+            backgroundColor: "transparent",
+          }}
+          navbarOffsetBreakpoint="sm"
+          asideOffsetBreakpoint="sm"
+          footer={<FooterResponsive links={pageSectionLinks} />}
+          header={<HeaderResponsive links={pageSectionLinks} />}
+          styles={(theme) => ({
+            main: {
+              backgroundColor: "transparent",
+            },
+          })}
+        >
+          <HomePage />
+          <ResumePage />
+          <ProjectPage />
+          <ContactPage />
+        </AppShell>
+      </MantineProvider>
+    </div>
   );
 }
 
