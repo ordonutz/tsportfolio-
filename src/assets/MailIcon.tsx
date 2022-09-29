@@ -1,8 +1,8 @@
 import React from "react";
 
 interface mailIconProps {
-  onClick: () => any;
-  className: string;
+  onClick?: () => any;
+  className?: string;
 }
 
 function MailIcon(props: mailIconProps) {

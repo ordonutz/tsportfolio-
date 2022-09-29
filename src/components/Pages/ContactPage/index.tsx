@@ -1,3 +1,4 @@
+import React, { LegacyRef } from "react";
 import {
   Paper,
   Text,
@@ -7,9 +8,16 @@ import {
   Group,
   SimpleGrid,
   createStyles,
+  Alert,
+  CheckIcon,
 } from "@mantine/core";
-// import { ContactIconsList } from "../ContactIcons/ContactIcons";
-// import bg from "./bg.svg";
+
+import emailjs from "@emailjs/browser";
+import { useRef, useState } from "react";
+import { useForm, UseFormReturnType } from "@mantine/form";
+import { RefObject } from "react";
+import { MutableRefObject } from "react";
+import ContactIcons from "./ContactIcons";
 
 const useStyles = createStyles((theme) => {
   const BREAKPOINT = theme.fn.smallerThan("sm");
@@ -17,15 +25,10 @@ const useStyles = createStyles((theme) => {
   return {
     wrapper: {
       display: "flex",
-      backgroundColor:
-        theme.colorScheme === "dark" ? theme.colors.dark[8] : theme.white,
+      backgroundColor: theme.colors.dark[8],
       borderRadius: theme.radius.lg,
       padding: 4,
-      border: `1px solid ${
-        theme.colorScheme === "dark"
-          ? theme.colors.dark[8]
-          : theme.colors.gray[2]
-      }`,
+      border: `1px solid ${theme.colors.gray[2]}`,
 
       [BREAKPOINT]: {
         flexDirection: "column",
@@ -74,7 +77,11 @@ const useStyles = createStyles((theme) => {
       boxSizing: "border-box",
       position: "relative",
       borderRadius: theme.radius.lg - 2,
-      //   backgroundImage: `url(${bg.src})`,
+
+      background:
+        "linear-gradient(242deg, rgba(245,192,182,1) 0%, rgba(250,166,159,1) 100%)",
+      boxShadow:
+        "inset 4px -4px 4px rgba(0, 0, 0, 0.25), inset -4px 4px 4px rgba(255, 255, 255, 0.25)",
       backgroundSize: "cover",
       backgroundPosition: "center",
       border: "1px solid transparent",
@@ -104,8 +111,60 @@ const useStyles = createStyles((theme) => {
   };
 });
 
+/**
+ * values for contact form
+ */
+interface formValues {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
 export function ContactPage() {
   const { classes } = useStyles();
+  const [subSuccess, setSubSuccess] = useState(false); // true if form is successfully submitted to conditionally render success message
+  const [subErr, setSubErr] = useState(false); // true if form failed to submit to conditionally render error message
+  const [showAlert, setShowAlert] = useState(false); // true if alert is visible the onClose of alert changes it to false
+
+  /**
+   * @param hi
+   */
+  const form = useForm({
+    initialValues: {
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    },
+    validate: {
+      email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
+    },
+  });
+
+  const mockPromise = (flag: boolean) => {
+    return new Promise((resolve, reject) => {
+      console.log("Making request ....");
+      flag ? resolve("Mock Success") : reject("Mock error");
+    });
+  };
+
+  /**
+   * @param
+   */
+  const handleSubmit = async () => {
+    try {
+      const res = await mockPromise(false);
+      console.log("!!!", res);
+      setSubSuccess(true);
+      setShowAlert(true);
+    } catch (err) {
+      console.log("fail", err);
+      setSubErr(true);
+      setShowAlert(true);
+    }
+    form.reset();
+  };
 
   return (
     <Paper shadow="md" radius="lg">
@@ -119,39 +178,95 @@ export function ContactPage() {
           >
             Contact information
           </Text>
-
-          {/* <ContactIconsList variant="white" /> */}
+          <Text>something</Text>
+          <ContactIcons />
         </div>
-
+        {subSuccess && showAlert && (
+          <Alert
+            icon={<CheckIcon />}
+            title="Success!"
+            color="lime"
+            radius="md"
+            variant="light"
+            withCloseButton
+            closeButtonLabel="Close alert"
+            onClose={() => setShowAlert(false)}
+          >
+            Thank you, your message has been received. I'll get back to you
+            shortly. In the meantime connect with me through LinkedIn or GitHub.
+          </Alert>
+        )}
+        {subErr && showAlert && (
+          <Alert
+            icon={<CheckIcon />}
+            title="Fail!"
+            color="red"
+            radius="md"
+            variant="light"
+            withCloseButton
+            closeButtonLabel="Close alert"
+            onClose={() => setShowAlert(false)}
+          >
+            oh no try again
+          </Alert>
+        )}
         <form
+          id="contact-form"
           className={classes.form}
-          onSubmit={(event) => event.preventDefault()}
+          onSubmit={(event) => {
+            event.preventDefault();
+            if (form.validate().hasErrors) {
+            } else {
+              handleSubmit();
+            }
+          }}
         >
           <Text size="lg" weight={700} className={classes.title}>
             Get in touch
           </Text>
 
           <div className={classes.fields}>
-            <SimpleGrid cols={2} breakpoints={[{ maxWidth: "sm", cols: 1 }]}>
-              <TextInput label="Your name" placeholder="Your name" />
+            <SimpleGrid cols={1} breakpoints={[{ maxWidth: "sm", cols: 1 }]}>
               <TextInput
+                name="user_name"
+                aria-label="Your name"
+                label="Your name"
+                {...form.getInputProps("name")}
+              />
+              <TextInput
+                name="user_email"
+                aria-label="Your email"
                 label="Your email"
-                placeholder="hello@mantine.dev"
                 required
+                {...form.getInputProps("email")}
               />
             </SimpleGrid>
 
-            <TextInput mt="md" label="Subject" placeholder="Subject" required />
+            <TextInput
+              name="subject"
+              aria-label="Subject"
+              mt="md"
+              label="Subject"
+              required
+              {...form.getInputProps("subject")}
+            />
 
             <Textarea
+              name="message"
+              aria-label="Your message"
               mt="md"
-              label="Your message"
-              placeholder="Please include all relevant information"
+              placeholder="Thanks for reaching out :) feedback appreciated"
               minRows={3}
+              required
+              {...form.getInputProps("message")}
             />
 
             <Group position="right" mt="md">
-              <Button type="submit" className={classes.control}>
+              <Button
+                aria-label="submit"
+                type="submit"
+                className={classes.control}
+              >
                 Send message
               </Button>
             </Group>

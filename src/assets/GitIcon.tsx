@@ -1,7 +1,7 @@
 import React from "react";
 interface linkedIconProps {
-  onClick: () => any;
-  className: string;
+  onClick?: () => any;
+  className?: string;
 }
 function GitIcon(props: linkedIconProps) {
   return (
