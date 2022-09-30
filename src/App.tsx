@@ -1,7 +1,5 @@
-import React from "react";
 import {
   AppShell,
-  useMantineTheme,
   MantineThemeOverride,
   MantineProvider,
   createStyles,
@@ -20,7 +18,7 @@ export default function App() {
   const MY_THEME: MantineThemeOverride = {
     colorScheme: "dark",
     primaryColor: "pink",
-    primaryShade: { light: 3, dark: 3 },
+    primaryShade: { dark: 4 },
     loader: "bars",
     colors: {
       dark: [
@@ -48,6 +46,8 @@ export default function App() {
         backgroundAttachment: "scroll",
         backgroundSize: "cover",
         maxWidth: "1920px",
+        height: "auto",
+        margin: "0 auto",
         backgroundRepeat: "no-repeat",
         [MY_THEME.fn.smallerThan("sm")]: {
           backgroundAttachment: "fixed",
@@ -64,6 +64,7 @@ export default function App() {
       },
     };
   });
+
   const { classes } = useStyles();
 
   /**
@@ -77,34 +78,18 @@ export default function App() {
     { link: "link", label: "Contact" },
   ];
 
-  /**
-   * custom object theme to override Mantine default theme
-   */
-
-  console.log("my theme is", MY_THEME, MY_THEME.loader);
-
   return (
     <div className={classes.wrapperImg}>
       <MantineProvider theme={MY_THEME} withGlobalStyles withNormalizeCSS>
-        <div>
-          <AppShell
-            style={{
-              backgroundColor: "transparent",
-            }}
-            header={<HeaderResponsive links={pageSectionLinks} />}
-            footer={<FooterResponsive links={pageSectionLinks} />}
-            styles={(theme) => ({
-              main: {
-                backgroundColor: "transparent",
-              },
-            })}
-          >
-            <HomePage />
-            <ResumePage />
-            <ProjectPage />
-            <ContactPage />
-          </AppShell>
-        </div>
+        <AppShell
+          header={<HeaderResponsive links={pageSectionLinks} />}
+          footer={<FooterResponsive links={pageSectionLinks} />}
+        >
+          <HomePage />
+          <ResumePage />
+          <ProjectPage />
+          <ContactPage />
+        </AppShell>
       </MantineProvider>
     </div>
   );
