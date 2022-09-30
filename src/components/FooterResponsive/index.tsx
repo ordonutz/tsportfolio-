@@ -32,7 +32,7 @@ interface FooterSimpleProps {
   links: { link: string; label: string }[];
 }
 
-export function FooterResponsive({ links }: FooterSimpleProps) {
+export default function FooterResponsive({ links }: FooterSimpleProps) {
   const { classes } = useStyles();
 
   const items = links.map((link) => (

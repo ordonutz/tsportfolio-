@@ -14,93 +14,98 @@ import MainLogo from "../../assets/MainLogo";
 
 const HEADER_HEIGHT = "70px";
 
-const useStyles = createStyles((theme) => ({
-  root: {
-    position: "relative",
-    zIndex: 1,
-    background: "transparent",
-  },
-
-  dropdown: {
-    position: "absolute",
-    top: "70px",
-    left: 0,
-    right: 0,
-    zIndex: 0,
-    borderTopRightRadius: 0,
-    borderTopLeftRadius: 0,
-    borderTopWidth: 0,
-    overflow: "hidden",
-
-    [theme.fn.largerThan("sm")]: {
-      display: "none",
+const useStyles = createStyles((theme) => {
+  {
+    console.log("in header", theme.loader);
+  }
+  return {
+    root: {
+      position: "relative",
+      zIndex: 1,
+      background: "transparent",
     },
-  },
 
-  header: {
-    background: "transparent",
-    maxWidth: "1440px",
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    height: "100%",
-  },
+    dropdown: {
+      position: "absolute",
+      top: "70px",
+      left: 0,
+      right: 0,
+      zIndex: 0,
+      borderTopRightRadius: 0,
+      borderTopLeftRadius: 0,
+      borderTopWidth: 0,
+      overflow: "hidden",
 
-  links: {
-    [theme.fn.smallerThan("sm")]: {
-      display: "none",
+      [theme.fn.largerThan("sm")]: {
+        display: "none",
+      },
     },
-  },
 
-  burger: {
-    [theme.fn.largerThan("sm")]: {
-      display: "none",
+    header: {
+      background: "transparent",
+      maxWidth: "1440px",
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      height: "100%",
     },
-  },
 
-  link: {
-    display: "block",
-    lineHeight: 1,
-    padding: "8px 12px",
-    borderRadius: theme.radius.sm,
-    textDecoration: "none",
-    color:
-      theme.colorScheme === "dark"
-        ? theme.colors.dark[0]
-        : theme.colors.pink[1],
-    fontSize: theme.fontSizes.sm,
-    fontWeight: 500,
+    links: {
+      [theme.fn.smallerThan("sm")]: {
+        display: "none",
+      },
+    },
 
-    "&:hover": {
-      backgroundColor:
+    burger: {
+      [theme.fn.largerThan("sm")]: {
+        display: "none",
+      },
+    },
+
+    link: {
+      display: "block",
+      lineHeight: 1,
+      padding: "8px 12px",
+      borderRadius: theme.radius.sm,
+      textDecoration: "none",
+      color:
         theme.colorScheme === "dark"
-          ? theme.colors.dark[6]
-          : theme.colors.gray[6],
+          ? theme.colors.dark[0]
+          : theme.colors.pink[1],
+      fontSize: theme.fontSizes.sm,
+      fontWeight: 500,
+
+      "&:hover": {
+        backgroundColor:
+          theme.colorScheme === "dark"
+            ? theme.colors.dark[6]
+            : theme.colors.gray[6],
+      },
+
+      [theme.fn.smallerThan("sm")]: {
+        borderRadius: 0,
+        padding: theme.spacing.md,
+      },
     },
 
-    [theme.fn.smallerThan("sm")]: {
-      borderRadius: 0,
-      padding: theme.spacing.md,
+    linkActive: {
+      // "&, &:hover": {
+      //   backgroundColor: theme.fn.variant({
+      //     variant: "light",
+      //     color: theme.primaryColor,
+      //   }).background,
+      //   color: theme.fn.variant({ variant: "light", color: theme.primaryColor })
+      //     .color,
+      // },
     },
-  },
-
-  linkActive: {
-    // "&, &:hover": {
-    //   backgroundColor: theme.fn.variant({
-    //     variant: "light",
-    //     color: theme.primaryColor,
-    //   }).background,
-    //   color: theme.fn.variant({ variant: "light", color: theme.primaryColor })
-    //     .color,
-    // },
-  },
-}));
+  };
+});
 
 interface HeaderResponsiveProps {
   links: { link: string; label: string }[];
 }
 
-export function HeaderResponsive({ links }: HeaderResponsiveProps) {
+export default function HeaderResponsive({ links }: HeaderResponsiveProps) {
   const [opened, { toggle, close }] = useDisclosure(false);
   const [active, setActive] = useState(links[0].link);
   const { classes, cx } = useStyles();
