@@ -3,7 +3,8 @@ import { resumeSectionData } from "./interfaces";
 /**
  * stores all entire resume data to be mapped into card component and lists
  * ideally in the future it would be nice to parse the text from the document
- * so it outputs this object
+ * so it outputs this object or have an automated way to grab the text from the 
+ * updated google doc or file
  */
 export const resumeData: Array<resumeSectionData> = [
   {

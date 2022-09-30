@@ -29,7 +29,11 @@ const useStyles = createStyles((theme) => ({
 }));
 
 interface FooterSimpleProps {
-  links: { link: string; label: string }[];
+  links: {
+    link: () => void;
+    label: string;
+    ref: React.MutableRefObject<any>;
+  }[];
 }
 
 export default function FooterResponsive({ links }: FooterSimpleProps) {
@@ -39,8 +43,12 @@ export default function FooterResponsive({ links }: FooterSimpleProps) {
     <Anchor<"a">
       color="dimmed"
       key={link.label}
-      href={link.link}
-      onClick={(event) => event.preventDefault()}
+      onClick={(event) => {
+        event.preventDefault();
+        link.link();
+
+        console.log(" FOOTER i was clicked");
+      }}
       size="sm"
     >
       {link.label}

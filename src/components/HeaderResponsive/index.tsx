@@ -1,4 +1,3 @@
-import React from "react";
 import { useState } from "react";
 import {
   createStyles,
@@ -12,22 +11,20 @@ import {
 import { useDisclosure } from "@mantine/hooks";
 import MainLogo from "../../assets/MainLogo";
 
-const HEADER_HEIGHT = "70px";
+const HEADER_HEIGHT = "90px";
 
 const useStyles = createStyles((theme) => {
-  {
-    console.log("in header", theme.loader);
-  }
   return {
     root: {
       position: "relative",
       zIndex: 1,
       background: "transparent",
+      marginBottom: "2%",
     },
 
     dropdown: {
       position: "absolute",
-      top: "70px",
+      top: HEADER_HEIGHT,
       left: 0,
       right: 0,
       zIndex: 0,
@@ -42,11 +39,10 @@ const useStyles = createStyles((theme) => {
     },
 
     header: {
-      background: "transparent",
-      maxWidth: "1440px",
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
+
       height: "100%",
     },
 
@@ -66,20 +62,15 @@ const useStyles = createStyles((theme) => {
       display: "block",
       lineHeight: 1,
       padding: "8px 12px",
-      borderRadius: theme.radius.sm,
+      borderRadius: theme.radius.md,
       textDecoration: "none",
-      color:
-        theme.colorScheme === "dark"
-          ? theme.colors.dark[0]
-          : theme.colors.pink[1],
-      fontSize: theme.fontSizes.sm,
+      color: theme.colors.dark[0],
+      fontSize: theme.fontSizes.md,
       fontWeight: 500,
 
       "&:hover": {
-        backgroundColor:
-          theme.colorScheme === "dark"
-            ? theme.colors.dark[6]
-            : theme.colors.gray[6],
+        cursor: "pointer",
+        backgroundColor: theme.colors.dark[6],
       },
 
       [theme.fn.smallerThan("sm")]: {
@@ -87,22 +78,15 @@ const useStyles = createStyles((theme) => {
         padding: theme.spacing.md,
       },
     },
-
-    linkActive: {
-      // "&, &:hover": {
-      //   backgroundColor: theme.fn.variant({
-      //     variant: "light",
-      //     color: theme.primaryColor,
-      //   }).background,
-      //   color: theme.fn.variant({ variant: "light", color: theme.primaryColor })
-      //     .color,
-      // },
-    },
   };
 });
 
 interface HeaderResponsiveProps {
-  links: { link: string; label: string }[];
+  links: {
+    link: () => void;
+    label: string;
+    ref: React.MutableRefObject<any>;
+  }[];
 }
 
 export default function HeaderResponsive({ links }: HeaderResponsiveProps) {
@@ -113,15 +97,12 @@ export default function HeaderResponsive({ links }: HeaderResponsiveProps) {
   const items = links.map((link) => (
     <a
       key={link.label}
-      href={link.link}
-      className={cx(classes.link, {
-        [classes.linkActive]: active === link.link,
-      })}
+      className={cx(classes.link)}
       onClick={(event) => {
         event.preventDefault();
-        setActive(link.link);
-        close();
-        console.log("i was clicked");
+        link.link();
+
+        console.log("HEADER i was clicked");
       }}
     >
       {link.label}
@@ -129,17 +110,11 @@ export default function HeaderResponsive({ links }: HeaderResponsiveProps) {
   ));
 
   return (
-    <Header
-      height={HEADER_HEIGHT}
-      className={classes.root}
-      withBorder={false}
-      // style={{ background: "red" }}
-    >
-      <Container className={classes.header}>
-        <div>
-          <MainLogo />
-        </div>
-        <Group spacing={5} className={classes.links}>
+    <Header height={HEADER_HEIGHT} withBorder={false} className={classes.root}>
+      <Container size={1320} className={classes.header}>
+        <MainLogo />
+
+        <Group spacing={7} className={classes.links}>
           {items}
         </Group>
 

@@ -121,7 +121,11 @@ interface formValues {
   message: string;
 }
 
-export function ContactPage() {
+interface ContactProps {
+  scrollRef?: React.MutableRefObject<any>;
+}
+
+export function ContactPage(props: ContactProps) {
   const { classes } = useStyles();
   const [subSuccess, setSubSuccess] = useState(false); // true if form is successfully submitted to conditionally render success message
   const [subErr, setSubErr] = useState(false); // true if form failed to submit to conditionally render error message
@@ -167,7 +171,7 @@ export function ContactPage() {
   };
 
   return (
-    <Paper shadow="md" radius="lg">
+    <Paper shadow="md" radius="lg" ref={props.scrollRef}>
       <div className={classes.wrapper}>
         <div className={classes.contacts}>
           <Text

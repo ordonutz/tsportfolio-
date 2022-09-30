@@ -3,6 +3,8 @@ import {
   MantineThemeOverride,
   MantineProvider,
   createStyles,
+  Button,
+  ContainerProps,
 } from "@mantine/core";
 import HomePage from "./components/Pages/HomePage";
 import ResumePage from "./components/Pages/ResumePage";
@@ -10,62 +12,86 @@ import ProjectPage from "./components/Pages/ProjectPage";
 import ContactPage from "./components/Pages/ContactPage";
 import HeaderResponsive from "./components/HeaderResponsive/index";
 import FooterResponsive from "./components/FooterResponsive";
+import { useScrollIntoView } from "@mantine/hooks";
+import { useRef } from "react";
+/**
+ * used to overWrite default theme settings
+ */
+const MY_THEME: MantineThemeOverride = {
+  colorScheme: "dark",
+  primaryColor: "pink",
+  primaryShade: { dark: 4 },
+  loader: "bars",
+  colors: {
+    dark: [
+      "#ffdeeb",
+      "#A6A7AB",
+      "#909296",
+      "#5C5F66",
+      "#373A40",
+      "#2C2E33",
+      "#25262B",
+      "#373A40",
+      "#141517",
+      "#101113",
+    ],
+  },
+};
+
+/**
+ * defines css classNames based on theme
+ */
+const useStyles = createStyles((MY_THEME) => {
+  return {
+    wrapperImg: {
+      backgroundImage: "url(" + "/backgroundOverlayLg.png" + ")",
+      backgroundAttachment: "scroll",
+      backgroundSize: "cover",
+
+      height: "auto",
+      margin: "0 auto",
+      backgroundRepeat: "no-repeat",
+      [MY_THEME.fn.smallerThan("sm")]: {
+        backgroundAttachment: "fixed",
+        backgroundImage: "url(" + "/backgroundOverlayMd.png" + ")",
+      },
+      [MY_THEME.fn.smallerThan("xs")]: {
+        backgroundAttachment: "fixed",
+        backgroundImage: "url(" + "/backgroundOverlaySm.png" + ")",
+      },
+      [MY_THEME.fn.smallerThan("md")]: {
+        backgroundAttachment: "fixed",
+        backgroundImage: "url(" + "/backgroundOverlayMd.png" + ")",
+      },
+    },
+  };
+});
 
 export default function App() {
   /**
-   * used to overWrite default theme settings
+   * styling classNames available
    */
-  const MY_THEME: MantineThemeOverride = {
-    colorScheme: "dark",
-    primaryColor: "pink",
-    primaryShade: { dark: 4 },
-    loader: "bars",
-    colors: {
-      dark: [
-        "#ffdeeb",
-        "#A6A7AB",
-        "#909296",
-        "#5C5F66",
-        "#373A40",
-        "#2C2E33",
-        "#25262B",
-        "#373A40",
-        "#141517",
-        "#101113",
-      ],
-    },
-  };
+  const { classes } = useStyles();
 
   /**
-   * defines css classNames based on theme
+   * refs for the scroll to section
    */
-  const useStyles = createStyles((MY_THEME) => {
-    return {
-      wrapperImg: {
-        backgroundImage: "url(" + "/backgroundOverlayLg.png" + ")",
-        backgroundAttachment: "scroll",
-        backgroundSize: "cover",
-        maxWidth: "1920px",
-        height: "auto",
-        margin: "0 auto",
-        backgroundRepeat: "no-repeat",
-        [MY_THEME.fn.smallerThan("sm")]: {
-          backgroundAttachment: "fixed",
-          backgroundImage: "url(" + "/backgroundOverlayMd.png" + ")",
-        },
-        [MY_THEME.fn.smallerThan("xs")]: {
-          backgroundAttachment: "fixed",
-          backgroundImage: "url(" + "/backgroundOverlaySm.png" + ")",
-        },
-        [MY_THEME.fn.smallerThan("md")]: {
-          backgroundAttachment: "fixed",
-          backgroundImage: "url(" + "/backgroundOverlayMd.png" + ")",
-        },
-      },
-    };
-  });
+  const projects = useRef<React.MutableRefObject<HTMLElement>>(null);
+  const resume = useRef<React.MutableRefObject<HTMLElement>>(null);
+  const contact = useRef<React.MutableRefObject<HTMLElement>>(null);
 
-  const { classes } = useStyles();
+  /**
+   * Takes in a reference to an element and will scroll to the top of that element
+   * @param elementRef element reference
+   */
+  const scrollToSection = (elementRef: any) => {
+    if (elementRef.current !== null) {
+      window.scrollTo({
+        top: elementRef.current.offsetTop,
+        behavior: "smooth",
+      });
+    }
+  };
 
   /**
    * links in header and footer to redirect user to
@@ -73,9 +99,9 @@ export default function App() {
    * will need to use scroll into view hook so this might change
    */
   const pageSectionLinks = [
-    { link: "link", label: "Projects" },
-    { link: "link", label: "Resume" },
-    { link: "link", label: "Contact" },
+    { link: () => scrollToSection(projects), label: "Projects", ref: projects },
+    { link: () => scrollToSection(resume), label: "Resume", ref: resume },
+    { link: () => scrollToSection(contact), label: "Contact", ref: contact },
   ];
 
   return (
@@ -86,9 +112,11 @@ export default function App() {
           footer={<FooterResponsive links={pageSectionLinks} />}
         >
           <HomePage />
-          <ResumePage />
-          <ProjectPage />
-          <ContactPage />
+          <ResumePage scrollRef={resume} />
+
+          <ProjectPage scrollRef={projects} />
+
+          <ContactPage scrollRef={contact} />
         </AppShell>
       </MantineProvider>
     </div>

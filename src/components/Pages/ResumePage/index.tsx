@@ -111,11 +111,15 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
+interface resumeProps {
+  scrollRef?: React.MutableRefObject<any>;
+}
+
 /**
  * Resume section where user can view resume or print pdf
  * @returns container with scrollable digital resume and button to print/download resume
  */
-export function ResumePage() {
+export function ResumePage(props: resumeProps) {
   const { classes } = useStyles();
   const theme = useMantineTheme();
   const resumeCopy: resumeSectionData[] = JSON.parse(
@@ -194,7 +198,7 @@ export function ResumePage() {
   ));
 
   return (
-    <div className={classes.container}>
+    <div className={classes.container} ref={props.scrollRef}>
       <a
         href="Leslie_Ordonez_Hernandez_Resume.pdf"
         download="Leslie_Ordonez_Hernandez_Resume.pdf"

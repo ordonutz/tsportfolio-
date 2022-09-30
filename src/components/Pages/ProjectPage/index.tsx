@@ -99,7 +99,11 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export default function ProjectPage() {
+interface ProjectProps {
+  scrollRef?: React.MutableRefObject<any>;
+}
+
+export default function ProjectPage(props: ProjectProps) {
   const { classes, theme } = useStyles();
   const features = mockdata.map((feature: projectData) => (
     <Card
@@ -135,7 +139,7 @@ export default function ProjectPage() {
     </Card>
   ));
   return (
-    <Container size="lg" py="xl">
+    <Container size="lg" py="xl" ref={props.scrollRef}>
       <Title order={2} className={classes.title} align="center" mt="sm">
         Projects
       </Title>
