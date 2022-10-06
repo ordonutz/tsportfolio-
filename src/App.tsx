@@ -83,10 +83,15 @@ export default function App() {
 
   const scrollToRef = (elementRef: MutableRefObject<any>) => {
     if (elementRef.current != null) {
-      window.scrollTo({
-        top: elementRef.current.offsetTop,
-        behavior: "smooth",
-      });
+      // window.scroll({
+      //   // top: elementRef.current.offsetTop,
+      //   top: 0,
+      //   behaviour: "smooth",
+      // });
+      setTimeout(() =>
+        elementRef.current.scrollIntoView({ behavior: "smooth" }, 100)
+      );
+      // elementRef.current.scrollIntoView({ behavior: "smooth" }, 2000);
     }
   };
 
@@ -94,11 +99,12 @@ export default function App() {
    * Takes in a reference to an element and will scroll to the top of that element
    * @param elementRefLabel element reference
    */
-  const scrollToSection = (elementRefLabel: string) => {
+  const scrollToSection = (elementRefLabel: string, event: any) => {
     switch (elementRefLabel) {
       case "Projects":
         console.log("string is ", elementRefLabel);
         console.log("ref is ", projects);
+
         scrollToRef(projects);
         break;
       case "Resume":
@@ -136,12 +142,12 @@ export default function App() {
               scrollToSection={scrollToSection}
             />
           }
-          footer={
-            <FooterResponsive
-              links={pageSectionLinks}
-              scrollToSection={scrollToSection}
-            />
-          }
+          // footer={
+          //   <FooterResponsive
+          //     links={pageSectionLinks}
+          //     scrollToSection={scrollToSection}
+          //   />
+          // }
         >
           <HomePage />
           <ResumePage ref={resume} />

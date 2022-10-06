@@ -86,7 +86,7 @@ interface HeaderResponsiveProps {
   links: {
     label: string;
   }[];
-  scrollToSection: (elementRefName: string) => void;
+  scrollToSection: (elementRefName: string, event: any) => void;
 }
 
 const HeaderResponsive = (props: HeaderResponsiveProps) => {
@@ -101,7 +101,7 @@ const HeaderResponsive = (props: HeaderResponsiveProps) => {
       onClick={(event) => {
         event.preventDefault();
         console.log("hello from the on click", link.label);
-        props.scrollToSection(link.label);
+        props.scrollToSection(link.label, event);
       }}
     >
       {link.label}
