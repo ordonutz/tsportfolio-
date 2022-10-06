@@ -86,8 +86,8 @@ function FolderIcon() {
         />
       </g>
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M487.953 192.975C488.032 192.972 488.132 193.003 488.132 193.003C488.663 193.199 488.804 193.767 488.804 193.767C489.057 194.68 489.905 194.689 490.251 194.652C490.396 194.341 490.601 194.16 490.793 194.08C489.632 193.598 488.501 192.792 489.074 190.862C489.237 190.312 489.579 189.925 490.03 189.675C490.007 189.53 489.977 188.964 490.473 188.356C490.473 188.356 490.965 188.355 491.803 189.313C492.268 189.329 492.743 189.41 493.203 189.543C493.661 189.682 494.103 189.873 494.501 190.114C495.72 189.766 496.131 190.036 496.131 190.036C496.215 190.815 495.881 191.273 495.79 191.385C496.029 191.839 496.105 192.35 495.942 192.9C495.367 194.835 493.98 194.886 492.743 194.654C492.887 194.861 492.97 195.222 492.83 195.694C492.696 196.145 492.577 196.536 492.498 196.795C492.459 196.922 492.43 197.017 492.414 197.071C492.396 197.132 492.397 197.204 492.431 197.268C491.913 197.239 491.419 197.122 490.971 196.935C490.483 196.845 490.027 196.677 489.622 196.447C489.691 196.413 489.735 196.35 489.754 196.285C489.77 196.232 489.796 196.14 489.832 196.017C489.876 195.863 489.934 195.661 490.002 195.427C488.411 195.286 488.385 194.212 488.385 194.212C488.312 193.558 488.003 193.298 488.003 193.298C487.961 193.249 487.929 193.207 487.906 193.171C487.919 193.105 487.935 193.04 487.953 192.975Z"
         fill="#403C39"
       />
@@ -246,9 +246,9 @@ function FolderIcon() {
           width="501.246"
           height="557.176"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -299,9 +299,9 @@ function FolderIcon() {
           width="482.503"
           height="481.024"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -352,9 +352,9 @@ function FolderIcon() {
           width="470.593"
           height="496.776"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -405,9 +405,9 @@ function FolderIcon() {
           width="17.2063"
           height="17.7146"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -458,9 +458,9 @@ function FolderIcon() {
           width="17.2063"
           height="17.7146"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -511,9 +511,9 @@ function FolderIcon() {
           width="18.2063"
           height="18.2146"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -564,9 +564,9 @@ function FolderIcon() {
           width="17.677"
           height="18.1686"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -617,9 +617,9 @@ function FolderIcon() {
           width="341.639"
           height="190.958"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -670,9 +670,9 @@ function FolderIcon() {
           width="341.639"
           height="190.958"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -723,9 +723,9 @@ function FolderIcon() {
           width="341.639"
           height="190.958"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -776,9 +776,9 @@ function FolderIcon() {
           width="357.205"
           height="616.424"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -830,8 +830,8 @@ function FolderIcon() {
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(274.131 282.052) rotate(-163.471) scale(189.132 238.082)"
         >
-          <stop stop-color="#68E1FD" />
-          <stop offset="1" stop-color="#59C5DE" stop-opacity="0.760417" />
+          <stop stopColor="#68E1FD" />
+          <stop offset="1" stopColor="#59C5DE" stopOpacity="0.760417" />
         </radialGradient>
         <radialGradient
           id="paint1_radial_92_328"
@@ -841,8 +841,8 @@ function FolderIcon() {
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(213.162 309.933) rotate(-163.471) scale(138.613 282.156)"
         >
-          <stop stop-color="#68E1FD" />
-          <stop offset="0.984375" stop-color="#59C5DE" />
+          <stop stopColor="#68E1FD" />
+          <stop offset="0.984375" stopColor="#59C5DE" />
         </radialGradient>
       </defs>
     </svg>

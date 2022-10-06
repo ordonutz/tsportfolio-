@@ -35,14 +35,14 @@ const mockdata: Array<projectData> = [
     tools: ["C++"],
   },
   {
-    title: "No third parties",
+    title: "some title",
     description:
       "They’re popular, but they’re rare. Trainers who show them off recklessly may be targeted by thieves",
     icon: <PhoneIcon></PhoneIcon>,
     tools: ["coming soon", "tbd"],
   },
   {
-    title: "No third parties",
+    title: "Another title",
     description:
       "They’re popular, but they’re rare. Trainers who show them off recklessly may be targeted by thieves",
     icon: <PhoneIcon></PhoneIcon>,
@@ -133,7 +133,7 @@ const ProjectPage = React.forwardRef<
 
       <Group style={{ marginTop: "10px" }}>
         {feature.tools.map((tool) => (
-          <Badge>{tool}</Badge>
+          <Badge key={tool}>{tool}</Badge>
         ))}
       </Group>
 

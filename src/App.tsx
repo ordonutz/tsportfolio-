@@ -13,7 +13,7 @@ import ContactPage from "./components/Pages/ContactPage";
 import HeaderResponsive from "./components/HeaderResponsive/index";
 import FooterResponsive from "./components/FooterResponsive";
 import { useScrollIntoView } from "@mantine/hooks";
-import { MutableRefObject, Ref, useRef } from "react";
+import { MutableRefObject, Ref, useEffect, useRef } from "react";
 import React from "react";
 /**
  * used to overWrite default theme settings
@@ -136,7 +136,12 @@ export default function App() {
               scrollToSection={scrollToSection}
             />
           }
-          // footer={<FooterResponsive links={pageSectionLinks} />}
+          footer={
+            <FooterResponsive
+              links={pageSectionLinks}
+              scrollToSection={scrollToSection}
+            />
+          }
         >
           <HomePage />
           <ResumePage ref={resume} />

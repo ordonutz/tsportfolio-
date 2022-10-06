@@ -28,14 +28,18 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
+// TO DO export interface since the same one is used in header too
 interface FooterSimpleProps {
   links: {
-    link: () => void;
     label: string;
   }[];
+  scrollToSection: (elementRefName: string) => void;
 }
 
-export default function FooterResponsive({ links }: FooterSimpleProps) {
+export default function FooterResponsive({
+  links,
+  scrollToSection,
+}: FooterSimpleProps) {
   const { classes } = useStyles();
 
   const items = links.map((link) => (
@@ -44,9 +48,9 @@ export default function FooterResponsive({ links }: FooterSimpleProps) {
       key={link.label}
       onClick={(event) => {
         event.preventDefault();
-        link.link();
 
-        console.log(" FOOTER i was clicked");
+        console.log(" FOOTER i was clicked", link.label);
+        scrollToSection(link.label);
       }}
       size="sm"
     >

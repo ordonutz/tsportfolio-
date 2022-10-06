@@ -155,8 +155,8 @@ const ResumePage = React.forwardRef<
             className={classes.resumeDescription}
             withPadding
           >
-            {subSection.description.map((info: string) => (
-              <List.Item>{info}</List.Item>
+            {subSection.description.map((info: string, index) => (
+              <List.Item key={`${subSection.name}${index}`}>{info}</List.Item>
             ))}
           </List>
         </Group>
