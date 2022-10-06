@@ -11,6 +11,7 @@ import {
   ThemeIcon,
   Button,
 } from "@mantine/core";
+import React, { forwardRef, LegacyRef, RefObject } from "react";
 import { DonutIcon } from "../../../assets/DonutIcon";
 import DownloadIcon from "../../../assets/DownloadIcon";
 
@@ -119,7 +120,10 @@ interface resumeProps {
  * Resume section where user can view resume or print pdf
  * @returns container with scrollable digital resume and button to print/download resume
  */
-export function ResumePage(props: resumeProps) {
+const ResumePage = React.forwardRef<
+  HTMLDivElement,
+  React.PropsWithChildren<resumeProps>
+>((props, ref) => {
   const { classes } = useStyles();
   const theme = useMantineTheme();
   const resumeCopy: resumeSectionData[] = JSON.parse(
@@ -198,7 +202,7 @@ export function ResumePage(props: resumeProps) {
   ));
 
   return (
-    <div className={classes.container} ref={props.scrollRef}>
+    <div className={classes.container} id="Resume" ref={ref}>
       <a
         href="Leslie_Ordonez_Hernandez_Resume.pdf"
         download="Leslie_Ordonez_Hernandez_Resume.pdf"
@@ -274,6 +278,6 @@ export function ResumePage(props: resumeProps) {
       </Paper>
     </div>
   );
-}
+});
 
 export default ResumePage;

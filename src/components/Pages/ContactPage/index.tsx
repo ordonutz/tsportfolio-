@@ -125,7 +125,10 @@ interface ContactProps {
   scrollRef?: React.MutableRefObject<any>;
 }
 
-export function ContactPage(props: ContactProps) {
+const ContactPage = React.forwardRef<
+  HTMLDivElement,
+  React.PropsWithChildren<ContactProps>
+>((props: ContactProps, ref) => {
   const { classes } = useStyles();
   const [subSuccess, setSubSuccess] = useState(false); // true if form is successfully submitted to conditionally render success message
   const [subErr, setSubErr] = useState(false); // true if form failed to submit to conditionally render error message
@@ -171,7 +174,7 @@ export function ContactPage(props: ContactProps) {
   };
 
   return (
-    <Paper shadow="md" radius="lg" ref={props.scrollRef}>
+    <Paper shadow="md" radius="lg" ref={ref}>
       <div className={classes.wrapper}>
         <div className={classes.contacts}>
           <Text
@@ -279,5 +282,5 @@ export function ContactPage(props: ContactProps) {
       </div>
     </Paper>
   );
-}
+});
 export default ContactPage;

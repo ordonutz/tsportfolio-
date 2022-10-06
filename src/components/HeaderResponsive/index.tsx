@@ -10,6 +10,7 @@ import {
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import MainLogo from "../../assets/MainLogo";
+import React from "react";
 
 const HEADER_HEIGHT = "90px";
 
@@ -83,26 +84,24 @@ const useStyles = createStyles((theme) => {
 
 interface HeaderResponsiveProps {
   links: {
-    link: () => void;
     label: string;
-    ref: React.MutableRefObject<any>;
   }[];
+  scrollToSection: (elementRefName: string) => void;
 }
 
-export default function HeaderResponsive({ links }: HeaderResponsiveProps) {
+const HeaderResponsive = (props: HeaderResponsiveProps) => {
   const [opened, { toggle, close }] = useDisclosure(false);
-  const [active, setActive] = useState(links[0].link);
+
   const { classes, cx } = useStyles();
 
-  const items = links.map((link) => (
+  const items = props.links.map((link) => (
     <a
       key={link.label}
       className={cx(classes.link)}
       onClick={(event) => {
         event.preventDefault();
-        link.link();
-
-        console.log("HEADER i was clicked");
+        console.log("hello from the on click", link.label);
+        props.scrollToSection(link.label);
       }}
     >
       {link.label}
@@ -135,4 +134,6 @@ export default function HeaderResponsive({ links }: HeaderResponsiveProps) {
       </Container>
     </Header>
   );
-}
+};
+
+export default HeaderResponsive;

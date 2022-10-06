@@ -13,7 +13,8 @@ import ContactPage from "./components/Pages/ContactPage";
 import HeaderResponsive from "./components/HeaderResponsive/index";
 import FooterResponsive from "./components/FooterResponsive";
 import { useScrollIntoView } from "@mantine/hooks";
-import { useRef } from "react";
+import { MutableRefObject, Ref, useRef } from "react";
+import React from "react";
 /**
  * used to overWrite default theme settings
  */
@@ -76,20 +77,39 @@ export default function App() {
   /**
    * refs for the scroll to section
    */
-  const projects = useRef<React.MutableRefObject<HTMLElement>>(null);
-  const resume = useRef<React.MutableRefObject<HTMLElement>>(null);
-  const contact = useRef<React.MutableRefObject<HTMLElement>>(null);
+  const projects = useRef<any>(null);
+  const resume = useRef<any>(null);
+  const contact = useRef<any>(null);
 
-  /**
-   * Takes in a reference to an element and will scroll to the top of that element
-   * @param elementRef element reference
-   */
-  const scrollToSection = (elementRef: any) => {
-    if (elementRef.current !== null) {
+  const scrollToRef = (elementRef: MutableRefObject<any>) => {
+    if (elementRef.current != null) {
       window.scrollTo({
         top: elementRef.current.offsetTop,
         behavior: "smooth",
       });
+    }
+  };
+
+  /**
+   * Takes in a reference to an element and will scroll to the top of that element
+   * @param elementRefLabel element reference
+   */
+  const scrollToSection = (elementRefLabel: string) => {
+    switch (elementRefLabel) {
+      case "Projects":
+        console.log("string is ", elementRefLabel);
+        console.log("ref is ", projects);
+        scrollToRef(projects);
+        break;
+      case "Resume":
+        console.log("string is ", elementRefLabel);
+        console.log("ref is ", projects);
+        scrollToRef(resume);
+        break;
+      case "Contact":
+        scrollToRef(contact);
+        break;
+      default:
     }
   };
 
@@ -99,24 +119,31 @@ export default function App() {
    * will need to use scroll into view hook so this might change
    */
   const pageSectionLinks = [
-    { link: () => scrollToSection(projects), label: "Projects", ref: projects },
-    { link: () => scrollToSection(resume), label: "Resume", ref: resume },
-    { link: () => scrollToSection(contact), label: "Contact", ref: contact },
+    {
+      label: "Projects",
+    },
+    { label: "Resume" },
+    { label: "Contact" },
   ];
 
   return (
     <div className={classes.wrapperImg}>
       <MantineProvider theme={MY_THEME} withGlobalStyles withNormalizeCSS>
         <AppShell
-          header={<HeaderResponsive links={pageSectionLinks} />}
-          footer={<FooterResponsive links={pageSectionLinks} />}
+          header={
+            <HeaderResponsive
+              links={pageSectionLinks}
+              scrollToSection={scrollToSection}
+            />
+          }
+          // footer={<FooterResponsive links={pageSectionLinks} />}
         >
           <HomePage />
-          <ResumePage scrollRef={resume} />
+          <ResumePage ref={resume} />
 
-          <ProjectPage scrollRef={projects} />
+          <ProjectPage ref={projects} />
 
-          <ContactPage scrollRef={contact} />
+          <ContactPage ref={contact} />
         </AppShell>
       </MantineProvider>
     </div>

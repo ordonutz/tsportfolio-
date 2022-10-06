@@ -32,7 +32,6 @@ interface FooterSimpleProps {
   links: {
     link: () => void;
     label: string;
-    ref: React.MutableRefObject<any>;
   }[];
 }
 

@@ -8,6 +8,7 @@ import {
   SimpleGrid,
   Container,
 } from "@mantine/core";
+import React from "react";
 import GitIcon from "../../../assets/GitIcon";
 import MailIcon from "../../../assets/MailIcon";
 import PhoneIcon from "../../../assets/PhoneIcon";
@@ -100,10 +101,13 @@ const useStyles = createStyles((theme) => ({
 }));
 
 interface ProjectProps {
-  scrollRef?: React.MutableRefObject<any>;
+  scrollRef?: any;
 }
 
-export default function ProjectPage(props: ProjectProps) {
+const ProjectPage = React.forwardRef<
+  HTMLDivElement,
+  React.PropsWithChildren<ProjectProps>
+>((props: ProjectProps, ref) => {
   const { classes, theme } = useStyles();
   const features = mockdata.map((feature: projectData) => (
     <Card
@@ -139,7 +143,7 @@ export default function ProjectPage(props: ProjectProps) {
     </Card>
   ));
   return (
-    <Container size="lg" py="xl" ref={props.scrollRef}>
+    <Container size="lg" py="xl" ref={ref}>
       <Title order={2} className={classes.title} align="center" mt="sm">
         Projects
       </Title>
@@ -163,7 +167,8 @@ export default function ProjectPage(props: ProjectProps) {
       </SimpleGrid>
     </Container>
   );
-}
+});
+export default ProjectPage;
 // import {
 //   Image,
 //   Text,
