@@ -114,6 +114,7 @@ const useStyles = createStyles((theme) => ({
 
 interface resumeProps {
   scrollRef?: React.MutableRefObject<any>;
+  id: string;
 }
 
 /**
@@ -139,9 +140,10 @@ const ResumePage = React.forwardRef<
    * @returns Formatted Text and List elements inside of each section
    */
   const getSubSectionData = (subSection: resumeSubSection) => {
+    console.log(props.id);
     return (
       <>
-        <Group position="apart" spacing="xs">
+        <Group position="apart" spacing="xs" id={props.id}>
           <Text className={classes.resumeSubTitle}>{subSection.name}</Text>
           <Text className={classes.resumeDate}>{subSection.date}</Text>
           <List

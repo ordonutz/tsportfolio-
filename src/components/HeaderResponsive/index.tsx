@@ -11,6 +11,7 @@ import {
 import { useDisclosure } from "@mantine/hooks";
 import MainLogo from "../../assets/MainLogo";
 import React from "react";
+import { Link } from "react-scroll";
 
 const HEADER_HEIGHT = "90px";
 
@@ -86,7 +87,7 @@ interface HeaderResponsiveProps {
   links: {
     label: string;
   }[];
-  scrollToSection: (elementRefName: string, event: any) => void;
+  scrollToSection: (elementRefName: string) => void;
 }
 
 const HeaderResponsive = (props: HeaderResponsiveProps) => {
@@ -95,17 +96,17 @@ const HeaderResponsive = (props: HeaderResponsiveProps) => {
   const { classes, cx } = useStyles();
 
   const items = props.links.map((link) => (
-    <a
+    <Link
+      to={link.label}
+      spy={true}
+      smooth={true}
+      offset={50}
+      duration={500}
       key={link.label}
       className={cx(classes.link)}
-      onClick={(event) => {
-        event.preventDefault();
-        console.log("hello from the on click", link.label);
-        props.scrollToSection(link.label, event);
-      }}
     >
       {link.label}
-    </a>
+    </Link>
   ));
 
   return (

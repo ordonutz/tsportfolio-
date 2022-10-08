@@ -99,7 +99,7 @@ export default function App() {
    * Takes in a reference to an element and will scroll to the top of that element
    * @param elementRefLabel element reference
    */
-  const scrollToSection = (elementRefLabel: string, event: any) => {
+  const scrollToSection = (elementRefLabel: string) => {
     switch (elementRefLabel) {
       case "Projects":
         console.log("string is ", elementRefLabel);
@@ -125,9 +125,7 @@ export default function App() {
    * will need to use scroll into view hook so this might change
    */
   const pageSectionLinks = [
-    {
-      label: "Projects",
-    },
+    { label: "Projects" },
     { label: "Resume" },
     { label: "Contact" },
   ];
@@ -142,19 +140,19 @@ export default function App() {
               scrollToSection={scrollToSection}
             />
           }
-          // footer={
-          //   <FooterResponsive
-          //     links={pageSectionLinks}
-          //     scrollToSection={scrollToSection}
-          //   />
-          // }
+          footer={
+            <FooterResponsive
+              links={pageSectionLinks}
+              scrollToSection={scrollToSection}
+            />
+          }
         >
           <HomePage />
-          <ResumePage ref={resume} />
+          <ResumePage ref={resume} id="Resume" />
 
-          <ProjectPage ref={projects} />
+          <ProjectPage ref={projects} id="Projects" />
 
-          <ContactPage ref={contact} />
+          <ContactPage ref={contact} id="Contact" />
         </AppShell>
       </MantineProvider>
     </div>

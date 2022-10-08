@@ -123,6 +123,7 @@ interface formValues {
 
 interface ContactProps {
   scrollRef?: React.MutableRefObject<any>;
+  id: string;
 }
 
 const ContactPage = React.forwardRef<
@@ -174,7 +175,7 @@ const ContactPage = React.forwardRef<
   };
 
   return (
-    <Paper shadow="md" radius="lg" ref={ref}>
+    <Paper shadow="md" radius="lg" ref={ref} id={props.id}>
       <div className={classes.wrapper}>
         <div className={classes.contacts}>
           <Text

@@ -102,6 +102,7 @@ const useStyles = createStyles((theme) => ({
 
 interface ProjectProps {
   scrollRef?: any;
+  id: string;
 }
 
 const ProjectPage = React.forwardRef<
@@ -143,7 +144,7 @@ const ProjectPage = React.forwardRef<
     </Card>
   ));
   return (
-    <Container size="lg" py="xl" ref={ref}>
+    <Container size="lg" py="xl" ref={ref} id={props.id}>
       <Title order={2} className={classes.title} align="center" mt="sm">
         Projects
       </Title>
