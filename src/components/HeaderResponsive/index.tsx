@@ -13,20 +13,21 @@ import MainLogo from "../../assets/MainLogo";
 import React from "react";
 import { Link } from "react-scroll";
 
-const HEADER_HEIGHT = "90px";
+const HEADER_HEIGHT = "120px";
 
 const useStyles = createStyles((theme) => {
   return {
     root: {
-      position: "relative",
-      zIndex: 1,
+      position: "absolute",
+      zIndex: 999,
+      margin: "auto",
+      width: "auto",
       background: "transparent",
-      marginBottom: "2%",
     },
 
     dropdown: {
       position: "absolute",
-      top: HEADER_HEIGHT,
+      top: "105px",
       left: 0,
       right: 0,
       zIndex: 0,
@@ -44,8 +45,12 @@ const useStyles = createStyles((theme) => {
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
-
-      height: "100%",
+      maxWidth: "2000px",
+      margin: "auto",
+      padding: "0 8.5rem",
+      [theme.fn.smallerThan("sm")]: {
+        padding: "0 1rem",
+      },
     },
 
     links: {
@@ -64,7 +69,7 @@ const useStyles = createStyles((theme) => {
       display: "block",
       lineHeight: 1,
       padding: "8px 12px",
-      borderRadius: theme.radius.md,
+      borderRadius: theme.radius.lg,
       textDecoration: "none",
       color: theme.colors.dark[0],
       fontSize: theme.fontSizes.md,
@@ -78,6 +83,12 @@ const useStyles = createStyles((theme) => {
       [theme.fn.smallerThan("sm")]: {
         borderRadius: 0,
         padding: theme.spacing.md,
+      },
+    },
+    logo: {
+      height: "90px",
+      [theme.fn.smallerThan("sm")]: {
+        height: "70px",
       },
     },
   };
@@ -102,7 +113,7 @@ const HeaderResponsive = (props: HeaderResponsiveProps) => {
       offset={50}
       duration={500}
       key={link.label}
-      className={cx(classes.link)}
+      className={classes.link}
     >
       {link.label}
     </Link>
@@ -110,19 +121,17 @@ const HeaderResponsive = (props: HeaderResponsiveProps) => {
 
   return (
     <Header height={HEADER_HEIGHT} withBorder={false} className={classes.root}>
-      <Container size={1320} className={classes.header}>
-        <MainLogo />
-
-        <Group spacing={7} className={classes.links}>
-          {items}
-        </Group>
-
+      <div className={classes.header}>
         <Burger
           opened={opened}
           onClick={toggle}
           className={classes.burger}
-          size="sm"
+          size="md"
         />
+        <MainLogo className={classes.logo} />
+        <Group spacing={10} className={classes.links}>
+          {items}
+        </Group>
 
         <Transition transition="pop-top-right" duration={200} mounted={opened}>
           {(styles) => (
@@ -131,7 +140,7 @@ const HeaderResponsive = (props: HeaderResponsiveProps) => {
             </Paper>
           )}
         </Transition>
-      </Container>
+      </div>
     </Header>
   );
 };

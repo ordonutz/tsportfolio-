@@ -46,9 +46,11 @@ const useStyles = createStyles((MY_THEME) => {
       backgroundSize: "100%",
       backgroundPosition: "top",
       backgroundRepeat: "no-repeat",
+      marginTop: "110px",
       [MY_THEME.fn.smallerThan("md")]: {
         backgroundImage: "url(" + "/backgroundOverlayMd.png" + ")",
         backgroundAttachment: "fixed",
+        marginTop: "105px",
       },
     },
   };
