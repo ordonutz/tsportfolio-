@@ -71,11 +71,8 @@ const useStyles = createStyles((theme) => ({
   },
 
   subTitle: {
-    fontSize: "clamp(1.44rem, calc(1.05rem + 1.95vw), 2.44rem)",
+    fontSize: "clamp(1.20rem, calc(0.91rem + 1.47vw), 1.95rem)",
     color: theme.colors.cyan[4],
-    [theme.fn.smallerThan("md")]: {
-      fontSize: "1em",
-    },
   },
 
   listItemsText: {
