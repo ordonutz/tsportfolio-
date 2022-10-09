@@ -1,17 +1,11 @@
 import React from "react";
-/*
-TO DO: 
-  - interface for props
-  - outline what props should be
-  - styles
-*/
 
 function FolderIcon() {
   return (
     <svg
       width="594"
       height="670"
-      viewBox="0 0 594 670"
+      viewBox="0 -26 594 670"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >

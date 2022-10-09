@@ -16,25 +16,38 @@ import FolderIcon from "../../../assets/FolderIcon";
  */
 const useStyles = createStyles((theme) => ({
   outerContainer: {
-    height: "20%",
+    border: "3px solid red",
+    height: "25%",
     display: "flex",
     flexDirection: "column",
     flexWrap: "nowrap",
     justifyContent: "center",
     alignItems: "center",
     alignContent: "center",
-    marginTop: "5%",
+    marginTop: "2rem",
+    [theme.fn.smallerThan("xs")]: {
+      marginTop: "1rem",
+      height: "15%",
+      border: "3px solid blue",
+    },
+    [theme.fn.largerThan("md")]: {
+      marginTop: "1rem",
+      height: "25%",
+      border: "3px solid green",
+    },
   },
   inner: {
+    border: "3px solid yellow",
     display: "flex",
+    flexDirection: "row",
+    flexWrap: "nowrap",
     justifyContent: "space-between",
-    // paddingTop: theme.spacing.xl * 3,
-    // paddingBottom: theme.spacing.xl * 3,
+    alignItems: "center",
+    alignContent: "stretch",
   },
 
   content: {
-    background: "transparent",
-    marginRight: theme.spacing.xl * 3,
+    border: "3px solid red",
     [theme.fn.smallerThan("md")]: {
       maxWidth: "100%",
       marginRight: 0,
@@ -42,7 +55,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   title: {
-    color: theme.colorScheme === "dark" ? theme.white : theme.colors.gray[2],
+    color: theme.white,
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
     fontSize: 65,
     lineHeight: 1.2,
@@ -55,29 +68,22 @@ const useStyles = createStyles((theme) => ({
 
   subTitle: {
     fontSize: 25,
-    color: theme.colors.cyan[2],
+    color: theme.colors.cyan[4],
     [theme.fn.smallerThan("md")]: {
       fontSize: 15,
     },
   },
 
   listItemsText: {
-    fontSize: 20,
-    color: theme.colors.gray[2],
-    fontWeight: 350,
+    fontSize: 24,
+    color: theme.colors.gray[4],
+    fontWeight: 340,
     [theme.fn.smallerThan("xs")]: {
       fontSize: 16,
     },
   },
-  control: {
-    color: theme.colors.gray[9],
-
-    [theme.fn.smallerThan("xs")]: {
-      flex: 1,
-    },
-  },
-
   image: {
+    border: "3px solid orange",
     display: "flex",
     flexDirection: "column",
     flexWrap: "nowrap",
@@ -88,13 +94,6 @@ const useStyles = createStyles((theme) => ({
     [theme.fn.smallerThan("md")]: {
       display: "none",
     },
-  },
-
-  highlight: {
-    position: "relative",
-    backgroundColor: "transparent",
-    borderRadius: theme.radius.sm,
-    padding: "4px 12px",
   },
   buttonGroup: {
     Button: {
@@ -120,52 +119,49 @@ const HomePage = (props: homeProps) => {
 
   return (
     <div className={classes.outerContainer} id={props.id}>
-      <Container style={{ maxWidth: "1320px" }}>
-        <div className={classes.inner}>
-          <div className={classes.content}>
-            <Title className={classes.title}>
-              hi! I'm leslie
-              <br />
-              <Text
-                component="span"
-                variant="gradient"
-                gradient={{ from: "yellow", to: "cyan", deg: 90 }}
-              >
-                Software Engineer
-              </Text>
-            </Title>
-            <Text mt="md" className={classes.subTitle}>
-              intrigued, curious, and excited about everything web development
-            </Text>
-
-            <List
-              mt={30}
-              spacing="sm"
-              size="md"
-              className={classes.listItemsText}
-              icon={
-                <ThemeIcon color="teal" size={24} radius="xl">
-                  <CheckIcon />
-                </ThemeIcon>
-              }
+      <Container style={{ maxWidth: "2000px" }} className={classes.inner}>
+        <div className={classes.content}>
+          <Title className={classes.title}>
+            hi! I'm leslie
+            <br />
+            <Text
+              component="span"
+              variant="gradient"
+              gradient={{ from: "yellow", to: "cyan", deg: 90 }}
             >
-              <List.Item>
-                <b>Industry experience in front end web development</b>
-              </List.Item>
-              <List.Item>
-                <b>Recent computer science b.s. grad</b>
-              </List.Item>
-              <List.Item>
-                <b>Proficient educational background in C++</b>
-              </List.Item>
-            </List>
-          </div>
-          <div className={classes.image}>
-            {" "}
-            <FolderIcon />
-          </div>
+              Software Engineer
+            </Text>
+          </Title>
+          <Text mt="md" className={classes.subTitle}>
+            intrigued, curious, and excited about everything web development
+          </Text>
+
+          <List
+            mt={30}
+            spacing="sm"
+            size="md"
+            className={classes.listItemsText}
+            icon={
+              <ThemeIcon color="teal" size={24} radius="xl">
+                <CheckIcon />
+              </ThemeIcon>
+            }
+          >
+            <List.Item>
+              <b>Industry experience in front end web development</b>
+            </List.Item>
+            <List.Item>
+              <b>Recent computer science b.s. grad</b>
+            </List.Item>
+            <List.Item>
+              <b>Proficient educational background in C++</b>
+            </List.Item>
+          </List>
         </div>
-        <Group mt={30} position="center" className={classes.buttonGroup}>
+        <div className={classes.image}>
+          <FolderIcon />
+        </div>
+        {/* <Group mt={30} position="center" className={classes.buttonGroup}>
           <Button
             radius="xl"
             size="md"
@@ -180,7 +176,7 @@ const HomePage = (props: homeProps) => {
           <Button radius="xl" size="md" variant="default">
             Contact
           </Button>
-        </Group>
+        </Group> */}
       </Container>
     </div>
   );
