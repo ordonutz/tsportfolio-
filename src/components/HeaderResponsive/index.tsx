@@ -87,7 +87,6 @@ interface HeaderResponsiveProps {
   links: {
     label: string;
   }[];
-  scrollToSection: (elementRefName: string) => void;
 }
 
 const HeaderResponsive = (props: HeaderResponsiveProps) => {

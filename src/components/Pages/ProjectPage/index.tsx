@@ -105,10 +105,7 @@ interface ProjectProps {
   id: string;
 }
 
-const ProjectPage = React.forwardRef<
-  HTMLDivElement,
-  React.PropsWithChildren<ProjectProps>
->((props: ProjectProps, ref) => {
+const ProjectPage = (props: ProjectProps) => {
   const { classes, theme } = useStyles();
   const features = mockdata.map((feature: projectData) => (
     <Card
@@ -144,7 +141,7 @@ const ProjectPage = React.forwardRef<
     </Card>
   ));
   return (
-    <Container size="lg" py="xl" ref={ref} id={props.id}>
+    <Container size="lg" py="xl" id={props.id}>
       <Title order={2} className={classes.title} align="center" mt="sm">
         Projects
       </Title>
@@ -168,7 +165,7 @@ const ProjectPage = React.forwardRef<
       </SimpleGrid>
     </Container>
   );
-});
+};
 export default ProjectPage;
 // import {
 //   Image,

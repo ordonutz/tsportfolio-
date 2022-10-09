@@ -121,10 +121,7 @@ interface resumeProps {
  * Resume section where user can view resume or print pdf
  * @returns container with scrollable digital resume and button to print/download resume
  */
-const ResumePage = React.forwardRef<
-  HTMLDivElement,
-  React.PropsWithChildren<resumeProps>
->((props, ref) => {
+const ResumePage = (props: resumeProps) => {
   const { classes } = useStyles();
   const theme = useMantineTheme();
   const resumeCopy: resumeSectionData[] = JSON.parse(
@@ -204,7 +201,7 @@ const ResumePage = React.forwardRef<
   ));
 
   return (
-    <div className={classes.container} id="Resume" ref={ref}>
+    <div className={classes.container} id="Resume">
       <a
         href="Leslie_Ordonez_Hernandez_Resume.pdf"
         download="Leslie_Ordonez_Hernandez_Resume.pdf"
@@ -280,6 +277,6 @@ const ResumePage = React.forwardRef<
       </Paper>
     </div>
   );
-});
+};
 
 export default ResumePage;

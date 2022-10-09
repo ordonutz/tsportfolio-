@@ -33,13 +33,9 @@ interface FooterSimpleProps {
   links: {
     label: string;
   }[];
-  scrollToSection: (elementRefName: string) => void;
 }
 
-export default function FooterResponsive({
-  links,
-  scrollToSection,
-}: FooterSimpleProps) {
+export default function FooterResponsive({ links }: FooterSimpleProps) {
   const { classes } = useStyles();
 
   const items = links.map((link) => (
@@ -50,7 +46,6 @@ export default function FooterResponsive({
         event.preventDefault();
 
         console.log(" FOOTER i was clicked", link.label);
-        scrollToSection(link.label);
       }}
       size="sm"
     >

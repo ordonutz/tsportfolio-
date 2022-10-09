@@ -1,4 +1,4 @@
-import React, { LegacyRef } from "react";
+import React from "react";
 import {
   Paper,
   Text,
@@ -13,10 +13,8 @@ import {
 } from "@mantine/core";
 
 import emailjs from "@emailjs/browser";
-import { useRef, useState } from "react";
-import { useForm, UseFormReturnType } from "@mantine/form";
-import { RefObject } from "react";
-import { MutableRefObject } from "react";
+import { useState } from "react";
+import { useForm } from "@mantine/form";
 import ContactIcons from "./ContactIcons";
 
 const useStyles = createStyles((theme) => {
@@ -126,10 +124,7 @@ interface ContactProps {
   id: string;
 }
 
-const ContactPage = React.forwardRef<
-  HTMLDivElement,
-  React.PropsWithChildren<ContactProps>
->((props: ContactProps, ref) => {
+const ContactPage = (props: ContactProps) => {
   const { classes } = useStyles();
   const [subSuccess, setSubSuccess] = useState(false); // true if form is successfully submitted to conditionally render success message
   const [subErr, setSubErr] = useState(false); // true if form failed to submit to conditionally render error message
@@ -175,7 +170,7 @@ const ContactPage = React.forwardRef<
   };
 
   return (
-    <Paper shadow="md" radius="lg" ref={ref} id={props.id}>
+    <Paper shadow="md" radius="lg" id={props.id}>
       <div className={classes.wrapper}>
         <div className={classes.contacts}>
           <Text
@@ -283,5 +278,5 @@ const ContactPage = React.forwardRef<
       </div>
     </Paper>
   );
-});
+};
 export default ContactPage;
