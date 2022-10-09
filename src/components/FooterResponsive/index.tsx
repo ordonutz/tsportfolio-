@@ -4,7 +4,7 @@ import { Link } from "react-scroll";
 
 const useStyles = createStyles((theme) => ({
   footer: {
-    margin: "auto",
+    marginInline: "auto",
     background: "transparent",
     maxWidth: "2000px",
   },

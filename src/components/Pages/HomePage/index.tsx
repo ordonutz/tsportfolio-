@@ -24,14 +24,14 @@ const useStyles = createStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     alignContent: "center",
-    marginTop: "2rem",
+    marginTop: "2em",
     [theme.fn.smallerThan("xs")]: {
-      marginTop: "1rem",
+      marginTop: "1em",
       height: "15%",
       border: "3px solid blue",
     },
     [theme.fn.largerThan("md")]: {
-      marginTop: "1rem",
+      marginTop: "1em",
       height: "25%",
       border: "3px solid green",
     },
@@ -44,6 +44,10 @@ const useStyles = createStyles((theme) => ({
     justifyContent: "space-between",
     alignItems: "center",
     alignContent: "stretch",
+    padding: "0 3em",
+    [theme.fn.smallerThan("sm")]: {
+      padding: "0 1em",
+    },
   },
 
   content: {
@@ -57,29 +61,29 @@ const useStyles = createStyles((theme) => ({
   title: {
     color: theme.white,
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-    fontSize: 65,
+    fontSize: "clamp(1.80rem, calc(1.21rem + 2.97vw), 3.32rem)",
     lineHeight: 1.2,
     fontWeight: 700,
 
-    [theme.fn.smallerThan("xs")]: {
-      fontSize: 28,
-    },
+    // [theme.fn.smallerThan("xs")]: {
+    //   fontSize: "2em",
+    // },
   },
 
   subTitle: {
-    fontSize: 25,
+    fontSize: "clamp(1.44rem, calc(1.05rem + 1.95vw), 2.44rem)",
     color: theme.colors.cyan[4],
     [theme.fn.smallerThan("md")]: {
-      fontSize: 15,
+      fontSize: "1em",
     },
   },
 
   listItemsText: {
-    fontSize: 24,
+    fontSize: "1.5em",
     color: theme.colors.gray[4],
     fontWeight: 340,
     [theme.fn.smallerThan("xs")]: {
-      fontSize: 16,
+      fontSize: "1em",
     },
   },
   image: {
@@ -128,6 +132,9 @@ const HomePage = (props: homeProps) => {
               component="span"
               variant="gradient"
               gradient={{ from: "yellow", to: "cyan", deg: 90 }}
+              style={{
+                fontSize: "clamp(1.80rem, calc(1.21rem + 2.97vw), 3.32rem)",
+              }}
             >
               Software Engineer
             </Text>

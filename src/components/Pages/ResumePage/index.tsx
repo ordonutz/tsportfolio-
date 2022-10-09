@@ -45,7 +45,7 @@ const useStyles = createStyles((theme) => ({
     borderRadius: "10px",
     transition: "transform 150ms ease, box-shadow 150ms ease",
     width: "90%",
-    margin: "0 auto",
+    marginInline: "auto",
     marginBottom: "1%",
 
     "&:hover": {
