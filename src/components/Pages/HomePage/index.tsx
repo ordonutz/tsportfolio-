@@ -106,17 +106,20 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
+interface homeProps {
+  id?: string;
+}
 /**
  * TODO: add onClick functionality to buttons, clean up styling, update jsdoc
  *       add background image to make it look less basic, add animations
  * About me section that acts like a landing page
  * @returns container with text and an svg image
  */
-export default function HomePage() {
+const HomePage = (props: homeProps) => {
   const { classes } = useStyles();
 
   return (
-    <div className={classes.outerContainer}>
+    <div className={classes.outerContainer} id={props.id}>
       <Container style={{ maxWidth: "1320px" }}>
         <div className={classes.inner}>
           <div className={classes.content}>
@@ -181,4 +184,6 @@ export default function HomePage() {
       </Container>
     </div>
   );
-}
+};
+
+export default HomePage;

@@ -98,6 +98,7 @@ interface HeaderResponsiveProps {
   links: {
     label: string;
   }[];
+  id: string;
 }
 
 const HeaderResponsive = (props: HeaderResponsiveProps) => {
@@ -120,7 +121,12 @@ const HeaderResponsive = (props: HeaderResponsiveProps) => {
   ));
 
   return (
-    <Header height={HEADER_HEIGHT} withBorder={false} className={classes.root}>
+    <Header
+      id={props.id}
+      height={HEADER_HEIGHT}
+      withBorder={false}
+      className={classes.root}
+    >
       <div className={classes.header}>
         <Burger
           opened={opened}
@@ -128,7 +134,9 @@ const HeaderResponsive = (props: HeaderResponsiveProps) => {
           className={classes.burger}
           size="md"
         />
+
         <MainLogo className={classes.logo} />
+
         <Group spacing={10} className={classes.links}>
           {items}
         </Group>

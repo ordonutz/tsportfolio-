@@ -77,7 +77,9 @@ export default function App() {
     <div className={classes.wrapperImg}>
       <MantineProvider theme={MY_THEME} withGlobalStyles withNormalizeCSS>
         <AppShell
-          header={<HeaderResponsive links={pageSectionLinks} />}
+          header={
+            <HeaderResponsive links={pageSectionLinks} id="landingSection" />
+          }
           footer={<FooterResponsive links={pageSectionLinks} />}
         >
           <HomePage />
