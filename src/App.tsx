@@ -3,6 +3,7 @@ import {
   MantineThemeOverride,
   MantineProvider,
   createStyles,
+  useMantineTheme,
 } from "@mantine/core";
 import HomePage from "./components/Pages/HomePage";
 import ResumePage from "./components/Pages/ResumePage";
@@ -73,11 +74,15 @@ export default function App() {
    * styling classNames available
    */
   const { classes } = useStyles();
-
+  const theme = useMantineTheme();
   return (
     <div className={classes.wrapperImg}>
       <MantineProvider theme={MY_THEME} withGlobalStyles withNormalizeCSS>
         <AppShell
+          style={{
+            maxWidth: "2000px",
+            marginInline: "auto",
+          }}
           header={
             <HeaderResponsive links={pageSectionLinks} id="landingSection" />
           }

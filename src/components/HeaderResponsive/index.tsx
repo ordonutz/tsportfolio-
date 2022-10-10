@@ -13,7 +13,7 @@ import MainLogo from "../../assets/MainLogo";
 import React from "react";
 import { Link } from "react-scroll";
 
-const HEADER_HEIGHT = "120px";
+const HEADER_HEIGHT = "70px";
 
 const useStyles = createStyles((theme) => {
   return {
@@ -45,12 +45,12 @@ const useStyles = createStyles((theme) => {
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
-      // maxWidth: "2000px",
+      maxWidth: "2000px",
       background: "red",
       marginInline: "auto",
-      padding: "0 6em",
-      [theme.fn.smallerThan("sm")]: {
-        padding: "0 1em",
+      padding: "0 max(calc(6.23rem + 4.77vw), 5.63rem)",
+      [theme.fn.smallerThan("md")]: {
+        padding: "0 1rem",
       },
     },
 
@@ -87,9 +87,9 @@ const useStyles = createStyles((theme) => {
       },
     },
     logo: {
-      height: "90px",
+      height: "80px",
       [theme.fn.smallerThan("sm")]: {
-        height: "70px",
+        height: "60px",
       },
     },
   };

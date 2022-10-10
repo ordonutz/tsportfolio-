@@ -29,13 +29,19 @@ import { resumeData } from "./resumeData";
  */
 const useStyles = createStyles((theme) => ({
   container: {
+    border: "3px solid red",
+    height: "100vh",
+    width: "max(calc(1.23rem + 60%), 80%)",
+    marginInline: "auto",
+    [theme.fn.smallerThan("xs")]: {
+      width: "90%",
+    },
     display: "flex",
     flexDirection: "column",
     flexWrap: "nowrap",
     justifyContent: "center",
     alignItems: "center",
-    alignContent: "center",
-    marginTop: "10%",
+    // add padding
   },
   card: {
     background: "#FAA69F",
@@ -59,11 +65,17 @@ const useStyles = createStyles((theme) => ({
     fontSize: 40,
   },
   paperResume: {
+    border: "2 px solid blue",
+    position: "relative",
+    display: "flex",
     shadow: "xl",
     background: "#E9E9E9",
     boxShadow:
       "inset -4px 4px 4px rgba(255, 255, 255, 0.25), inset 4px -4px 4px rgba(0, 0, 0, 0.25)",
     width: "60%",
+    [theme.fn.smallerThan("sm")]: {
+      width: "100%",
+    },
   },
   resumeHeader: {
     width: "auto",
@@ -137,7 +149,6 @@ const ResumePage = (props: resumeProps) => {
    * @returns Formatted Text and List elements inside of each section
    */
   const getSubSectionData = (subSection: resumeSubSection) => {
-    console.log(props.id);
     return (
       <>
         <Group position="apart" spacing="xs" id={props.id}>
@@ -202,7 +213,7 @@ const ResumePage = (props: resumeProps) => {
 
   return (
     <div className={classes.container} id="Resume">
-      <a
+      {/* <a
         href="Leslie_Ordonez_Hernandez_Resume.pdf"
         download="Leslie_Ordonez_Hernandez_Resume.pdf"
       >
@@ -215,8 +226,8 @@ const ResumePage = (props: resumeProps) => {
         >
           Download PDF
         </Button>
-      </a>
-      <Button
+      </a> */}
+      {/* <Button
         radius="xl"
         size="md"
         className={classes.resumeButtonTop}
@@ -231,10 +242,10 @@ const ResumePage = (props: resumeProps) => {
         }
       >
         View PDF
-      </Button>
+      </Button> */}
 
       <Paper radius="md" shadow="xl" className={classes.paperResume}>
-        <ScrollArea style={{ height: 900 }} type="auto" scrollbarSize={20}>
+        {/* <ScrollArea style={{ height: 900 }} type="auto" scrollbarSize={20}>
           <Group className={classes.resumeHeader} position="apart">
             <Text
               color="#53917E"
@@ -273,7 +284,7 @@ const ResumePage = (props: resumeProps) => {
           <SimpleGrid cols={1} breakpoints={[{ maxWidth: "sm", cols: 1 }]}>
             {cards}
           </SimpleGrid>
-        </ScrollArea>
+        </ScrollArea> */}
       </Paper>
     </div>
   );

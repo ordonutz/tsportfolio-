@@ -1,6 +1,5 @@
 import {
   createStyles,
-  Container,
   Title,
   Button,
   Group,
@@ -13,32 +12,24 @@ import {
 } from "@mantine/core";
 import { useState } from "react";
 import FolderIcon from "../../../assets/FolderIcon";
+import { Link } from "react-scroll";
 
 /**
  * @param theme MantineTheme object that stores styling properties to be used everywhere in the app
  */
 const useStyles = createStyles((theme) => ({
   outerContainer: {
-    border: "3px solid red",
-    height: "25%",
-    marginTop: "clamp(1.20rem, calc(0.91rem + 1.47vw), 1.95rem)",
-    // display: "flex",
-    // flexDirection: "row",
-    // flexWrap: "nowrap",
-    // justifyContent: "center",
-    // alignItems: "center",
-
-    // display: "flex",
-    // flexDirection: "column",
-    // flexWrap: "nowrap",
-    // justifyContent: "center",
-    // alignItems: "center",
-    // alignContent: "center",
+    position: "relative",
+    border: "3px solid pink",
+    height: "100vh",
+    width: "max(calc(1.23rem + 60%), 80%)",
+    marginInline: "auto",
+    [theme.fn.smallerThan("xs")]: {
+      width: "90%",
+    },
   },
   inner: {
-    // border: "3px solid yellow",
-    height: "auto",
-    width: "auto",
+    border: "3px solid purple",
     display: "flex",
     flexDirection: "row",
     flexWrap: "nowrap",
@@ -47,7 +38,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   content: {
-    // border: "3px solid pink",
+    border: "3px solid green",
 
     [theme.fn.smallerThan("md")]: {
       maxWidth: "100%",
@@ -77,7 +68,6 @@ const useStyles = createStyles((theme) => ({
     },
   },
   image: {
-    // border: "3px solid orange",
     display: "flex",
     flexDirection: "column",
     flexWrap: "nowrap",
@@ -102,6 +92,18 @@ const useStyles = createStyles((theme) => ({
       flexShrink: 1,
     },
   },
+  hideButton: {
+    [theme.fn.smallerThan("xs")]: {
+      display: "none",
+    },
+  },
+  icon: {
+    border: "3px solid yellow",
+    height: "40em",
+    [theme.fn.smallerThan("sm")]: {
+      height: "60px",
+    },
+  },
 }));
 
 interface homeProps {
@@ -117,10 +119,10 @@ const HomePage = (props: homeProps) => {
   const { classes } = useStyles();
   const theme = useMantineTheme();
   const [screenSize, setScreenSize] = useState<MantineSize | undefined>();
-  console.log("theme", theme.fn.smallerThan("sm"));
+  console.log("theme", theme.colors.green[8]);
   return (
     <div className={classes.outerContainer} id={props.id}>
-      <div style={{ maxWidth: "2000px" }} className={classes.inner}>
+      <div className={classes.inner}>
         <div className={classes.content}>
           <Title className={classes.title}>
             hi! I'm leslie
@@ -141,12 +143,12 @@ const HomePage = (props: homeProps) => {
           </Text>
 
           <List
-            mt={30}
+            mt={25}
             spacing="sm"
             size="md"
             className={classes.listItemsText}
             icon={
-              <ThemeIcon color="teal" size={24} radius="xl">
+              <ThemeIcon color={theme.colors.green[6]} size={22} radius="xl">
                 <CheckIcon />
               </ThemeIcon>
             }
@@ -167,37 +169,44 @@ const HomePage = (props: homeProps) => {
             position="left"
             className={classes.buttonGroup}
           >
-            <Button
-              radius="lg"
-              size="md"
-              variant="light"
-              color="green"
-              className={classes.Button}
-            >
-              Resume
-            </Button>
-            <Button
-              radius="lg"
-              size="md"
-              variant="light"
-              color="yellow"
-              className={classes.Button}
-            >
-              Projects
-            </Button>
-            {/* <Button
-              radius="xl"
-              size={screenSize}
-              variant="light"
-              color="blue"
-              className={classes.Button}
-            >
-              Contact
-            </Button> */}
+            <Link to="Contact" spy={true} smooth={true} duration={500}>
+              <Button
+                radius="lg"
+                size="md"
+                variant="gradient"
+                gradient={{ from: "#d6336c", to: "#ec8c69", deg: 35 }}
+                color="yellow"
+                className={classes.Button}
+              >
+                Let's Connect
+              </Button>
+            </Link>
+            <Link to="Resume" spy={true} smooth={true} duration={500}>
+              <Button
+                radius="lg"
+                size="md"
+                variant="light"
+                color="pink"
+                className={classes.hideButton}
+              >
+                Resume
+              </Button>
+            </Link>
+            <Link to="Projects" spy={true} smooth={true} duration={500}>
+              <Button
+                radius="lg"
+                size="md"
+                variant="light"
+                color="pink"
+                className={classes.hideButton}
+              >
+                Projects
+              </Button>
+            </Link>
           </Group>
         </div>
         <div className={classes.image}>
-          <FolderIcon />
+          <FolderIcon className={classes.icon} />
         </div>
       </div>
     </div>
