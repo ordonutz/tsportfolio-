@@ -18,7 +18,6 @@ const HEADER_HEIGHT = "120px";
 const useStyles = createStyles((theme) => {
   return {
     root: {
-      minHeight: "80px",
       position: "absolute",
       zIndex: 999,
       marginInline: "auto",
@@ -46,11 +45,12 @@ const useStyles = createStyles((theme) => {
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
-      maxWidth: "2000px",
+      // maxWidth: "2000px",
+      background: "red",
       marginInline: "auto",
-      padding: "0 8.5rem",
+      padding: "0 6em",
       [theme.fn.smallerThan("sm")]: {
-        padding: "0 1rem",
+        padding: "0 1em",
       },
     },
 

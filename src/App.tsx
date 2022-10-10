@@ -41,15 +41,16 @@ const MY_THEME: MantineThemeOverride = {
 const useStyles = createStyles((MY_THEME) => {
   return {
     wrapperImg: {
-      backgroundImage: "url(" + "/backgroundOverlayLg.png" + ")",
+      backgroundImage: "url(" + "/backgroundImg.png" + ")",
       backgroundAttachment: "scroll",
       backgroundSize: "100%",
       backgroundPosition: "top",
-      backgroundRepeat: "no-repeat",
       marginTop: "110px",
       [MY_THEME.fn.smallerThan("md")]: {
-        backgroundImage: "url(" + "/backgroundOverlayMd.png" + ")",
-        backgroundAttachment: "fixed",
+        backgroundImage: "url(" + "/backgroundImg.png" + ")",
+        backgroundAttachment: "scroll",
+        backgroundSize: "100%",
+        backgroundPosition: "top",
         marginTop: "105px",
       },
     },
@@ -62,8 +63,8 @@ const useStyles = createStyles((MY_THEME) => {
  * will need to use scroll into view hook so this might change
  */
 const pageSectionLinks = [
-  { label: "Projects" },
   { label: "Resume" },
+  { label: "Projects" },
   { label: "Contact" },
 ];
 
@@ -85,8 +86,8 @@ export default function App() {
           <HomePage />
           {pageSectionLinks.length > 2 && (
             <>
-              <ProjectPage id={pageSectionLinks[0].label} />
               <ResumePage id={pageSectionLinks[1].label} />
+              <ProjectPage id={pageSectionLinks[0].label} />
               <ContactPage id={pageSectionLinks[2].label} />
             </>
           )}

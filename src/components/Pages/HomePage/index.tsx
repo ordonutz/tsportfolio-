@@ -8,7 +8,10 @@ import {
   List,
   ThemeIcon,
   CheckIcon,
+  MantineSize,
+  useMantineTheme,
 } from "@mantine/core";
+import { useState } from "react";
 import FolderIcon from "../../../assets/FolderIcon";
 
 /**
@@ -18,40 +21,34 @@ const useStyles = createStyles((theme) => ({
   outerContainer: {
     border: "3px solid red",
     height: "25%",
-    display: "flex",
-    flexDirection: "column",
-    flexWrap: "nowrap",
-    justifyContent: "center",
-    alignItems: "center",
-    alignContent: "center",
-    marginTop: "2em",
-    [theme.fn.smallerThan("xs")]: {
-      marginTop: "1em",
-      height: "15%",
-      border: "3px solid blue",
-    },
-    [theme.fn.largerThan("md")]: {
-      marginTop: "1em",
-      height: "25%",
-      border: "3px solid green",
-    },
+    marginTop: "clamp(1.20rem, calc(0.91rem + 1.47vw), 1.95rem)",
+    // display: "flex",
+    // flexDirection: "row",
+    // flexWrap: "nowrap",
+    // justifyContent: "center",
+    // alignItems: "center",
+
+    // display: "flex",
+    // flexDirection: "column",
+    // flexWrap: "nowrap",
+    // justifyContent: "center",
+    // alignItems: "center",
+    // alignContent: "center",
   },
   inner: {
-    border: "3px solid yellow",
+    // border: "3px solid yellow",
+    height: "auto",
+    width: "auto",
     display: "flex",
     flexDirection: "row",
     flexWrap: "nowrap",
-    justifyContent: "space-between",
+    justifyContent: "center",
     alignItems: "center",
-    alignContent: "stretch",
-    padding: "0 3em",
-    [theme.fn.smallerThan("sm")]: {
-      padding: "0 1em",
-    },
   },
 
   content: {
-    border: "3px solid red",
+    // border: "3px solid pink",
+
     [theme.fn.smallerThan("md")]: {
       maxWidth: "100%",
       marginRight: 0,
@@ -64,14 +61,10 @@ const useStyles = createStyles((theme) => ({
     fontSize: "clamp(1.80rem, calc(1.21rem + 2.97vw), 3.32rem)",
     lineHeight: 1.2,
     fontWeight: 700,
-
-    // [theme.fn.smallerThan("xs")]: {
-    //   fontSize: "2em",
-    // },
   },
 
   subTitle: {
-    fontSize: "clamp(1.20rem, calc(0.91rem + 1.47vw), 1.95rem)",
+    fontSize: "clamp(1.00rem, calc(0.78rem + 1.10vw), 1.56rem)",
     color: theme.colors.cyan[4],
   },
 
@@ -84,24 +77,29 @@ const useStyles = createStyles((theme) => ({
     },
   },
   image: {
-    border: "3px solid orange",
+    // border: "3px solid orange",
     display: "flex",
     flexDirection: "column",
     flexWrap: "nowrap",
     justifyContent: "center",
     alignItems: "center",
     alignContent: "center",
+    height: "auto",
+    width: "auto",
 
     [theme.fn.smallerThan("md")]: {
       display: "none",
     },
   },
   buttonGroup: {
-    Button: {
-      color: theme.colors.gray[9],
-      [theme.fn.smallerThan("xs")]: {
-        flex: 1,
-      },
+    border: "3px solid red",
+    [theme.fn.smallerThan("xs")]: {
+      flex: 1,
+    },
+  },
+  Button: {
+    [theme.fn.smallerThan("xs")]: {
+      flexShrink: 1,
     },
   },
 }));
@@ -117,10 +115,12 @@ interface homeProps {
  */
 const HomePage = (props: homeProps) => {
   const { classes } = useStyles();
-
+  const theme = useMantineTheme();
+  const [screenSize, setScreenSize] = useState<MantineSize | undefined>();
+  console.log("theme", theme.fn.smallerThan("sm"));
   return (
     <div className={classes.outerContainer} id={props.id}>
-      <Container style={{ maxWidth: "2000px" }} className={classes.inner}>
+      <div style={{ maxWidth: "2000px" }} className={classes.inner}>
         <div className={classes.content}>
           <Title className={classes.title}>
             hi! I'm leslie
@@ -152,36 +152,54 @@ const HomePage = (props: homeProps) => {
             }
           >
             <List.Item>
-              <b>Industry experience in front end web development</b>
+              <b>Industry experience in React.js</b>
             </List.Item>
             <List.Item>
               <b>Recent computer science b.s. grad</b>
             </List.Item>
             <List.Item>
-              <b>Proficient educational background in C++</b>
+              <b>Proficient undergrad background in C++</b>
             </List.Item>
           </List>
+          <Group
+            mt={30}
+            spacing="xl"
+            position="left"
+            className={classes.buttonGroup}
+          >
+            <Button
+              radius="lg"
+              size="md"
+              variant="light"
+              color="green"
+              className={classes.Button}
+            >
+              Resume
+            </Button>
+            <Button
+              radius="lg"
+              size="md"
+              variant="light"
+              color="yellow"
+              className={classes.Button}
+            >
+              Projects
+            </Button>
+            {/* <Button
+              radius="xl"
+              size={screenSize}
+              variant="light"
+              color="blue"
+              className={classes.Button}
+            >
+              Contact
+            </Button> */}
+          </Group>
         </div>
         <div className={classes.image}>
           <FolderIcon />
         </div>
-        {/* <Group mt={30} position="center" className={classes.buttonGroup}>
-          <Button
-            radius="xl"
-            size="md"
-            variant="gradient"
-            gradient={{ from: "#ed6ea0", to: "#ec8c69", deg: 35 }}
-          >
-            Resume
-          </Button>
-          <Button radius="xl" size="md" variant="default">
-            Projects
-          </Button>
-          <Button radius="xl" size="md" variant="default">
-            Contact
-          </Button>
-        </Group> */}
-      </Container>
+      </div>
     </div>
   );
 };
