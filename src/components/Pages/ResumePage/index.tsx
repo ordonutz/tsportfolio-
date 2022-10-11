@@ -33,18 +33,16 @@ import { resumeData } from "./resumeData";
 const useStyles = createStyles((theme) => ({
   container: {
     border: "3px solid red",
-
     height: "auto",
     width: "max(calc(1.23rem + 60%), 80%)",
     marginInline: "auto",
     [theme.fn.smallerThan("xs")]: {
       width: "90%",
     },
-
-    // add padding
   },
   paperResume: {
     // position: "relative",
+    marginTop: "1em",
     border: "2 px solid blue",
     marginInline: "auto",
     shadow: "xl",
@@ -138,15 +136,20 @@ const useStyles = createStyles((theme) => ({
       display: "none",
     },
   },
-  // resumeButtons: {
-  //   width: "20%",
-  //   border: "3px solid pink",
-  //   display: "flex",
-  //   flexDirection: "row",
-  //   flexWrap: "nowrap",
-  //   justifyContent: "center",
-  //   alignItems: "center",
-  // },
+  actionButtons: {
+    marginInline: "auto",
+    border: "3px yellow solid",
+    width: "70%",
+    [theme.fn.smallerThan("sm")]: {
+      width: "100%",
+      justifyContent: "center",
+    },
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    justifyContent: "flex-end",
+    alignItems: "flex-start",
+  },
 }));
 
 interface resumeProps {
@@ -238,7 +241,7 @@ const ResumePage = (props: resumeProps) => {
 
   return (
     <div className={classes.container} id="Resume">
-      <Group style={{ border: "3px pink solid" }}>
+      <Group className={classes.actionButtons}>
         <Button
           component="a"
           href="Leslie_Ordonez_Hernandez_Resume.pdf"

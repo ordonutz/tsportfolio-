@@ -20,7 +20,6 @@ import { Link } from "react-scroll";
 const useStyles = createStyles((theme) => ({
   outerContainer: {
     marginTop: "2rem",
-    position: "relative",
     border: "3px solid pink",
     height: "100vh",
     width: "max(calc(1.23rem + 60%), 80%)",
@@ -30,6 +29,7 @@ const useStyles = createStyles((theme) => ({
     },
   },
   inner: {
+    height: "100%",
     border: "3px solid purple",
     display: "flex",
     flexDirection: "row",
@@ -43,7 +43,6 @@ const useStyles = createStyles((theme) => ({
 
     [theme.fn.smallerThan("md")]: {
       maxWidth: "100%",
-      marginRight: 0,
     },
   },
 
