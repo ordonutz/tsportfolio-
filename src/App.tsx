@@ -91,8 +91,8 @@ export default function App() {
           <HomePage />
           {pageSectionLinks.length > 2 && (
             <>
-              <ResumePage id={pageSectionLinks[1].label} />
-              <ProjectPage id={pageSectionLinks[0].label} />
+              <ResumePage id={pageSectionLinks[0].label} />
+              <ProjectPage id={pageSectionLinks[1].label} />
               <ContactPage id={pageSectionLinks[2].label} />
             </>
           )}

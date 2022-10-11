@@ -105,7 +105,7 @@ interface HeaderResponsiveProps {
 const HeaderResponsive = (props: HeaderResponsiveProps) => {
   const [opened, { toggle, close }] = useDisclosure(false);
 
-  const { classes, cx } = useStyles();
+  const { classes } = useStyles();
 
   const items = props.links.map((link) => (
     <Link

@@ -19,6 +19,7 @@ import { Link } from "react-scroll";
  */
 const useStyles = createStyles((theme) => ({
   outerContainer: {
+    marginTop: "2rem",
     position: "relative",
     border: "3px solid pink",
     height: "100vh",

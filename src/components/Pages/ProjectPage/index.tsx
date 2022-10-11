@@ -51,6 +51,15 @@ const mockdata: Array<projectData> = [
 ];
 
 const useStyles = createStyles((theme) => ({
+  outerContainer: {
+    border: "3px solid green",
+    height: "100vh",
+    width: "max(calc(1.23rem + 60%), 80%)",
+    marginInline: "auto",
+    [theme.fn.smallerThan("xs")]: {
+      width: "90%",
+    },
+  },
   title: {
     fontSize: 34,
     fontWeight: 900,
@@ -141,8 +150,8 @@ const ProjectPage = (props: ProjectProps) => {
     </Card>
   ));
   return (
-    <Container size="lg" py="xl" id={props.id}>
-      <Title order={2} className={classes.title} align="center" mt="sm">
+    <div className={classes.outerContainer} id={props.id}>
+      {/* <Title order={2} className={classes.title} align="center" mt="sm">
         Projects
       </Title>
 
@@ -162,8 +171,8 @@ const ProjectPage = (props: ProjectProps) => {
         breakpoints={[{ maxWidth: "md", cols: 1 }]}
       >
         {features}
-      </SimpleGrid>
-    </Container>
+      </SimpleGrid> */}
+    </div>
   );
 };
 export default ProjectPage;

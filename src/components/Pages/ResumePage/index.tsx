@@ -10,7 +10,10 @@ import {
   List,
   ThemeIcon,
   Button,
+  ActionIcon,
+  Tooltip,
 } from "@mantine/core";
+import { NONAME } from "dns";
 import React, { forwardRef, LegacyRef, RefObject } from "react";
 import { DonutIcon } from "../../../assets/DonutIcon";
 import DownloadIcon from "../../../assets/DownloadIcon";
@@ -30,6 +33,7 @@ import { resumeData } from "./resumeData";
 const useStyles = createStyles((theme) => ({
   container: {
     border: "3px solid red",
+
     height: "100vh",
     width: "max(calc(1.23rem + 60%), 80%)",
     marginInline: "auto",
@@ -39,9 +43,42 @@ const useStyles = createStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     flexWrap: "nowrap",
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: "flexStart",
+    alignItems: "flexEnd",
     // add padding
+  },
+  paperResume: {
+    // position: "relative",
+    border: "2 px solid blue",
+    marginInline: "auto",
+    shadow: "xl",
+    background: "#E9E9E9",
+    boxShadow:
+      "inset -4px 4px 4px rgba(255, 255, 255, 0.25), inset 4px -4px 4px rgba(0, 0, 0, 0.25)",
+    width: "70%",
+    [theme.fn.smallerThan("sm")]: {
+      width: "100%",
+    },
+  },
+  header: {
+    // paddingInline: "2em",
+    [theme.fn.smallerThan("sm")]: {
+      width: "100%",
+      // paddingInline: "1em",
+    },
+    // position: "sticky",
+    top: "0",
+    zIndex: 999,
+    background: "#212529",
+    width: "70%",
+    marginInline: "auto",
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    justifyContent: "spaceBetween",
+    alignItems: "flexStart",
+
+    border: "3px yellow solid",
   },
   card: {
     background: "#FAA69F",
@@ -64,19 +101,7 @@ const useStyles = createStyles((theme) => ({
     fontWeight: 500,
     fontSize: 40,
   },
-  paperResume: {
-    border: "2 px solid blue",
-    position: "relative",
-    display: "flex",
-    shadow: "xl",
-    background: "#E9E9E9",
-    boxShadow:
-      "inset -4px 4px 4px rgba(255, 255, 255, 0.25), inset 4px -4px 4px rgba(0, 0, 0, 0.25)",
-    width: "60%",
-    [theme.fn.smallerThan("sm")]: {
-      width: "100%",
-    },
-  },
+
   resumeHeader: {
     width: "auto",
     padding: "3% 5%",
@@ -115,13 +140,24 @@ const useStyles = createStyles((theme) => ({
     marginTop: "2%",
     marginBottom: "10%",
   },
-  resumeButtons: {
-    "&:hover": {
-      transform: "scale(1.01)",
-      boxShadow: theme.shadows.md,
-      cursor: "pointer",
+  headerText: {
+    border: "3px blue solid",
+    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+    fontWeight: 500,
+    fontSize: "1rem",
+    [theme.fn.smallerThan("xs")]: {
+      display: "none",
     },
   },
+  // resumeButtons: {
+  //   width: "20%",
+  //   border: "3px solid pink",
+  //   display: "flex",
+  //   flexDirection: "row",
+  //   flexWrap: "nowrap",
+  //   justifyContent: "center",
+  //   alignItems: "center",
+  // },
 }));
 
 interface resumeProps {
@@ -213,39 +249,48 @@ const ResumePage = (props: resumeProps) => {
 
   return (
     <div className={classes.container} id="Resume">
-      {/* <a
-        href="Leslie_Ordonez_Hernandez_Resume.pdf"
-        download="Leslie_Ordonez_Hernandez_Resume.pdf"
-      >
-        <Button
-          radius="xl"
-          size="md"
-          className={classes.resumeButtonTop}
-          variant="gradient"
-          leftIcon={<PrinterIcon />}
-        >
-          Download PDF
-        </Button>
-      </a> */}
-      {/* <Button
-        radius="xl"
-        size="md"
-        className={classes.resumeButtonTop}
-        variant="gradient"
-        leftIcon={<PreviewIcon />}
-        onClick={() =>
-          window.open(
-            "Leslie_Ordonez_Hernandez_Resume.pdf",
-            "_blank",
-            "noopener,noreferrer"
-          )
-        }
-      >
-        View PDF
-      </Button> */}
+      <div className={classes.header}>
+        <Text className={classes.headerText}>
+          Scroll on the white part of the container below
+        </Text>
 
+        <Group style={{ border: "3px pink solid" }}>
+          <Tooltip label="Download PDF">
+            <ActionIcon
+              component="a"
+              href="Leslie_Ordonez_Hernandez_Resume.pdf"
+              download="Leslie_Ordonez_Hernandez_Resume.pdf"
+              radius="lg"
+              variant="subtle"
+              color="pink"
+            >
+              <DownloadIcon />
+            </ActionIcon>
+          </Tooltip>
+          <Tooltip label="Open PDF in a new tab">
+            <ActionIcon
+              radius="lg"
+              variant="subtle"
+              color="pink"
+              onClick={() =>
+                window.open(
+                  "Leslie_Ordonez_Hernandez_Resume.pdf",
+                  "_blank",
+                  "noopener,noreferrer"
+                )
+              }
+            >
+              <PreviewIcon />
+            </ActionIcon>
+          </Tooltip>
+        </Group>
+      </div>
       <Paper radius="md" shadow="xl" className={classes.paperResume}>
-        {/* <ScrollArea style={{ height: 900 }} type="auto" scrollbarSize={20}>
+        <ScrollArea
+          style={{ height: "90vh", border: "3px solid blue" }}
+          type="auto"
+          scrollbarSize={20}
+        >
           <Group className={classes.resumeHeader} position="apart">
             <Text
               color="#53917E"
@@ -257,7 +302,7 @@ const ResumePage = (props: resumeProps) => {
             >
               Leslie Ordonez-Hernandez
             </Text>
-            <Group>
+            {/* <Group>
               <MailIcon
                 onClick={() => {
                   window.open("", "_blank");
@@ -279,12 +324,12 @@ const ResumePage = (props: resumeProps) => {
                 }}
                 className={classes.resumeButtons}
               />
-            </Group>
+            </Group> */}
           </Group>
           <SimpleGrid cols={1} breakpoints={[{ maxWidth: "sm", cols: 1 }]}>
             {cards}
           </SimpleGrid>
-        </ScrollArea> */}
+        </ScrollArea>
       </Paper>
     </div>
   );
