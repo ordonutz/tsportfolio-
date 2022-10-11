@@ -34,17 +34,13 @@ const useStyles = createStyles((theme) => ({
   container: {
     border: "3px solid red",
 
-    height: "100vh",
+    height: "auto",
     width: "max(calc(1.23rem + 60%), 80%)",
     marginInline: "auto",
     [theme.fn.smallerThan("xs")]: {
       width: "90%",
     },
-    display: "flex",
-    flexDirection: "column",
-    flexWrap: "nowrap",
-    justifyContent: "flexStart",
-    alignItems: "flexEnd",
+
     // add padding
   },
   paperResume: {
@@ -61,24 +57,17 @@ const useStyles = createStyles((theme) => ({
     },
   },
   header: {
-    // paddingInline: "2em",
-    [theme.fn.smallerThan("sm")]: {
-      width: "100%",
-      // paddingInline: "1em",
-    },
-    // position: "sticky",
     top: "0",
     zIndex: 999,
     background: "#212529",
     width: "70%",
     marginInline: "auto",
+    border: "3px yellow solid",
     display: "flex",
     flexDirection: "row",
     flexWrap: "nowrap",
-    justifyContent: "spaceBetween",
-    alignItems: "flexStart",
-
-    border: "3px yellow solid",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
   card: {
     background: "#FAA69F",
@@ -249,60 +238,42 @@ const ResumePage = (props: resumeProps) => {
 
   return (
     <div className={classes.container} id="Resume">
-      <div className={classes.header}>
-        <Text className={classes.headerText}>
-          Scroll on the white part of the container below
-        </Text>
-
-        <Group style={{ border: "3px pink solid" }}>
-          <Tooltip label="Download PDF">
-            <ActionIcon
-              component="a"
-              href="Leslie_Ordonez_Hernandez_Resume.pdf"
-              download="Leslie_Ordonez_Hernandez_Resume.pdf"
-              radius="lg"
-              variant="subtle"
-              color="pink"
-            >
-              <DownloadIcon />
-            </ActionIcon>
-          </Tooltip>
-          <Tooltip label="Open PDF in a new tab">
-            <ActionIcon
-              radius="lg"
-              variant="subtle"
-              color="pink"
-              onClick={() =>
-                window.open(
-                  "Leslie_Ordonez_Hernandez_Resume.pdf",
-                  "_blank",
-                  "noopener,noreferrer"
-                )
-              }
-            >
-              <PreviewIcon />
-            </ActionIcon>
-          </Tooltip>
-        </Group>
-      </div>
-      <Paper radius="md" shadow="xl" className={classes.paperResume}>
-        <ScrollArea
-          style={{ height: "90vh", border: "3px solid blue" }}
-          type="auto"
-          scrollbarSize={20}
+      <Group style={{ border: "3px pink solid" }}>
+        <Button
+          component="a"
+          href="Leslie_Ordonez_Hernandez_Resume.pdf"
+          download="Leslie_Ordonez_Hernandez_Resume.pdf"
+          radius="lg"
+          size="xs"
+          variant="filled"
+          color="blue"
+          leftIcon={<DownloadIcon />}
         >
-          <Group className={classes.resumeHeader} position="apart">
-            <Text
-              color="#53917E"
-              style={{
-                fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-                fontWeight: 500,
-                fontSize: 40,
-              }}
-            >
-              Leslie Ordonez-Hernandez
-            </Text>
-            {/* <Group>
+          Download PDF
+        </Button>
+        <Button
+          leftIcon={<PreviewIcon />}
+          radius="lg"
+          size="xs"
+          variant="filled"
+          color="blue"
+        >
+          Open PDF
+        </Button>
+      </Group>
+      <Paper radius="md" shadow="xl" className={classes.paperResume}>
+        <Group className={classes.resumeHeader} position="apart">
+          <Text
+            color="#53917E"
+            style={{
+              fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+              fontWeight: 500,
+              fontSize: 40,
+            }}
+          >
+            Leslie Ordonez-Hernandez
+          </Text>
+          {/* <Group>
               <MailIcon
                 onClick={() => {
                   window.open("", "_blank");
@@ -325,11 +296,10 @@ const ResumePage = (props: resumeProps) => {
                 className={classes.resumeButtons}
               />
             </Group> */}
-          </Group>
-          <SimpleGrid cols={1} breakpoints={[{ maxWidth: "sm", cols: 1 }]}>
-            {cards}
-          </SimpleGrid>
-        </ScrollArea>
+        </Group>
+        <SimpleGrid cols={1} breakpoints={[{ maxWidth: "sm", cols: 1 }]}>
+          {cards}
+        </SimpleGrid>
       </Paper>
     </div>
   );

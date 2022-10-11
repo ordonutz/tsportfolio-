@@ -13,16 +13,20 @@ import MainLogo from "../../assets/MainLogo";
 import React from "react";
 import { Link } from "react-scroll";
 
-const HEADER_HEIGHT = "70px";
+const HEADER_HEIGHT = "80px";
 
 const useStyles = createStyles((theme) => {
   return {
     root: {
       position: "absolute",
-      zIndex: 999,
+      border: "3px pink solid",
+      height: "auto",
+      // position: "sticky",
+      top: "0",
+      // zIndex: 999,
       marginInline: "auto",
       width: "auto",
-      background: "transparent",
+      // background: "rgba(33, 37, 41, 0.75)",
     },
 
     dropdown: {
@@ -42,12 +46,14 @@ const useStyles = createStyles((theme) => {
     },
 
     header: {
+      border: "3px red solid",
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
       maxWidth: "2000px",
-      background: "red",
+      // background: "red",
       marginInline: "auto",
+
       padding: "0 max(calc(6.23rem + 4.77vw), 5.63rem)",
       [theme.fn.smallerThan("md")]: {
         padding: "0 1rem",
@@ -87,9 +93,9 @@ const useStyles = createStyles((theme) => {
       },
     },
     logo: {
-      height: "80px",
+      height: "70px",
       [theme.fn.smallerThan("sm")]: {
-        height: "60px",
+        height: "50px",
       },
     },
   };
@@ -124,9 +130,10 @@ const HeaderResponsive = (props: HeaderResponsiveProps) => {
   return (
     <Header
       id={props.id}
-      height={HEADER_HEIGHT}
+      height="auto"
       withBorder={false}
       className={classes.root}
+      style={{ height: "auto" }}
     >
       <div className={classes.header}>
         <Burger
