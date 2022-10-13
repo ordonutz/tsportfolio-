@@ -10,8 +10,12 @@ import {
   List,
   ThemeIcon,
   Button,
+  ActionIcon,
+  Tooltip,
 } from "@mantine/core";
-import { DonutIcon } from "../../../assets/DonutIcon";
+import { NONAME } from "dns";
+import React, { forwardRef, LegacyRef, RefObject } from "react";
+import { Link } from "react-scroll";
 import DownloadIcon from "../../../assets/DownloadIcon";
 
 import GitIcon from "../../../assets/GitIcon";
@@ -20,6 +24,7 @@ import MailIcon from "../../../assets/MailIcon";
 import PhoneIcon from "../../../assets/PhoneIcon";
 import PreviewIcon from "../../../assets/PreviewIcon";
 import PrinterIcon from "../../../assets/PrinterIcon";
+import { StarIcon } from "../../../assets/StarIcon";
 import { resumeSectionData, resumeSubSection } from "./interfaces";
 import { resumeData } from "./resumeData";
 
@@ -28,70 +33,109 @@ import { resumeData } from "./resumeData";
  */
 const useStyles = createStyles((theme) => ({
   container: {
+    border: "3px solid red",
+    height: "auto",
+    width: "max(calc(1.23rem + 60%), 80%)",
+    marginInline: "auto",
+    [theme.fn.smallerThan("xs")]: {
+      width: "100%",
+    },
+  },
+  paperResume: {
+    // position: "relative",
+    borderRadius: "12px",
+    marginTop: "1em",
+    paddingBottom: "2em",
+    border: "2 px solid blue",
+    marginInline: "auto",
+    shadow: "xl",
+    background: "#F1F3F5",
+    boxShadow:
+      "inset -4px 4px 4px rgba(255, 255, 255, 0.25), inset 4px -4px 4px rgba(0, 0, 0, 0.25)",
+    width: "70%",
+    [theme.fn.smallerThan("sm")]: {
+      width: "100%",
+    },
+  },
+  header: {
+    top: "0",
+    background: "black",
+    boxShadow: theme.shadows.md,
+    width: "70%",
+    marginInline: "auto",
+    border: "3px yellow solid",
     display: "flex",
-    flexDirection: "column",
+    flexDirection: "row",
     flexWrap: "nowrap",
-    justifyContent: "center",
+    justifyContent: "space-between",
     alignItems: "center",
-    alignContent: "center",
-    marginTop: "10%",
   },
   card: {
-    background: "#FAA69F",
-    opacity: "0.6",
-    boxShadow:
-      "inset 4px -4px 4px rgba(0, 0, 0, 0.25), inset -4px 4px 4px rgba(255, 255, 255, 0.25)",
-    borderRadius: "10px",
-    transition: "transform 150ms ease, box-shadow 150ms ease",
+    background: "#ffdeeb",
+    boxShadow: theme.shadows.md,
     width: "90%",
-    margin: "0 auto",
-    marginBottom: "1%",
+    marginInline: "auto",
+    marginTop: "2em",
 
     "&:hover": {
+      boxShadow:
+        "inset 4px -4px 4px rgba(0, 0, 0, 0.25), inset -4px 4px 4px rgba(255, 255, 255, 0.25)",
+      borderRadius: "10px",
+      transition: "transform 150ms ease, box-shadow 150ms ease",
       transform: "scale(1.01)",
-      boxShadow: theme.shadows.md,
     },
   },
   nameTitle: {
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
     fontWeight: 500,
-    fontSize: 40,
+    fontSize: "2rem",
   },
-  paperResume: {
-    shadow: "xl",
-    background: "#E9E9E9",
-    boxShadow:
-      "inset -4px 4px 4px rgba(255, 255, 255, 0.25), inset 4px -4px 4px rgba(0, 0, 0, 0.25)",
-    width: "60%",
-  },
+
   resumeHeader: {
     width: "auto",
-    padding: "3% 5%",
+    padding: "2% 5%",
     borderRadius: "10px",
+    background: "#ffdeeb",
+    boxShadow: theme.shadows.md,
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    justifyContent: "space-between",
+    alignItems: "center",
+    [theme.fn.smallerThan("xs")]: {
+      flexDirection: "column",
+    },
   },
   resumeTitle: {
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
     fontWeight: 600,
-    fontSize: 40,
-    color: "#2B2118",
+    fontSize: "clamp(20px, 2vw, 2rem)",
+    color: "#9B6A6C",
+  },
+  resumeLocation: {
+    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+    fontWeight: 600,
+    fontSize: "clamp(1rem, 2vw, 1.2rem)",
+    color: "#3B3923",
   },
   resumeSubTitle: {
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-    fontWeight: 500,
-    fontSize: 20,
-    color: "#2B2118",
+    fontWeight: 650,
+    fontSize: "clamp(1rem, 2vw, 1.2rem)",
+    color: "#3B3923",
   },
   resumeDate: {
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
     fontWeight: 500,
-    fontSize: 20,
-    color: "#2B2118",
+    fontSize: "clamp(1rem, 2vw, 1.2rem)",
+    color: "#3B3923",
   },
   resumeDescription: {
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
     fontWeight: 500,
-    fontSize: 20,
-    color: "#2B2118",
+    fontSize: "clamp(1rem, 2vw, 1.2rem)",
+    color: "#3B3923",
+    marginBottom: "0.75em",
   },
   resumeButtonTop: {
     width: "auto",
@@ -102,22 +146,89 @@ const useStyles = createStyles((theme) => ({
     marginTop: "2%",
     marginBottom: "10%",
   },
-  resumeButtons: {
+  headerText: {
+    border: "3px blue solid",
+    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+    fontWeight: 500,
+    fontSize: "1rem",
+    [theme.fn.smallerThan("xs")]: {
+      display: "none",
+    },
+  },
+  actionButtons: {
+    background: "rgb(33,37,41,0.7)",
+    zIndex: 999,
+    position: "sticky",
+    top: "0",
+    marginInline: "auto",
+    border: "3px yellow solid",
+    width: "70%",
+
+    [theme.fn.smallerThan("sm")]: {
+      width: "100%",
+      justifyContent: "center",
+    },
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    justifyContent: "center",
+    alignItems: "flex-start",
+  },
+  resumeButton: {
     "&:hover": {
       transform: "scale(1.01)",
       boxShadow: theme.shadows.md,
       cursor: "pointer",
     },
   },
+  icon: {
+    border: "2px blue solid",
+    width: "30px",
+    [theme.fn.smallerThan("sm")]: {
+      width: "20px",
+    },
+  },
+  resumeIcon: {
+    height: "2.5em",
+    [theme.fn.smallerThan("sm")]: {
+      height: "30px",
+    },
+    "&:hover": {
+      transform: "scale(1.01)",
+      opacity: "0.9",
+      cursor: "pointer",
+    },
+  },
+  cardSection: {
+    border: "3px red solid",
+  },
+  resumeSection: {
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    justifyContent: "space-between",
+    alignItems: "center",
+    [theme.fn.smallerThan("sm")]: {
+      flexDirection: "column",
+      flexWrap: "nowrap",
+      justifyContent: "flex-start",
+      alignItems: "flex-start",
+    },
+  },
 }));
+
+interface resumeProps {
+  id: string;
+}
 
 /**
  * Resume section where user can view resume or print pdf
  * @returns container with scrollable digital resume and button to print/download resume
  */
-export function ResumePage() {
+const ResumePage = (props: resumeProps) => {
   const { classes } = useStyles();
   const theme = useMantineTheme();
+  console.log(theme);
   const resumeCopy: resumeSectionData[] = JSON.parse(
     JSON.stringify(resumeData)
   );
@@ -133,25 +244,33 @@ export function ResumePage() {
   const getSubSectionData = (subSection: resumeSubSection) => {
     return (
       <>
-        <Group position="apart" spacing="xs">
-          <Text className={classes.resumeSubTitle}>{subSection.name}</Text>
-          <Text className={classes.resumeDate}>{subSection.date}</Text>
+        <div id={props.id}>
+          <div
+            className={classes.resumeSection}
+            style={{ border: "2px green solid" }}
+          >
+            <Text align="left" className={classes.resumeLocation}>
+              {subSection.location}
+            </Text>
+            <Text className={classes.resumeDate}>{subSection.date}</Text>
+          </div>
+          <Text align="left" className={classes.resumeSubTitle}>
+            {subSection.title}
+          </Text>
           <List
             spacing="sm"
             center
-            icon={
-              <ThemeIcon color="none" radius="lg" size={24}>
-                <DonutIcon />
-              </ThemeIcon>
-            }
+            icon={<StarIcon className={classes.icon} />}
             className={classes.resumeDescription}
             withPadding
           >
-            {subSection.description.map((info: string) => (
-              <List.Item>{info}</List.Item>
+            {subSection.description.map((info: string, index) => (
+              <List.Item key={`${subSection.location}${index}`}>
+                {info}
+              </List.Item>
             ))}
           </List>
-        </Group>
+        </div>
       </>
     );
   };
@@ -164,14 +283,14 @@ export function ResumePage() {
    */
   const getSectionData = (section: resumeSectionData) => {
     return (
-      <>
-        <Text className={classes.resumeTitle}>{section.title}</Text>
+      <div className={classes.cardSection}>
+        <Text className={classes.resumeTitle}>{section.section}</Text>
         {getSubSectionData(section.subsection0)}
         {section.subsection1 !== undefined &&
           getSubSectionData(section.subsection1)}
         {section.subsection2 !== undefined &&
           getSubSectionData(section.subsection2)}
-      </>
+      </div>
     );
   };
 
@@ -182,94 +301,83 @@ export function ResumePage() {
    */
 
   const cards = resumeCopy.map((section) => (
-    <Card
-      key={section.title}
-      p="xl"
-      radius="md"
-      component="a"
-      className={classes.card}
-    >
+    <Card key={section.section} p="xl" radius="md" className={classes.card}>
       {getSectionData(section)}
     </Card>
   ));
 
   return (
-    <div className={classes.container}>
-      <a
-        href="Leslie_Ordonez_Hernandez_Resume.pdf"
-        download="Leslie_Ordonez_Hernandez_Resume.pdf"
-      >
+    <div className={classes.container} id="Resume">
+      <Group className={classes.actionButtons}>
         <Button
-          radius="xl"
-          size="md"
-          className={classes.resumeButtonTop}
-          variant="gradient"
-          leftIcon={<PrinterIcon />}
+          component="a"
+          href="Leslie_Ordonez_Hernandez_Resume.pdf"
+          download="Leslie_Ordonez_Hernandez_Resume.pdf"
+          radius="lg"
+          size="xs"
+          variant="filled"
+          color="blue"
+          leftIcon={<DownloadIcon />}
         >
           Download PDF
         </Button>
-      </a>
-      <Button
-        radius="xl"
-        size="md"
-        className={classes.resumeButtonTop}
-        variant="gradient"
-        leftIcon={<PreviewIcon />}
-        onClick={() =>
-          window.open(
-            "Leslie_Ordonez_Hernandez_Resume.pdf",
-            "_blank",
-            "noopener,noreferrer"
-          )
-        }
-      >
-        View PDF
-      </Button>
+        <Button
+          leftIcon={<PreviewIcon />}
+          radius="lg"
+          size="xs"
+          variant="filled"
+          color="blue"
+          onClick={() =>
+            window.open(
+              "Leslie_Ordonez_Hernandez_Resume.pdf",
+              "_blank",
+              "noopener,noreferrer"
+            )
+          }
+        >
+          Open PDF
+        </Button>
+      </Group>
+      <Paper shadow="xl" className={classes.paperResume}>
+        <div className={classes.resumeHeader}>
+          <Text
+            color="#9B6A6C"
+            style={{
+              fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+              fontWeight: 500,
+              fontSize: "clamp(1.3rem, 2vw, 2.5rem)",
+            }}
+          >
+            Leslie Ordonez-Hernandez
+          </Text>
+          <Group>
+            <Link to="Contact" smooth={true} duration={500}>
+              <MailIcon className={classes.resumeIcon} />
+            </Link>
 
-      <Paper radius="md" shadow="xl" className={classes.paperResume}>
-        <ScrollArea style={{ height: 900 }} type="auto" scrollbarSize={20}>
-          <Group className={classes.resumeHeader} position="apart">
-            <Text
-              color="#53917E"
-              style={{
-                fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-                fontWeight: 500,
-                fontSize: 40,
+            <LinkedIcon
+              onClick={() => {
+                window.open(
+                  "https://www.linkedin.com/in/leslie-ordonez/",
+                  "_blank"
+                );
               }}
-            >
-              Leslie Ordonez-Hernandez
-            </Text>
-            <Group>
-              <MailIcon
-                onClick={() => {
-                  window.open("", "_blank");
-                }}
-                className={classes.resumeButtons}
-              />
-              <LinkedIcon
-                onClick={() => {
-                  window.open(
-                    "https://www.linkedin.com/in/leslie-ordonez/",
-                    "_blank"
-                  );
-                }}
-                className={classes.resumeButtons}
-              />
-              <GitIcon
-                onClick={() => {
-                  window.open("https://github.com/ordonutz", "_blank");
-                }}
-                className={classes.resumeButtons}
-              />
-            </Group>
+              className={classes.resumeIcon}
+            />
+            <GitIcon
+              onClick={() => {
+                window.open("https://github.com/ordonutz", "_blank");
+              }}
+              className={classes.resumeIcon}
+            />
           </Group>
-          <SimpleGrid cols={1} breakpoints={[{ maxWidth: "sm", cols: 1 }]}>
-            {cards}
-          </SimpleGrid>
-        </ScrollArea>
+        </div>
+        <SimpleGrid cols={1} breakpoints={[{ maxWidth: "sm", cols: 1 }]}>
+          {cards}
+        </SimpleGrid>
       </Paper>
     </div>
   );
-}
+};
 
 export default ResumePage;

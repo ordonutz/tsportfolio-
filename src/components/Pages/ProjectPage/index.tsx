@@ -8,6 +8,7 @@ import {
   SimpleGrid,
   Container,
 } from "@mantine/core";
+import React from "react";
 import GitIcon from "../../../assets/GitIcon";
 import MailIcon from "../../../assets/MailIcon";
 import PhoneIcon from "../../../assets/PhoneIcon";
@@ -34,14 +35,14 @@ const mockdata: Array<projectData> = [
     tools: ["C++"],
   },
   {
-    title: "No third parties",
+    title: "some title",
     description:
       "They’re popular, but they’re rare. Trainers who show them off recklessly may be targeted by thieves",
     icon: <PhoneIcon></PhoneIcon>,
     tools: ["coming soon", "tbd"],
   },
   {
-    title: "No third parties",
+    title: "Another title",
     description:
       "They’re popular, but they’re rare. Trainers who show them off recklessly may be targeted by thieves",
     icon: <PhoneIcon></PhoneIcon>,
@@ -50,6 +51,15 @@ const mockdata: Array<projectData> = [
 ];
 
 const useStyles = createStyles((theme) => ({
+  outerContainer: {
+    border: "3px solid green",
+    height: "100vh",
+    width: "max(calc(1.23rem + 60%), 80%)",
+    marginInline: "auto",
+    [theme.fn.smallerThan("xs")]: {
+      width: "90%",
+    },
+  },
   title: {
     fontSize: 34,
     fontWeight: 900,
@@ -60,7 +70,7 @@ const useStyles = createStyles((theme) => ({
 
   description: {
     maxWidth: 600,
-    margin: "auto",
+    marginInline: "auto",
 
     "&::after": {
       content: '""',
@@ -99,7 +109,12 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export default function ProjectPage() {
+interface ProjectProps {
+  scrollRef?: any;
+  id: string;
+}
+
+const ProjectPage = (props: ProjectProps) => {
   const { classes, theme } = useStyles();
   const features = mockdata.map((feature: projectData) => (
     <Card
@@ -125,7 +140,7 @@ export default function ProjectPage() {
 
       <Group style={{ marginTop: "10px" }}>
         {feature.tools.map((tool) => (
-          <Badge>{tool}</Badge>
+          <Badge key={tool}>{tool}</Badge>
         ))}
       </Group>
 
@@ -135,8 +150,8 @@ export default function ProjectPage() {
     </Card>
   ));
   return (
-    <Container size="lg" py="xl">
-      <Title order={2} className={classes.title} align="center" mt="sm">
+    <div className={classes.outerContainer} id={props.id}>
+      {/* <Title order={2} className={classes.title} align="center" mt="sm">
         Projects
       </Title>
 
@@ -156,10 +171,11 @@ export default function ProjectPage() {
         breakpoints={[{ maxWidth: "md", cols: 1 }]}
       >
         {features}
-      </SimpleGrid>
-    </Container>
+      </SimpleGrid> */}
+    </div>
   );
-}
+};
+export default ProjectPage;
 // import {
 //   Image,
 //   Text,

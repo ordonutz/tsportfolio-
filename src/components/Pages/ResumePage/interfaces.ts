@@ -3,7 +3,8 @@
  * each subsection in the @resumeSectionData object
  */
 export interface resumeSubSection {
-  name: string;
+  location: string;
+  title?: string
   date: string;
   description: Array<string>;
 }
@@ -13,7 +14,7 @@ export interface resumeSubSection {
  * of the resume i.e. each section (education, experience, etc.) have these attributes
  */
 export interface resumeSectionData {
-  title: string;
+  section: string;
   subsection0: resumeSubSection;
   subsection1?: resumeSubSection;
   subsection2?: resumeSubSection;

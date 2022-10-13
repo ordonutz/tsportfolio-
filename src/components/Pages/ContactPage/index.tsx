@@ -1,4 +1,4 @@
-import React, { LegacyRef } from "react";
+import React from "react";
 import {
   Paper,
   Text,
@@ -13,16 +13,23 @@ import {
 } from "@mantine/core";
 
 import emailjs from "@emailjs/browser";
-import { useRef, useState } from "react";
-import { useForm, UseFormReturnType } from "@mantine/form";
-import { RefObject } from "react";
-import { MutableRefObject } from "react";
+import { useState } from "react";
+import { useForm } from "@mantine/form";
 import ContactIcons from "./ContactIcons";
 
 const useStyles = createStyles((theme) => {
   const BREAKPOINT = theme.fn.smallerThan("sm");
 
   return {
+    outerContainer: {
+      border: "3px solid yellow",
+      height: "100vh",
+      width: "max(calc(1.23rem + 60%), 80%)",
+      marginInline: "auto",
+      [theme.fn.smallerThan("xs")]: {
+        width: "90%",
+      },
+    },
     wrapper: {
       display: "flex",
       backgroundColor: theme.colors.dark[8],
@@ -121,7 +128,12 @@ interface formValues {
   message: string;
 }
 
-export function ContactPage() {
+interface ContactProps {
+  scrollRef?: React.MutableRefObject<any>;
+  id: string;
+}
+
+const ContactPage = (props: ContactProps) => {
   const { classes } = useStyles();
   const [subSuccess, setSubSuccess] = useState(false); // true if form is successfully submitted to conditionally render success message
   const [subErr, setSubErr] = useState(false); // true if form failed to submit to conditionally render error message
@@ -165,115 +177,117 @@ export function ContactPage() {
     }
     form.reset();
   };
-
   return (
-    <Paper shadow="md" radius="lg">
-      <div className={classes.wrapper}>
-        <div className={classes.contacts}>
-          <Text
-            size="lg"
-            weight={700}
-            className={classes.title}
-            sx={{ color: "red" }}
-          >
-            Contact information
-          </Text>
-          <Text>something</Text>
-          <ContactIcons />
-        </div>
-        {subSuccess && showAlert && (
-          <Alert
-            icon={<CheckIcon />}
-            title="Success!"
-            color="lime"
-            radius="md"
-            variant="light"
-            withCloseButton
-            closeButtonLabel="Close alert"
-            onClose={() => setShowAlert(false)}
-          >
-            Thank you, your message has been received. I'll get back to you
-            shortly. In the meantime connect with me through LinkedIn or GitHub.
-          </Alert>
-        )}
-        {subErr && showAlert && (
-          <Alert
-            icon={<CheckIcon />}
-            title="Fail!"
-            color="red"
-            radius="md"
-            variant="light"
-            withCloseButton
-            closeButtonLabel="Close alert"
-            onClose={() => setShowAlert(false)}
-          >
-            oh no try again
-          </Alert>
-        )}
-        <form
-          id="contact-form"
-          className={classes.form}
-          onSubmit={(event) => {
-            event.preventDefault();
-            if (form.validate().hasErrors) {
-            } else {
-              handleSubmit();
-            }
-          }}
-        >
-          <Text size="lg" weight={700} className={classes.title}>
-            Get in touch
-          </Text>
-
-          <div className={classes.fields}>
-            <SimpleGrid cols={1} breakpoints={[{ maxWidth: "sm", cols: 1 }]}>
-              <TextInput
-                name="user_name"
-                aria-label="Your name"
-                label="Your name"
-                {...form.getInputProps("name")}
-              />
-              <TextInput
-                name="user_email"
-                aria-label="Your email"
-                label="Your email"
-                required
-                {...form.getInputProps("email")}
-              />
-            </SimpleGrid>
-
-            <TextInput
-              name="subject"
-              aria-label="Subject"
-              mt="md"
-              label="Subject"
-              required
-              {...form.getInputProps("subject")}
-            />
-
-            <Textarea
-              name="message"
-              aria-label="Your message"
-              mt="md"
-              placeholder="Thanks for reaching out :) feedback appreciated"
-              minRows={3}
-              required
-              {...form.getInputProps("message")}
-            />
-
-            <Group position="right" mt="md">
-              <Button
-                aria-label="submit"
-                type="submit"
-                className={classes.control}
-              >
-                Send message
-              </Button>
-            </Group>
+    <div className={classes.outerContainer} id={props.id}>
+      {/* <Paper shadow="md" radius="lg" id={props.id}>
+        <div className={classes.wrapper}>
+          <div className={classes.contacts}>
+            <Text
+              size="lg"
+              weight={700}
+              className={classes.title}
+              sx={{ color: "red" }}
+            >
+              Contact information
+            </Text>
+            <Text>something</Text>
+            <ContactIcons />
           </div>
-        </form>
-      </div>
-    </Paper>
+          {subSuccess && showAlert && (
+            <Alert
+              icon={<CheckIcon />}
+              title="Success!"
+              color="lime"
+              radius="md"
+              variant="light"
+              withCloseButton
+              closeButtonLabel="Close alert"
+              onClose={() => setShowAlert(false)}
+            >
+              Thank you, your message has been received. I'll get back to you
+              shortly. In the meantime connect with me through LinkedIn or
+              GitHub.
+            </Alert>
+          )}
+          {subErr && showAlert && (
+            <Alert
+              icon={<CheckIcon />}
+              title="Fail!"
+              color="red"
+              radius="md"
+              variant="light"
+              withCloseButton
+              closeButtonLabel="Close alert"
+              onClose={() => setShowAlert(false)}
+            >
+              oh no try again
+            </Alert>
+          )}
+          <form
+            id="contact-form"
+            className={classes.form}
+            onSubmit={(event) => {
+              event.preventDefault();
+              if (form.validate().hasErrors) {
+              } else {
+                handleSubmit();
+              }
+            }}
+          >
+            <Text size="lg" weight={700} className={classes.title}>
+              Get in touch
+            </Text>
+
+            <div className={classes.fields}>
+              <SimpleGrid cols={1} breakpoints={[{ maxWidth: "sm", cols: 1 }]}>
+                <TextInput
+                  name="user_name"
+                  aria-label="Your name"
+                  label="Your name"
+                  {...form.getInputProps("name")}
+                />
+                <TextInput
+                  name="user_email"
+                  aria-label="Your email"
+                  label="Your email"
+                  required
+                  {...form.getInputProps("email")}
+                />
+              </SimpleGrid>
+
+              <TextInput
+                name="subject"
+                aria-label="Subject"
+                mt="md"
+                label="Subject"
+                required
+                {...form.getInputProps("subject")}
+              />
+
+              <Textarea
+                name="message"
+                aria-label="Your message"
+                mt="md"
+                placeholder="Thanks for reaching out :) feedback appreciated"
+                minRows={3}
+                required
+                {...form.getInputProps("message")}
+              />
+
+              <Group position="right" mt="md">
+                <Button
+                  aria-label="submit"
+                  type="submit"
+                  className={classes.control}
+                >
+                  Send message
+                </Button>
+              </Group>
+            </div>
+          </form>
+        </div>
+      </Paper> */}
+    </div>
   );
-}
+};
 export default ContactPage;

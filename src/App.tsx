@@ -1,92 +1,103 @@
-import React from "react";
-
-import { useState } from "react";
 import {
   AppShell,
-  useMantineTheme,
   MantineThemeOverride,
   MantineProvider,
   createStyles,
+  useMantineTheme,
 } from "@mantine/core";
 import HomePage from "./components/Pages/HomePage";
 import ResumePage from "./components/Pages/ResumePage";
 import ProjectPage from "./components/Pages/ProjectPage";
 import ContactPage from "./components/Pages/ContactPage";
-import { HeaderResponsive } from "./components/HeaderResponsive/index";
-import { FooterResponsive } from "./components/FooterResponsive";
-import "./assets/backgroundImage.png";
-// import "./assets/backgroundOverlay.png";
-const useStyles = createStyles((theme) => {
+import HeaderResponsive from "./components/HeaderResponsive/index";
+import FooterResponsive from "./components/FooterResponsive";
+
+/**
+ * used to overWrite default theme settings
+ */
+const MY_THEME: MantineThemeOverride = {
+  colorScheme: "dark",
+  primaryColor: "pink",
+  primaryShade: { dark: 4 },
+  loader: "bars",
+  colors: {
+    dark: [
+      "#ffdeeb",
+      "#A6A7AB",
+      "#909296",
+      "#5C5F66",
+      "#373A40",
+      "#2C2E33",
+      "#25262B",
+      "#373A40",
+      "#141517",
+      "#101113",
+    ],
+  },
+};
+
+/**
+ * defines css classNames based on my theme
+ */
+const useStyles = createStyles((MY_THEME) => {
   return {
-    wrapper: {
-      backgroundImage: "url(" + "/backgroundOverlayLg.png" + ")",
-      backgroundColor: "#343a40",
+    wrapperImg: {
+      backgroundImage: "url(" + "/backgroundImg.png" + ")",
       backgroundAttachment: "scroll",
-      backgroundSize: "cover",
+      backgroundSize: "100%",
       backgroundPosition: "top",
-      backgroundRepeat: "no-repeat",
-      [theme.fn.smallerThan("sm")]: {
-        backgroundImage: "url(" + "/backgroundOverlayMd.png" + ")",
-      },
-      [theme.fn.smallerThan("xs")]: {
-        backgroundImage: "url(" + "/backgroundOverlayMd.png" + ")",
-      },
-      [theme.fn.smallerThan("md")]: {
-        backgroundImage: "url(" + "/backgroundOverlayMd.png" + ")",
+      marginTop: "110px",
+      [MY_THEME.fn.smallerThan("md")]: {
+        backgroundImage: "url(" + "/backgroundImg.png" + ")",
+        backgroundAttachment: "scroll",
+        backgroundSize: "100%",
+        backgroundPosition: "top",
+        marginTop: "105px",
       },
     },
   };
 });
 
-function App() {
-  const theme = useMantineTheme();
+/**
+ * links in header and footer to redirect user to
+ * projects, resume, or contact section on the one page site
+ * will need to use scroll into view hook so this might change
+ */
+const pageSectionLinks = [
+  { label: "Resume" },
+  { label: "Projects" },
+  { label: "Contact" },
+];
+
+export default function App() {
+  /**
+   * styling classNames available
+   */
   const { classes } = useStyles();
-  /**
-   * links in header and footer to redirect user to
-   * projects, resume, or contact section on the one page site
-   * will need to use scroll into view hook so this might change
-   */
-  const pageSectionLinks = [
-    { link: "link", label: "Projects" },
-    { link: "link", label: "Resume" },
-    { link: "link", label: "Contact" },
-  ];
-
-  /**
-   * custom object theme to override Mantine default theme
-   */
-  const MY_THEME: MantineThemeOverride = {
-    colorScheme: "light",
-    primaryColor: "pink",
-    primaryShade: { light: 3, dark: 3 },
-    loader: "dots",
-  };
-
+  const theme = useMantineTheme();
   return (
-    <div className={classes.wrapper}>
+    <div className={classes.wrapperImg}>
       <MantineProvider theme={MY_THEME} withGlobalStyles withNormalizeCSS>
         <AppShell
           style={{
-            backgroundColor: "transparent",
+            maxWidth: "2000px",
+            marginInline: "auto",
           }}
-          navbarOffsetBreakpoint="sm"
-          asideOffsetBreakpoint="sm"
+          header={
+            <HeaderResponsive links={pageSectionLinks} id="landingSection" />
+          }
           footer={<FooterResponsive links={pageSectionLinks} />}
-          header={<HeaderResponsive links={pageSectionLinks} />}
-          styles={(theme) => ({
-            main: {
-              backgroundColor: "transparent",
-            },
-          })}
         >
           <HomePage />
-          <ResumePage />
-          <ProjectPage />
-          <ContactPage />
+          {pageSectionLinks.length > 2 && (
+            <>
+              <ResumePage id={pageSectionLinks[0].label} />
+              <ProjectPage id={pageSectionLinks[1].label} />
+              <ContactPage id={pageSectionLinks[2].label} />
+            </>
+          )}
         </AppShell>
       </MantineProvider>
     </div>
   );
 }
-
-export default App;

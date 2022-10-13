@@ -1,23 +1,27 @@
 import { createStyles, Container, Group, Anchor } from "@mantine/core";
 import MainLogo from "../../assets/MainLogo";
+import { Link } from "react-scroll";
 
 const useStyles = createStyles((theme) => ({
   footer: {
-    marginTop: 20,
+    marginInline: "auto",
     background: "transparent",
+    maxWidth: "2000px",
   },
 
   inner: {
-    maxWidth: "1440px",
-    // background: "red",
+    maxWidth: "2000px",
+    background: "transparent",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingTop: theme.spacing.xl,
-    paddingBottom: theme.spacing.xl,
-
+    padding: "0 8.5rem",
+    [theme.fn.smallerThan("sm")]: {
+      padding: "0 1rem",
+    },
     [theme.fn.smallerThan("xs")]: {
       flexDirection: "column",
+      padding: "0 1rem",
     },
   },
 
@@ -26,31 +30,60 @@ const useStyles = createStyles((theme) => ({
       marginTop: theme.spacing.md,
     },
   },
+  linkStyle: {
+    "&:hover": {
+      cursor: "pointer",
+      textDecoration: "underline",
+    },
+  },
+  logo: {
+    height: "90px",
+    [theme.fn.smallerThan("sm")]: {
+      height: "70px",
+    },
+    "&:hover": {
+      cursor: "pointer",
+      transform: "scale(1.03)",
+    },
+  },
 }));
 
+// TO DO export interface since the same one is used in header too
 interface FooterSimpleProps {
-  links: { link: string; label: string }[];
+  links: {
+    label: string;
+  }[];
 }
 
-export function FooterResponsive({ links }: FooterSimpleProps) {
+export default function FooterResponsive({ links }: FooterSimpleProps) {
   const { classes } = useStyles();
 
   const items = links.map((link) => (
-    <Anchor<"a">
-      color="dimmed"
+    <Link
+      to={link.label}
+      spy={true}
+      smooth={true}
+      offset={50}
+      duration={500}
       key={link.label}
-      href={link.link}
-      onClick={(event) => event.preventDefault()}
-      size="sm"
+      className={classes.linkStyle}
     >
       {link.label}
-    </Anchor>
+    </Link>
   ));
 
   return (
     <div className={classes.footer}>
       <Container className={classes.inner}>
-        <MainLogo />
+        <Link
+          to={"landingSection"}
+          spy={true}
+          smooth={true}
+          offset={50}
+          duration={500}
+        >
+          <MainLogo className={classes.logo} />
+        </Link>
         <Group className={classes.links}>{items}</Group>
       </Container>
     </div>

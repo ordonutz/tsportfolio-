@@ -1,4 +1,3 @@
-import React from "react";
 import { useState } from "react";
 import {
   createStyles,
@@ -11,139 +10,144 @@ import {
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import MainLogo from "../../assets/MainLogo";
+import React from "react";
+import { Link } from "react-scroll";
 
-const HEADER_HEIGHT = "70px";
+const HEADER_HEIGHT = "80px";
 
-const useStyles = createStyles((theme) => ({
-  root: {
-    position: "relative",
-    zIndex: 1,
-    background: "transparent",
-  },
-
-  dropdown: {
-    position: "absolute",
-    top: "70px",
-    left: 0,
-    right: 0,
-    zIndex: 0,
-    borderTopRightRadius: 0,
-    borderTopLeftRadius: 0,
-    borderTopWidth: 0,
-    overflow: "hidden",
-
-    [theme.fn.largerThan("sm")]: {
-      display: "none",
-    },
-  },
-
-  header: {
-    background: "transparent",
-    maxWidth: "1440px",
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    height: "100%",
-  },
-
-  links: {
-    [theme.fn.smallerThan("sm")]: {
-      display: "none",
-    },
-  },
-
-  burger: {
-    [theme.fn.largerThan("sm")]: {
-      display: "none",
-    },
-  },
-
-  link: {
-    display: "block",
-    lineHeight: 1,
-    padding: "8px 12px",
-    borderRadius: theme.radius.sm,
-    textDecoration: "none",
-    color:
-      theme.colorScheme === "dark"
-        ? theme.colors.dark[0]
-        : theme.colors.pink[1],
-    fontSize: theme.fontSizes.sm,
-    fontWeight: 500,
-
-    "&:hover": {
-      backgroundColor:
-        theme.colorScheme === "dark"
-          ? theme.colors.dark[6]
-          : theme.colors.gray[6],
+const useStyles = createStyles((theme) => {
+  return {
+    root: {
+      position: "absolute",
+      border: "3px pink solid",
+      height: "auto",
+      // position: "sticky",
+      top: "0",
+      // zIndex: 999,
+      marginInline: "auto",
+      width: "auto",
+      // background: "rgba(33, 37, 41, 0.75)",
     },
 
-    [theme.fn.smallerThan("sm")]: {
-      borderRadius: 0,
-      padding: theme.spacing.md,
-    },
-  },
+    dropdown: {
+      position: "absolute",
+      top: "105px",
+      left: 0,
+      right: 0,
+      zIndex: 0,
+      borderTopRightRadius: 0,
+      borderTopLeftRadius: 0,
+      borderTopWidth: 0,
+      overflow: "hidden",
 
-  linkActive: {
-    // "&, &:hover": {
-    //   backgroundColor: theme.fn.variant({
-    //     variant: "light",
-    //     color: theme.primaryColor,
-    //   }).background,
-    //   color: theme.fn.variant({ variant: "light", color: theme.primaryColor })
-    //     .color,
-    // },
-  },
-}));
+      [theme.fn.largerThan("sm")]: {
+        display: "none",
+      },
+    },
+
+    header: {
+      border: "3px red solid",
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      maxWidth: "2000px",
+      // background: "red",
+      marginInline: "auto",
+
+      padding: "0 max(calc(6.23rem + 4.77vw), 5.63rem)",
+      [theme.fn.smallerThan("md")]: {
+        padding: "0 1rem",
+      },
+    },
+
+    links: {
+      [theme.fn.smallerThan("sm")]: {
+        display: "none",
+      },
+    },
+
+    burger: {
+      [theme.fn.largerThan("sm")]: {
+        display: "none",
+      },
+    },
+
+    link: {
+      display: "block",
+      lineHeight: 1,
+      padding: "8px 12px",
+      borderRadius: theme.radius.lg,
+      textDecoration: "none",
+      color: theme.colors.dark[0],
+      fontSize: theme.fontSizes.md,
+      fontWeight: 500,
+
+      "&:hover": {
+        cursor: "pointer",
+        backgroundColor: theme.colors.dark[6],
+      },
+
+      [theme.fn.smallerThan("sm")]: {
+        borderRadius: 0,
+        padding: theme.spacing.md,
+      },
+    },
+    logo: {
+      height: "70px",
+      [theme.fn.smallerThan("sm")]: {
+        height: "50px",
+      },
+    },
+  };
+});
 
 interface HeaderResponsiveProps {
-  links: { link: string; label: string }[];
+  links: {
+    label: string;
+  }[];
+  id: string;
 }
 
-export function HeaderResponsive({ links }: HeaderResponsiveProps) {
+const HeaderResponsive = (props: HeaderResponsiveProps) => {
   const [opened, { toggle, close }] = useDisclosure(false);
-  const [active, setActive] = useState(links[0].link);
-  const { classes, cx } = useStyles();
 
-  const items = links.map((link) => (
-    <a
+  const { classes } = useStyles();
+
+  const items = props.links.map((link) => (
+    <Link
+      to={link.label}
+      spy={true}
+      smooth={true}
+      offset={50}
+      duration={500}
       key={link.label}
-      href={link.link}
-      className={cx(classes.link, {
-        [classes.linkActive]: active === link.link,
-      })}
-      onClick={(event) => {
-        event.preventDefault();
-        setActive(link.link);
-        close();
-        console.log("i was clicked");
-      }}
+      className={classes.link}
     >
       {link.label}
-    </a>
+    </Link>
   ));
 
   return (
     <Header
-      height={HEADER_HEIGHT}
-      className={classes.root}
+      id={props.id}
+      height="auto"
       withBorder={false}
-      // style={{ background: "red" }}
+      className={classes.root}
+      style={{ height: "auto" }}
     >
-      <Container className={classes.header}>
-        <div>
-          <MainLogo />
-        </div>
-        <Group spacing={5} className={classes.links}>
-          {items}
-        </Group>
-
+      <div className={classes.header}>
         <Burger
           opened={opened}
           onClick={toggle}
           className={classes.burger}
-          size="sm"
+          size="md"
         />
+
+        <MainLogo className={classes.logo} />
+
+        <Group spacing={10} className={classes.links}>
+          {items}
+        </Group>
 
         <Transition transition="pop-top-right" duration={200} mounted={opened}>
           {(styles) => (
@@ -152,7 +156,9 @@ export function HeaderResponsive({ links }: HeaderResponsiveProps) {
             </Paper>
           )}
         </Transition>
-      </Container>
+      </div>
     </Header>
   );
-}
+};
+
+export default HeaderResponsive;

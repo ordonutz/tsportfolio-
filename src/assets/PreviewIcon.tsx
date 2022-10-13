@@ -6,15 +6,32 @@ const PreviewIcon = (props: Props) => {
   return (
     <div>
       <svg
-        width="18"
-        height="18"
-        viewBox="0 0 18 18"
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M16 0H2C0.89 0 0 0.9 0 2V16C0 17.1 0.89 18 2 18H16C17.1 18 18 17.1 18 16V2C18 0.9 17.11 0 16 0ZM16 16H2V4H16V16ZM9 7.5C10.84 7.5 12.48 8.46 13.34 10C12.48 11.54 10.84 12.5 9 12.5C7.16 12.5 5.52 11.54 4.66 10C5.52 8.46 7.16 7.5 9 7.5ZM9 6C6.27 6 3.94 7.66 3 10C3.94 12.34 6.27 14 9 14C11.73 14 14.06 12.34 15 10C14.06 7.66 11.73 6 9 6ZM9 11.5C8.17 11.5 7.5 10.83 7.5 10C7.5 9.17 8.17 8.5 9 8.5C9.83 8.5 10.5 9.17 10.5 10C10.5 10.83 9.83 11.5 9 11.5Z"
-          fill="#171219"
+          d="M10.8423 2H14.0002V5.15789"
+          stroke="#F1F3F5"
+          stroke-width="2.3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M13.3684 8.94737V12.7368C13.3684 13.4345 12.8029 14 12.1053 14H3.26316C2.56553 14 2 13.4345 2 12.7368V3.89473C2 3.19711 2.56553 2.63158 3.26316 2.63158H7.05263"
+          stroke="#F1F3F5"
+          stroke-width="2.3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M8.31567 7.68423L13.6841 2.31581"
+          stroke="#F1F3F5"
+          stroke-width="2.3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
         />
       </svg>
     </div>
