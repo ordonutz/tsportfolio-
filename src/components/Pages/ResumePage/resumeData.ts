@@ -13,19 +13,18 @@ export const resumeData: Array<resumeSectionData> = [
       location: "University of Nevada Las Vegas",
       title: "Bachelor of Science in Computer Science",
       date: "December 2021",
-      description: [ "Minor in mathematical sciences","GPA: 3.65"],
+      description: ["Minor in mathematical sciences","GPA: 3.65/4.00"],
     },
     subsection1: {
       location: "College of Southern Nevada",
       title: " Associate of Science",
       date: "December 2019",
       description: [
-         "University transfer program with an emphasis on computer science fundamentals","GPA: 3.32"
+         "University transfer program with an emphasis on computer science fundamentals","GPA: 3.32/4.00"
       ],
     },
     subsection2: {
       location: "Rensselaer Polytechnic Institute Troy, NY",
-      title: "Chemical Engineering",
       date: "August 2016 - May 2017",
       description: [
         "Completed 21 credits towards a B.S. in Chemical Engineering",

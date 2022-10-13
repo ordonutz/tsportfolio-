@@ -6,9 +6,9 @@ interface iconProps {
 
 export const StarIcon = (props: iconProps) => {
   return (
-    <div className={props.className} style={{ width: "auto" }}>
+    <div className={props.className}>
       <svg
-        width="100%"
+        width="auto"
         height="auto"
         viewBox="0 0 31 30"
         fill="none"

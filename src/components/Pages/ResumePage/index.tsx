@@ -38,7 +38,7 @@ const useStyles = createStyles((theme) => ({
     width: "max(calc(1.23rem + 60%), 80%)",
     marginInline: "auto",
     [theme.fn.smallerThan("xs")]: {
-      width: "90%",
+      width: "100%",
     },
   },
   paperResume: {
@@ -109,12 +109,18 @@ const useStyles = createStyles((theme) => ({
   resumeTitle: {
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
     fontWeight: 600,
-    fontSize: "clamp(1rem, 2vw, 2rem)",
+    fontSize: "clamp(20px, 2vw, 2rem)",
     color: "#9B6A6C",
+  },
+  resumeLocation: {
+    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+    fontWeight: 600,
+    fontSize: "clamp(1rem, 2vw, 1.2rem)",
+    color: "#3B3923",
   },
   resumeSubTitle: {
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-    fontWeight: 700,
+    fontWeight: 650,
     fontSize: "clamp(1rem, 2vw, 1.2rem)",
     color: "#3B3923",
   },
@@ -129,6 +135,7 @@ const useStyles = createStyles((theme) => ({
     fontWeight: 500,
     fontSize: "clamp(1rem, 2vw, 1.2rem)",
     color: "#3B3923",
+    marginBottom: "0.75em",
   },
   resumeButtonTop: {
     width: "auto",
@@ -155,7 +162,8 @@ const useStyles = createStyles((theme) => ({
     top: "0",
     marginInline: "auto",
     border: "3px yellow solid",
-    width: "100%",
+    width: "70%",
+
     [theme.fn.smallerThan("sm")]: {
       width: "100%",
       justifyContent: "center",
@@ -174,10 +182,10 @@ const useStyles = createStyles((theme) => ({
     },
   },
   icon: {
-    height: "1.3em",
-
+    border: "2px blue solid",
+    width: "30px",
     [theme.fn.smallerThan("sm")]: {
-      height: "20px",
+      width: "20px",
     },
   },
   resumeIcon: {
@@ -191,10 +199,25 @@ const useStyles = createStyles((theme) => ({
       cursor: "pointer",
     },
   },
+  cardSection: {
+    border: "3px red solid",
+  },
+  resumeSection: {
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    justifyContent: "space-between",
+    alignItems: "center",
+    [theme.fn.smallerThan("sm")]: {
+      flexDirection: "column",
+      flexWrap: "nowrap",
+      justifyContent: "flex-start",
+      alignItems: "flex-start",
+    },
+  },
 }));
 
 interface resumeProps {
-  scrollRef?: React.MutableRefObject<any>;
   id: string;
 }
 
@@ -222,9 +245,18 @@ const ResumePage = (props: resumeProps) => {
     return (
       <>
         <div id={props.id}>
-          <Text className={classes.resumeSubTitle}>{subSection.location}</Text>
-          <Text className={classes.resumeSubTitle}>{subSection.title}</Text>
-          <Text className={classes.resumeDate}>{subSection.date}</Text>
+          <div
+            className={classes.resumeSection}
+            style={{ border: "2px green solid" }}
+          >
+            <Text align="left" className={classes.resumeLocation}>
+              {subSection.location}
+            </Text>
+            <Text className={classes.resumeDate}>{subSection.date}</Text>
+          </div>
+          <Text align="left" className={classes.resumeSubTitle}>
+            {subSection.title}
+          </Text>
           <List
             spacing="sm"
             center
@@ -251,14 +283,14 @@ const ResumePage = (props: resumeProps) => {
    */
   const getSectionData = (section: resumeSectionData) => {
     return (
-      <>
+      <div className={classes.cardSection}>
         <Text className={classes.resumeTitle}>{section.section}</Text>
         {getSubSectionData(section.subsection0)}
         {section.subsection1 !== undefined &&
           getSubSectionData(section.subsection1)}
         {section.subsection2 !== undefined &&
           getSubSectionData(section.subsection2)}
-      </>
+      </div>
     );
   };
 
@@ -269,13 +301,7 @@ const ResumePage = (props: resumeProps) => {
    */
 
   const cards = resumeCopy.map((section) => (
-    <Card
-      key={section.section}
-      p="xl"
-      radius="md"
-      component="a"
-      className={classes.card}
-    >
+    <Card key={section.section} p="xl" radius="md" className={classes.card}>
       {getSectionData(section)}
     </Card>
   ));
