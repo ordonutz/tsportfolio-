@@ -29,6 +29,8 @@ const useStyles = createStyles((theme) => ({
     },
   },
   inner: {
+    minWidth: "0",
+    minHeight: "0",
     height: "100%",
     border: "3px solid purple",
     display: "flex",

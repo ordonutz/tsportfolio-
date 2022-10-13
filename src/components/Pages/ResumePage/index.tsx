@@ -15,7 +15,7 @@ import {
 } from "@mantine/core";
 import { NONAME } from "dns";
 import React, { forwardRef, LegacyRef, RefObject } from "react";
-import { DonutIcon } from "../../../assets/DonutIcon";
+import { Link } from "react-scroll";
 import DownloadIcon from "../../../assets/DownloadIcon";
 
 import GitIcon from "../../../assets/GitIcon";
@@ -24,6 +24,7 @@ import MailIcon from "../../../assets/MailIcon";
 import PhoneIcon from "../../../assets/PhoneIcon";
 import PreviewIcon from "../../../assets/PreviewIcon";
 import PrinterIcon from "../../../assets/PrinterIcon";
+import { StarIcon } from "../../../assets/StarIcon";
 import { resumeSectionData, resumeSubSection } from "./interfaces";
 import { resumeData } from "./resumeData";
 
@@ -42,11 +43,13 @@ const useStyles = createStyles((theme) => ({
   },
   paperResume: {
     // position: "relative",
+    borderRadius: "12px",
     marginTop: "1em",
+    paddingBottom: "2em",
     border: "2 px solid blue",
     marginInline: "auto",
     shadow: "xl",
-    background: "#E9E9E9",
+    background: "#F1F3F5",
     boxShadow:
       "inset -4px 4px 4px rgba(255, 255, 255, 0.25), inset 4px -4px 4px rgba(0, 0, 0, 0.25)",
     width: "70%",
@@ -56,8 +59,8 @@ const useStyles = createStyles((theme) => ({
   },
   header: {
     top: "0",
-    zIndex: 999,
-    background: "#212529",
+    background: "black",
+    boxShadow: theme.shadows.md,
     width: "70%",
     marginInline: "auto",
     border: "3px yellow solid",
@@ -68,55 +71,64 @@ const useStyles = createStyles((theme) => ({
     alignItems: "center",
   },
   card: {
-    background: "#FAA69F",
-    opacity: "0.6",
-    boxShadow:
-      "inset 4px -4px 4px rgba(0, 0, 0, 0.25), inset -4px 4px 4px rgba(255, 255, 255, 0.25)",
-    borderRadius: "10px",
-    transition: "transform 150ms ease, box-shadow 150ms ease",
+    background: "#ffdeeb",
+    boxShadow: theme.shadows.md,
     width: "90%",
     marginInline: "auto",
-    marginBottom: "1%",
+    marginTop: "2em",
 
     "&:hover": {
+      boxShadow:
+        "inset 4px -4px 4px rgba(0, 0, 0, 0.25), inset -4px 4px 4px rgba(255, 255, 255, 0.25)",
+      borderRadius: "10px",
+      transition: "transform 150ms ease, box-shadow 150ms ease",
       transform: "scale(1.01)",
-      boxShadow: theme.shadows.md,
     },
   },
   nameTitle: {
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
     fontWeight: 500,
-    fontSize: 40,
+    fontSize: "2rem",
   },
 
   resumeHeader: {
     width: "auto",
-    padding: "3% 5%",
+    padding: "2% 5%",
     borderRadius: "10px",
+    background: "#ffdeeb",
+    boxShadow: theme.shadows.md,
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    justifyContent: "space-between",
+    alignItems: "center",
+    [theme.fn.smallerThan("xs")]: {
+      flexDirection: "column",
+    },
   },
   resumeTitle: {
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
     fontWeight: 600,
-    fontSize: 40,
-    color: "#2B2118",
+    fontSize: "clamp(1rem, 2vw, 2rem)",
+    color: "#9B6A6C",
   },
   resumeSubTitle: {
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-    fontWeight: 500,
-    fontSize: 20,
-    color: "#2B2118",
+    fontWeight: 700,
+    fontSize: "clamp(1rem, 2vw, 1.2rem)",
+    color: "#3B3923",
   },
   resumeDate: {
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
     fontWeight: 500,
-    fontSize: 20,
-    color: "#2B2118",
+    fontSize: "clamp(1rem, 2vw, 1.2rem)",
+    color: "#3B3923",
   },
   resumeDescription: {
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
     fontWeight: 500,
-    fontSize: 20,
-    color: "#2B2118",
+    fontSize: "clamp(1rem, 2vw, 1.2rem)",
+    color: "#3B3923",
   },
   resumeButtonTop: {
     width: "auto",
@@ -137,9 +149,13 @@ const useStyles = createStyles((theme) => ({
     },
   },
   actionButtons: {
+    background: "rgb(33,37,41,0.7)",
+    zIndex: 999,
+    position: "sticky",
+    top: "0",
     marginInline: "auto",
     border: "3px yellow solid",
-    width: "70%",
+    width: "100%",
     [theme.fn.smallerThan("sm")]: {
       width: "100%",
       justifyContent: "center",
@@ -147,8 +163,33 @@ const useStyles = createStyles((theme) => ({
     display: "flex",
     flexDirection: "row",
     flexWrap: "nowrap",
-    justifyContent: "flex-end",
+    justifyContent: "center",
     alignItems: "flex-start",
+  },
+  resumeButton: {
+    "&:hover": {
+      transform: "scale(1.01)",
+      boxShadow: theme.shadows.md,
+      cursor: "pointer",
+    },
+  },
+  icon: {
+    height: "1.3em",
+
+    [theme.fn.smallerThan("sm")]: {
+      height: "20px",
+    },
+  },
+  resumeIcon: {
+    height: "2.5em",
+    [theme.fn.smallerThan("sm")]: {
+      height: "30px",
+    },
+    "&:hover": {
+      transform: "scale(1.01)",
+      opacity: "0.9",
+      cursor: "pointer",
+    },
   },
 }));
 
@@ -164,6 +205,7 @@ interface resumeProps {
 const ResumePage = (props: resumeProps) => {
   const { classes } = useStyles();
   const theme = useMantineTheme();
+  console.log(theme);
   const resumeCopy: resumeSectionData[] = JSON.parse(
     JSON.stringify(resumeData)
   );
@@ -179,25 +221,24 @@ const ResumePage = (props: resumeProps) => {
   const getSubSectionData = (subSection: resumeSubSection) => {
     return (
       <>
-        <Group position="apart" spacing="xs" id={props.id}>
-          <Text className={classes.resumeSubTitle}>{subSection.name}</Text>
+        <div id={props.id}>
+          <Text className={classes.resumeSubTitle}>{subSection.location}</Text>
+          <Text className={classes.resumeSubTitle}>{subSection.title}</Text>
           <Text className={classes.resumeDate}>{subSection.date}</Text>
           <List
             spacing="sm"
             center
-            icon={
-              <ThemeIcon color="none" radius="lg" size={24}>
-                <DonutIcon />
-              </ThemeIcon>
-            }
+            icon={<StarIcon className={classes.icon} />}
             className={classes.resumeDescription}
             withPadding
           >
             {subSection.description.map((info: string, index) => (
-              <List.Item key={`${subSection.name}${index}`}>{info}</List.Item>
+              <List.Item key={`${subSection.location}${index}`}>
+                {info}
+              </List.Item>
             ))}
           </List>
-        </Group>
+        </div>
       </>
     );
   };
@@ -211,7 +252,7 @@ const ResumePage = (props: resumeProps) => {
   const getSectionData = (section: resumeSectionData) => {
     return (
       <>
-        <Text className={classes.resumeTitle}>{section.title}</Text>
+        <Text className={classes.resumeTitle}>{section.section}</Text>
         {getSubSectionData(section.subsection0)}
         {section.subsection1 !== undefined &&
           getSubSectionData(section.subsection1)}
@@ -229,7 +270,7 @@ const ResumePage = (props: resumeProps) => {
 
   const cards = resumeCopy.map((section) => (
     <Card
-      key={section.title}
+      key={section.section}
       p="xl"
       radius="md"
       component="a"
@@ -260,46 +301,51 @@ const ResumePage = (props: resumeProps) => {
           size="xs"
           variant="filled"
           color="blue"
+          onClick={() =>
+            window.open(
+              "Leslie_Ordonez_Hernandez_Resume.pdf",
+              "_blank",
+              "noopener,noreferrer"
+            )
+          }
         >
           Open PDF
         </Button>
       </Group>
-      <Paper radius="md" shadow="xl" className={classes.paperResume}>
-        <Group className={classes.resumeHeader} position="apart">
+      <Paper shadow="xl" className={classes.paperResume}>
+        <div className={classes.resumeHeader}>
           <Text
-            color="#53917E"
+            color="#9B6A6C"
             style={{
               fontFamily: `Greycliff CF, ${theme.fontFamily}`,
               fontWeight: 500,
-              fontSize: 40,
+              fontSize: "clamp(1.3rem, 2vw, 2.5rem)",
             }}
           >
             Leslie Ordonez-Hernandez
           </Text>
-          {/* <Group>
-              <MailIcon
-                onClick={() => {
-                  window.open("", "_blank");
-                }}
-                className={classes.resumeButtons}
-              />
-              <LinkedIcon
-                onClick={() => {
-                  window.open(
-                    "https://www.linkedin.com/in/leslie-ordonez/",
-                    "_blank"
-                  );
-                }}
-                className={classes.resumeButtons}
-              />
-              <GitIcon
-                onClick={() => {
-                  window.open("https://github.com/ordonutz", "_blank");
-                }}
-                className={classes.resumeButtons}
-              />
-            </Group> */}
-        </Group>
+          <Group>
+            <Link to="Contact" smooth={true} duration={500}>
+              <MailIcon className={classes.resumeIcon} />
+            </Link>
+
+            <LinkedIcon
+              onClick={() => {
+                window.open(
+                  "https://www.linkedin.com/in/leslie-ordonez/",
+                  "_blank"
+                );
+              }}
+              className={classes.resumeIcon}
+            />
+            <GitIcon
+              onClick={() => {
+                window.open("https://github.com/ordonutz", "_blank");
+              }}
+              className={classes.resumeIcon}
+            />
+          </Group>
+        </div>
         <SimpleGrid cols={1} breakpoints={[{ maxWidth: "sm", cols: 1 }]}>
           {cards}
         </SimpleGrid>
