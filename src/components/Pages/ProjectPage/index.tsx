@@ -9,9 +9,11 @@ import {
   Container,
 } from "@mantine/core";
 import React from "react";
+import GameIcon from "../../../assets/GameIcon";
 import GitIcon from "../../../assets/GitIcon";
 import MailIcon from "../../../assets/MailIcon";
 import PhoneIcon from "../../../assets/PhoneIcon";
+import SticksGame from "../../../assets/SticksGame";
 
 interface projectData {
   title: string;
@@ -21,32 +23,25 @@ interface projectData {
 }
 const mockdata: Array<projectData> = [
   {
-    title: "This Portfolio",
+    title: "Personal Portfolio Website",
     description:
-      "This dust is actually a powerful poison that will even make a pro wrestler sick, Regice cloaks itself with frigid air of -328 degrees Fahrenheit",
+      "I created this personal website to display my resume and projects. This single-page static website is made with React.js + TypeScript, Mantine component library, EmailJS, and React Scroll. This was my first time using inline styling compared to using SCSS. A huge shoutout to the Mantine UI library and Figma for helping with the overall design.",
     icon: <PhoneIcon></PhoneIcon>,
     tools: ["React.js", "TypeScript", "Mantine UI", "EmailJS"],
   },
   {
-    title: "Privacy focused",
+    title: "Simulating Game of Pickup Sticks",
     description:
-      "People say it can run at the same speed as lightning striking, Its icy body is so cold, it will not melt even if it is immersed in magma",
-    icon: <PhoneIcon></PhoneIcon>,
+      "This c++ console program simulates a simplified version of the game of pickup sticks. The game consists of a group of sticks placed randomly on top of each other in a tangled mess. I modified depth-first search to perform a topological sort to determine if a solution existed through cycle detection. This project was an assignment in the CS302 Data Structures course I took during my undergrad at UNLV. My plan is to recreate this as a part of a browser application to visually animate different data structures from old assignments.",
+    icon: <SticksGame />,
     tools: ["C++"],
   },
   {
-    title: "some title",
+    title: "Favorite Video Games Dashboard",
     description:
-      "They’re popular, but they’re rare. Trainers who show them off recklessly may be targeted by thieves",
-    icon: <PhoneIcon></PhoneIcon>,
-    tools: ["coming soon", "tbd"],
-  },
-  {
-    title: "Another title",
-    description:
-      "They’re popular, but they’re rare. Trainers who show them off recklessly may be targeted by thieves",
-    icon: <PhoneIcon></PhoneIcon>,
-    tools: ["coming soon", "tbd"],
+      "A website to display updates, stats, and other info from my favorite games. Will grab information through various APIs to beautifully display info about the current games I'm playing in one place.",
+    icon: <GameIcon />,
+    tools: ["coming soon"],
   },
 ];
 
@@ -101,16 +96,17 @@ const useStyles = createStyles((theme) => ({
     },
   },
   resumeButtons: {
+    width: "2rem",
     "&:hover": {
       transform: "scale(1.01)",
       boxShadow: theme.shadows.md,
       cursor: "pointer",
+      opacity: "0.7",
     },
   },
 }));
 
 interface ProjectProps {
-  scrollRef?: any;
   id: string;
 }
 
@@ -151,7 +147,7 @@ const ProjectPage = (props: ProjectProps) => {
   ));
   return (
     <div className={classes.outerContainer} id={props.id}>
-      {/* <Title order={2} className={classes.title} align="center" mt="sm">
+      <Title order={2} className={classes.title} align="center" mt="sm">
         Projects
       </Title>
 
@@ -161,7 +157,7 @@ const ProjectPage = (props: ProjectProps) => {
         align="center"
         mt="md"
       >
-        not sure what to put here yet
+        See what I'm working on
       </Text>
 
       <SimpleGrid
@@ -171,7 +167,7 @@ const ProjectPage = (props: ProjectProps) => {
         breakpoints={[{ maxWidth: "md", cols: 1 }]}
       >
         {features}
-      </SimpleGrid> */}
+      </SimpleGrid>
     </div>
   );
 };
