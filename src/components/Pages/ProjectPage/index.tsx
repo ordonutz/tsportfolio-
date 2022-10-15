@@ -26,21 +26,33 @@ const mockdata: Array<projectData> = [
     title: "Personal Portfolio Website",
     description:
       "I created this personal website to display my resume and projects. This single-page static website is made with React.js + TypeScript, Mantine component library, EmailJS, and React Scroll. This was my first time using inline styling compared to using SCSS. A huge shoutout to the Mantine UI library and Figma for helping with the overall design.",
-    icon: <PhoneIcon></PhoneIcon>,
+    icon: (
+      <div style={{ width: "60%", border: "2px red solid" }}>
+        <SticksGame />
+      </div>
+    ),
     tools: ["React.js", "TypeScript", "Mantine UI", "EmailJS"],
   },
   {
     title: "Simulating Game of Pickup Sticks",
     description:
       "This c++ console program simulates a simplified version of the game of pickup sticks. The game consists of a group of sticks placed randomly on top of each other in a tangled mess. I modified depth-first search to perform a topological sort to determine if a solution existed through cycle detection. This project was an assignment in the CS302 Data Structures course I took during my undergrad at UNLV. My plan is to recreate this as a part of a browser application to visually animate different data structures from old assignments.",
-    icon: <SticksGame />,
+    icon: (
+      <div style={{ width: "60%", border: "2px red solid" }}>
+        <SticksGame />
+      </div>
+    ),
     tools: ["C++"],
   },
   {
-    title: "Favorite Video Games Dashboard",
+    title: "Video Games Dashboard",
     description:
       "A website to display updates, stats, and other info from my favorite games. Will grab information through various APIs to beautifully display info about the current games I'm playing in one place.",
-    icon: <GameIcon />,
+    icon: (
+      <div style={{ width: "60%", border: "2px red solid" }}>
+        <GameIcon />
+      </div>
+    ),
     tools: ["coming soon"],
   },
 ];
@@ -48,7 +60,7 @@ const mockdata: Array<projectData> = [
 const useStyles = createStyles((theme) => ({
   outerContainer: {
     border: "3px solid green",
-    height: "100vh",
+    height: "auto",
     width: "max(calc(1.23rem + 60%), 80%)",
     marginInline: "auto",
     [theme.fn.smallerThan("xs")]: {
@@ -172,150 +184,3 @@ const ProjectPage = (props: ProjectProps) => {
   );
 };
 export default ProjectPage;
-// import {
-//   Image,
-//   Text,
-//   Container,
-//   ThemeIcon,
-//   Title,
-//   SimpleGrid,
-//   createStyles,
-//   Button,
-//   Badge,
-// } from "@mantine/core";
-// import { useState } from "react";
-// import CarouselProjects from "../../CarouselProjects";
-
-// const useStyles = createStyles((theme) => ({
-//   wrapper: {
-//     paddingTop: 80,
-//     paddingBottom: 50,
-//   },
-
-//   item: {
-//     display: "flex",
-//   },
-
-//   itemIcon: {
-//     padding: theme.spacing.xs,
-//     marginRight: theme.spacing.md,
-//   },
-
-//   itemTitle: {
-//     marginBottom: theme.spacing.xs / 2,
-//   },
-
-//   supTitle: {
-//     textAlign: "center",
-//     textTransform: "uppercase",
-//     fontWeight: 800,
-//     fontSize: theme.fontSizes.sm,
-//     color: theme.fn.variant({ variant: "light", color: theme.primaryColor })
-//       .color,
-//     letterSpacing: 0.5,
-//   },
-
-//   title: {
-//     lineHeight: 1,
-//     textAlign: "center",
-//     marginTop: theme.spacing.xl,
-//   },
-
-//   description: {
-//     textAlign: "center",
-//     marginTop: theme.spacing.xs,
-//   },
-
-//   highlight: {
-//     backgroundColor: theme.fn.variant({
-//       variant: "light",
-//       color: theme.primaryColor,
-//     }).background,
-//     padding: 5,
-//     paddingTop: 0,
-//     borderRadius: theme.radius.sm,
-//     display: "inline-block",
-//     color: theme.colorScheme === "dark" ? theme.white : "inherit",
-//   },
-// }));
-
-// interface FeatureImage {
-//   image: string;
-//   title: React.ReactNode;
-//   description: React.ReactNode;
-// }
-
-// interface FeaturesImagesProps {
-//   supTitle: React.ReactNode;
-//   description: React.ReactNode;
-//   data: FeatureImage[];
-// }
-
-// export default function ProjectPage({
-//   supTitle,
-//   description,
-//   data,
-// }: FeaturesImagesProps) {
-//   const { classes } = useStyles();
-//   const [gridView, setGridView] = useState(true);
-
-//   const items = data.map((item) => (
-//     <div className={classes.item} key={item.image}>
-//       <ThemeIcon
-//         variant="light"
-//         className={classes.itemIcon}
-//         size={60}
-//         radius="md"
-//       >
-//         {/* <Image src={IMAGES[item.image]} /> */}
-//       </ThemeIcon>
-
-//       <div>
-//         <Text weight={700} size="lg" className={classes.itemTitle}>
-//           {item.title}
-//         </Text>
-//         <Text color="dimmed">{item.description}</Text>
-//       </div>
-//     </div>
-//   ));
-
-//   return (
-//     <Container
-//       size="lg"
-//       className={classes.wrapper}
-//       // style={{ background: "blue" }}
-//     >
-//       <Text className={classes.supTitle}>{supTitle}</Text>
-
-//       <Title className={classes.title} order={2}>
-//         PharmLand is <span className={classes.highlight}>not</span> just for
-//         pharmacists
-//       </Title>
-
-//       <Container size={660} p={0}>
-//         <Text color="dimmed" className={classes.description}>
-//           {description}
-//         </Text>
-//       </Container>
-//       <Button
-//         onClick={() => {
-//           setGridView(!gridView);
-//         }}
-//       >
-//         Grid View
-//       </Button>
-//       {gridView ? (
-//         <SimpleGrid
-//           cols={2}
-//           spacing={50}
-//           breakpoints={[{ maxWidth: 550, cols: 1, spacing: 40 }]}
-//           style={{ marginTop: 30 }}
-//         >
-//           {items}
-//         </SimpleGrid>
-//       ) : (
-//         <CarouselProjects />
-//       )}
-//     </Container>
-//   );
-// }

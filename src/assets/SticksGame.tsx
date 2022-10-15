@@ -6,12 +6,16 @@ TO DO:
   - outline what props should be
   - styles
 */
-function SticksGame() {
+interface IconProps {
+  className?: string;
+}
+
+function SticksGame(props: IconProps) {
   return (
     <svg
-      width="71"
-      height="68"
-      viewBox="0 0 71 68"
+      width="auto"
+      height="auto"
+      viewBox="0 0 71 63"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >

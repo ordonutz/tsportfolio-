@@ -156,6 +156,7 @@ const useStyles = createStyles((theme) => ({
     },
   },
   actionButtons: {
+    borderRadius: "5px",
     background: "rgb(33,37,41,0.7)",
     zIndex: 999,
     position: "sticky",
@@ -335,7 +336,7 @@ const ResumePage = (props: resumeProps) => {
             )
           }
         >
-          Open PDF
+          View PDF
         </Button>
       </Group>
       <Paper shadow="xl" className={classes.paperResume}>
