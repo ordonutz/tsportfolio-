@@ -16,26 +16,17 @@ import emailjs from "@emailjs/browser";
 import { useState } from "react";
 import { useForm } from "@mantine/form";
 import ContactIcons from "./ContactIcons";
+import { ThemeContext } from "@emotion/react";
 
 const useStyles = createStyles((theme) => {
   const BREAKPOINT = theme.fn.smallerThan("sm");
 
   return {
-    outerContainer: {
-      border: "3px solid yellow",
-      height: "100vh",
-      width: "max(calc(1.23rem + 60%), 80%)",
-      marginInline: "auto",
-      [theme.fn.smallerThan("xs")]: {
-        width: "90%",
-      },
-    },
     wrapper: {
       display: "flex",
       backgroundColor: theme.colors.dark[8],
       borderRadius: theme.radius.lg,
       padding: 4,
-      border: `1px solid ${theme.colors.gray[2]}`,
 
       [BREAKPOINT]: {
         flexDirection: "column",
@@ -84,13 +75,9 @@ const useStyles = createStyles((theme) => {
       boxSizing: "border-box",
       position: "relative",
       borderRadius: theme.radius.lg - 2,
-
       background:
-        "linear-gradient(242deg, rgba(245,192,182,1) 0%, rgba(250,166,159,1) 100%)",
-      boxShadow:
-        "inset 4px -4px 4px rgba(0, 0, 0, 0.25), inset -4px 4px 4px rgba(255, 255, 255, 0.25)",
-      backgroundSize: "cover",
-      backgroundPosition: "center",
+        "linear-gradient(242deg, rgba(230,73,128,1) 0%, rgba(34,139,230,1) 100%)",
+
       border: "1px solid transparent",
       padding: theme.spacing.xl,
       flex: "0 0 280px",
@@ -114,6 +101,9 @@ const useStyles = createStyles((theme) => {
       [BREAKPOINT]: {
         flex: 1,
       },
+    },
+    contactIcon: {
+      width: "1.5em",
     },
   };
 });
@@ -178,20 +168,25 @@ const ContactPage = (props: ContactProps) => {
     form.reset();
   };
   return (
-    <div className={classes.outerContainer} id={props.id}>
-      {/* <Paper shadow="md" radius="lg" id={props.id}>
+    <div
+      style={{
+        marginTop: "10%",
+        maxWidth: "900px",
+        marginInline: "auto",
+      }}
+    >
+      <Paper shadow="md" radius="lg" id={props.id}>
         <div className={classes.wrapper}>
           <div className={classes.contacts}>
             <Text
               size="lg"
               weight={700}
               className={classes.title}
-              sx={{ color: "red" }}
+              sx={{ color: "#F1F3F5" }}
             >
               Contact information
             </Text>
-            <Text>something</Text>
-            <ContactIcons />
+            <ContactIcons className={classes.contactIcon} />
           </div>
           {subSuccess && showAlert && (
             <Alert
@@ -268,7 +263,7 @@ const ContactPage = (props: ContactProps) => {
                 name="message"
                 aria-label="Your message"
                 mt="md"
-                placeholder="Thanks for reaching out :) feedback appreciated"
+                placeholder="Thanks for reaching out :)"
                 minRows={3}
                 required
                 {...form.getInputProps("message")}
@@ -276,9 +271,11 @@ const ContactPage = (props: ContactProps) => {
 
               <Group position="right" mt="md">
                 <Button
+                  radius="lg"
                   aria-label="submit"
                   type="submit"
                   className={classes.control}
+                  color="blue"
                 >
                   Send message
                 </Button>
@@ -286,7 +283,7 @@ const ContactPage = (props: ContactProps) => {
             </div>
           </form>
         </div>
-      </Paper> */}
+      </Paper>
     </div>
   );
 };

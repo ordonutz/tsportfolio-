@@ -27,7 +27,7 @@ const mockdata: Array<projectData> = [
     description:
       "I created this personal website to display my resume and projects. This single-page static website is made with React.js + TypeScript, Mantine component library, EmailJS, and React Scroll. This was my first time using inline styling compared to using SCSS. A huge shoutout to the Mantine UI library and Figma for helping with the overall design.",
     icon: (
-      <div style={{ width: "60%", border: "2px red solid" }}>
+      <div style={{ width: "60%" }}>
         <SticksGame />
       </div>
     ),
@@ -38,7 +38,7 @@ const mockdata: Array<projectData> = [
     description:
       "This c++ console program simulates a simplified version of the game of pickup sticks. The game consists of a group of sticks placed randomly on top of each other in a tangled mess. I modified depth-first search to perform a topological sort to determine if a solution existed through cycle detection. This project was an assignment in the CS302 Data Structures course I took during my undergrad at UNLV. My plan is to recreate this as a part of a browser application to visually animate different data structures from old assignments.",
     icon: (
-      <div style={{ width: "60%", border: "2px red solid" }}>
+      <div style={{ width: "60%" }}>
         <SticksGame />
       </div>
     ),
@@ -49,7 +49,7 @@ const mockdata: Array<projectData> = [
     description:
       "A website to display updates, stats, and other info from my favorite games. Will grab information through various APIs to beautifully display info about the current games I'm playing in one place.",
     icon: (
-      <div style={{ width: "60%", border: "2px red solid" }}>
+      <div style={{ width: "60%" }}>
         <GameIcon />
       </div>
     ),
@@ -59,7 +59,6 @@ const mockdata: Array<projectData> = [
 
 const useStyles = createStyles((theme) => ({
   outerContainer: {
-    border: "3px solid green",
     height: "auto",
     width: "max(calc(1.23rem + 60%), 80%)",
     marginInline: "auto",
@@ -132,18 +131,19 @@ const ProjectPage = (props: ProjectProps) => {
       className={classes.card}
       p="xl"
     >
-      {/* <feature.icon size={50} stroke={2} color={theme.fn.primaryColor()} /> */}
       {feature.icon}
       <Group>
         <Text size="lg" weight={500} className={classes.cardTitle} mt="md">
           {feature.title}
         </Text>
-        <GitIcon
-          onClick={() => {
-            window.open("https://github.com/ordonutz", "_blank");
-          }}
-          className={classes.resumeButtons}
-        />
+        {feature.title !== "Video Games Dashboard" && (
+          <GitIcon
+            onClick={() => {
+              window.open("https://github.com/ordonutz", "_blank");
+            }}
+            className={classes.resumeButtons}
+          />
+        )}
       </Group>
 
       <Group style={{ marginTop: "10px" }}>

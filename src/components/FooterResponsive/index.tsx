@@ -37,9 +37,9 @@ const useStyles = createStyles((theme) => ({
     },
   },
   logo: {
-    height: "90px",
+    height: "70px",
     [theme.fn.smallerThan("sm")]: {
-      height: "70px",
+      height: "50px",
     },
     "&:hover": {
       cursor: "pointer",
@@ -63,8 +63,6 @@ export default function FooterResponsive({ links }: FooterSimpleProps) {
       to={link.label}
       spy={true}
       smooth={true}
-      offset={50}
-      duration={500}
       key={link.label}
       className={classes.linkStyle}
     >
@@ -75,13 +73,7 @@ export default function FooterResponsive({ links }: FooterSimpleProps) {
   return (
     <div className={classes.footer}>
       <Container className={classes.inner}>
-        <Link
-          to={"landingSection"}
-          spy={true}
-          smooth={true}
-          offset={50}
-          duration={500}
-        >
+        <Link to={"landingSection"} spy={true} smooth={true}>
           <MainLogo className={classes.logo} />
         </Link>
         <Group className={classes.links}>{items}</Group>

@@ -33,8 +33,8 @@ import { resumeData } from "./resumeData";
  */
 const useStyles = createStyles((theme) => ({
   container: {
-    border: "3px solid red",
     height: "auto",
+    marginBottom: "5em",
     width: "max(calc(1.23rem + 60%), 80%)",
     marginInline: "auto",
     [theme.fn.smallerThan("xs")]: {
@@ -46,7 +46,7 @@ const useStyles = createStyles((theme) => ({
     borderRadius: "12px",
     marginTop: "1em",
     paddingBottom: "2em",
-    border: "2 px solid blue",
+
     marginInline: "auto",
     shadow: "xl",
     background: "#F1F3F5",
@@ -63,7 +63,6 @@ const useStyles = createStyles((theme) => ({
     boxShadow: theme.shadows.md,
     width: "70%",
     marginInline: "auto",
-    border: "3px yellow solid",
     display: "flex",
     flexDirection: "row",
     flexWrap: "nowrap",
@@ -147,7 +146,6 @@ const useStyles = createStyles((theme) => ({
     marginBottom: "10%",
   },
   headerText: {
-    border: "3px blue solid",
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
     fontWeight: 500,
     fontSize: "1rem",
@@ -162,7 +160,6 @@ const useStyles = createStyles((theme) => ({
     position: "sticky",
     top: "0",
     marginInline: "auto",
-    border: "3px yellow solid",
     width: "70%",
 
     [theme.fn.smallerThan("sm")]: {
@@ -183,7 +180,6 @@ const useStyles = createStyles((theme) => ({
     },
   },
   icon: {
-    border: "2px blue solid",
     width: "30px",
     [theme.fn.smallerThan("sm")]: {
       width: "20px",
@@ -200,9 +196,7 @@ const useStyles = createStyles((theme) => ({
       cursor: "pointer",
     },
   },
-  cardSection: {
-    border: "3px red solid",
-  },
+  cardSection: {},
   resumeSection: {
     display: "flex",
     flexDirection: "row",
@@ -246,10 +240,7 @@ const ResumePage = (props: resumeProps) => {
     return (
       <>
         <div id={props.id}>
-          <div
-            className={classes.resumeSection}
-            style={{ border: "2px green solid" }}
-          >
+          <div className={classes.resumeSection}>
             <Text align="left" className={classes.resumeLocation}>
               {subSection.location}
             </Text>
