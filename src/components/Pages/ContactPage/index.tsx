@@ -17,6 +17,7 @@ import { useState } from "react";
 import { useForm } from "@mantine/form";
 import ContactIcons from "./ContactIcons";
 import { ThemeContext } from "@emotion/react";
+import ErrorIcon from "../../../assets/ErrorIcon";
 
 const useStyles = createStyles((theme) => {
   const BREAKPOINT = theme.fn.smallerThan("sm");
@@ -155,6 +156,11 @@ const ContactPage = (props: ContactProps) => {
    * @param
    */
   const handleSubmit = async () => {
+    console.log(subErr, "test");
+    if (!subErr) {
+      console.log(subErr);
+      setSubErr(true);
+    }
     try {
       const res = await mockPromise(false);
       console.log("!!!", res);
@@ -204,84 +210,86 @@ const ContactPage = (props: ContactProps) => {
               GitHub.
             </Alert>
           )}
-          {subErr && showAlert && (
+          {subErr && showAlert ? (
             <Alert
-              icon={<CheckIcon />}
-              title="Fail!"
+              icon={<ErrorIcon />}
+              title="Message Failed to Send!"
               color="red"
               radius="md"
               variant="light"
-              withCloseButton
-              closeButtonLabel="Close alert"
               onClose={() => setShowAlert(false)}
             >
-              oh no try again
+              Message failed to send.
             </Alert>
-          )}
-          <form
-            id="contact-form"
-            className={classes.form}
-            onSubmit={(event) => {
-              event.preventDefault();
-              if (form.validate().hasErrors) {
-              } else {
-                handleSubmit();
-              }
-            }}
-          >
-            <Text size="lg" weight={700} className={classes.title}>
-              Get in touch
-            </Text>
+          ) : (
+            <form
+              id="contact-form"
+              className={classes.form}
+              onSubmit={(event) => {
+                event.preventDefault();
+                if (form.validate().hasErrors) {
+                } else {
+                  handleSubmit();
+                }
+              }}
+            >
+              <Text size="lg" weight={700} className={classes.title}>
+                Get in touch
+              </Text>
 
-            <div className={classes.fields}>
-              <SimpleGrid cols={1} breakpoints={[{ maxWidth: "sm", cols: 1 }]}>
-                <TextInput
-                  name="user_name"
-                  aria-label="Your name"
-                  label="Your name"
-                  {...form.getInputProps("name")}
-                />
-                <TextInput
-                  name="user_email"
-                  aria-label="Your email"
-                  label="Your email"
-                  required
-                  {...form.getInputProps("email")}
-                />
-              </SimpleGrid>
-
-              <TextInput
-                name="subject"
-                aria-label="Subject"
-                mt="md"
-                label="Subject"
-                required
-                {...form.getInputProps("subject")}
-              />
-
-              <Textarea
-                name="message"
-                aria-label="Your message"
-                mt="md"
-                placeholder="Thanks for reaching out :)"
-                minRows={3}
-                required
-                {...form.getInputProps("message")}
-              />
-
-              <Group position="right" mt="md">
-                <Button
-                  radius="lg"
-                  aria-label="submit"
-                  type="submit"
-                  className={classes.control}
-                  color="blue"
+              <div className={classes.fields}>
+                <SimpleGrid
+                  cols={1}
+                  breakpoints={[{ maxWidth: "sm", cols: 1 }]}
                 >
-                  Send message
-                </Button>
-              </Group>
-            </div>
-          </form>
+                  <TextInput
+                    name="user_name"
+                    aria-label="Your name"
+                    label="Your name"
+                    {...form.getInputProps("name")}
+                  />
+                  <TextInput
+                    name="user_email"
+                    aria-label="Your email"
+                    label="Your email"
+                    required
+                    {...form.getInputProps("email")}
+                  />
+                </SimpleGrid>
+
+                <TextInput
+                  name="subject"
+                  aria-label="Subject"
+                  mt="md"
+                  label="Subject"
+                  required
+                  {...form.getInputProps("subject")}
+                />
+
+                <Textarea
+                  name="message"
+                  aria-label="Your message"
+                  mt="md"
+                  placeholder="Thanks for reaching out :)"
+                  minRows={3}
+                  required
+                  {...form.getInputProps("message")}
+                />
+
+                <Group position="right" mt="md">
+                  <Button
+                    radius="lg"
+                    aria-label="submit"
+                    type="submit"
+                    className={classes.control}
+                    color="blue"
+                  >
+                    Send message
+                  </Button>
+                </Group>
+              </div>
+            </form>
+          )}
         </div>
       </Paper>
     </div>
