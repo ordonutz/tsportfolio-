@@ -180,6 +180,7 @@ const ContactPage = (props: ContactProps) => {
         maxWidth: "900px",
         marginInline: "auto",
       }}
+      id={props.id}
     >
       <div className={classes.wrapper}>
         <div className={classes.contacts}>

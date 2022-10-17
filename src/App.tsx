@@ -3,7 +3,6 @@ import {
   MantineThemeOverride,
   MantineProvider,
   createStyles,
-  useMantineTheme,
 } from "@mantine/core";
 import HomePage from "./components/Pages/HomePage";
 import ResumePage from "./components/Pages/ResumePage";
@@ -48,10 +47,6 @@ const useStyles = createStyles((MY_THEME) => {
       backgroundPosition: "top",
       marginTop: "110px",
       [MY_THEME.fn.smallerThan("md")]: {
-        backgroundImage: "url(" + "/backgroundImg.png" + ")",
-        backgroundAttachment: "scroll",
-        backgroundSize: "100%",
-        backgroundPosition: "top",
         marginTop: "105px",
       },
     },
@@ -74,7 +69,7 @@ export default function App() {
    * styling classNames available
    */
   const { classes } = useStyles();
-  const theme = useMantineTheme();
+
   return (
     <div className={classes.wrapperImg}>
       <MantineProvider theme={MY_THEME} withGlobalStyles withNormalizeCSS>
