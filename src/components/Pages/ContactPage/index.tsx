@@ -177,7 +177,7 @@ const ContactPage = (props: ContactProps) => {
   return (
     <div
       style={{
-        marginTop: "0px",
+        marginTop: "70px",
         maxWidth: "900px",
         marginInline: "auto",
       }}
