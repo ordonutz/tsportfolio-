@@ -28,7 +28,6 @@ const useStyles = createStyles((theme) => {
       backgroundColor: theme.colors.dark[8],
       borderRadius: theme.radius.lg,
       padding: 4,
-
       [BREAKPOINT]: {
         flexDirection: "column",
       },
@@ -77,7 +76,7 @@ const useStyles = createStyles((theme) => {
       position: "relative",
       borderRadius: theme.radius.lg - 2,
       background:
-        "linear-gradient(242deg, rgba(230,73,128,1) 0%, rgba(34,139,230,1) 100%)",
+        "linear-gradient(242deg, rgba(194,37,92,1) 0%, rgba(25,113,194,1) 100%)",
 
       border: "1px solid transparent",
       padding: theme.spacing.xl,
@@ -153,30 +152,32 @@ const ContactPage = (props: ContactProps) => {
   };
 
   /**
+   * FUNCTION TO MOCK ON SUBMIT
    * @param
    */
-  const handleSubmit = async () => {
-    console.log(subErr, "test");
-    if (!subErr) {
-      console.log(subErr);
-      setSubErr(true);
-    }
-    try {
-      const res = await mockPromise(false);
-      console.log("!!!", res);
-      setSubSuccess(true);
-      setShowAlert(true);
-    } catch (err) {
-      console.log("fail", err);
-      setSubErr(true);
-      setShowAlert(true);
-    }
-    form.reset();
-  };
+  // const handleSubmit = async () => {
+  //   console.log(subErr, "test");
+  //   if (!subErr) {
+  //     console.log(subErr);
+  //     setSubErr(true);
+  //   }
+  //   try {
+  //     const res = await mockPromise(false);
+  //     console.log("!!!", res);
+  //     setSubSuccess(true);
+  //     setShowAlert(true);
+  //   } catch (err) {
+  //     console.log("fail", err);
+  //     setSubErr(true);
+  //     setShowAlert(true);
+  //   }
+  //   form.reset();
+  // };
+
   return (
     <div
       style={{
-        marginTop: "10%",
+        marginTop: "0px",
         maxWidth: "900px",
         marginInline: "auto",
       }}
@@ -225,13 +226,39 @@ const ContactPage = (props: ContactProps) => {
             <form
               id="contact-form"
               className={classes.form}
-              onSubmit={(event) => {
-                event.preventDefault();
-                if (form.validate().hasErrors) {
-                } else {
-                  handleSubmit();
-                }
-              }}
+              /** MOCK SUBMIT FUNCTION */
+              // onSubmit={(event) => {
+              //   event.preventDefault();
+              //   if (form.validate().hasErrors) {
+              //   } else {
+              //     handleSubmit();
+              //   }
+              // }}
+              onSubmit={form.onSubmit((values) => {
+                console.log("vals", values);
+                const form = document.querySelector(
+                  "#contact-form"
+                ) as HTMLFormElement;
+                console.log("form", form);
+                emailjs
+                  .sendForm(
+                    "service_zxgnuxb",
+                    "contact-form",
+                    form,
+                    "IFkPW2qVHPTPcujnk"
+                  )
+                  .then(
+                    (result) => {
+                      console.log("success", result.text);
+                    },
+                    (error) => {
+                      console.log("fail", error.text);
+                    }
+                  )
+                  .catch((error) => {
+                    console.log("fail", error);
+                  });
+              })}
             >
               <Text size="lg" weight={700} className={classes.title}>
                 Get in touch
