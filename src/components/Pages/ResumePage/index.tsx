@@ -223,7 +223,7 @@ interface resumeProps {
 const ResumePage = (props: resumeProps) => {
   const { classes } = useStyles();
   const theme = useMantineTheme();
-  console.log(theme);
+
   const resumeCopy: resumeSectionData[] = JSON.parse(
     JSON.stringify(resumeData)
   );

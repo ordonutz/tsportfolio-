@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Paper,
   Text,
   TextInput,
   Textarea,
@@ -16,7 +15,6 @@ import emailjs from "@emailjs/browser";
 import { useState } from "react";
 import { useForm } from "@mantine/form";
 import ContactIcons from "./ContactIcons";
-import { ThemeContext } from "@emotion/react";
 import ErrorIcon from "../../../assets/ErrorIcon";
 
 const useStyles = createStyles((theme) => {
@@ -27,17 +25,34 @@ const useStyles = createStyles((theme) => {
       display: "flex",
       backgroundColor: theme.colors.dark[8],
       borderRadius: theme.radius.lg,
-      padding: 4,
+
       [BREAKPOINT]: {
         flexDirection: "column",
       },
+    },
+    formAndAlert: {
+      borderRadius: theme.radius.lg,
+      width: "100%",
+      display: "flex",
+      flexDirection: "column",
+      flexWrap: "nowrap",
+      justifyContent: "flex-start",
+      alignItems: "stretch",
+    },
+    sucessAlert: {
+      display: "flex",
+      flexWrap: "nowrap",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      paddingInline: "12px",
+      paddingBottom: "12px",
     },
 
     form: {
       boxSizing: "border-box",
       flex: 1,
       padding: theme.spacing.xl,
-      paddingLeft: theme.spacing.xl * 2,
       borderLeft: 0,
 
       [BREAKPOINT]: {
@@ -108,16 +123,6 @@ const useStyles = createStyles((theme) => {
   };
 });
 
-/**
- * values for contact form
- */
-interface formValues {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-}
-
 interface ContactProps {
   scrollRef?: React.MutableRefObject<any>;
   id: string;
@@ -146,7 +151,6 @@ const ContactPage = (props: ContactProps) => {
 
   const mockPromise = (flag: boolean) => {
     return new Promise((resolve, reject) => {
-      console.log("Making request ....");
       flag ? resolve("Mock Success") : reject("Mock error");
     });
   };
@@ -155,24 +159,19 @@ const ContactPage = (props: ContactProps) => {
    * FUNCTION TO MOCK ON SUBMIT
    * @param
    */
-  // const handleSubmit = async () => {
-  //   console.log(subErr, "test");
-  //   if (!subErr) {
-  //     console.log(subErr);
-  //     setSubErr(true);
-  //   }
-  //   try {
-  //     const res = await mockPromise(false);
-  //     console.log("!!!", res);
-  //     setSubSuccess(true);
-  //     setShowAlert(true);
-  //   } catch (err) {
-  //     console.log("fail", err);
-  //     setSubErr(true);
-  //     setShowAlert(true);
-  //   }
-  //   form.reset();
-  // };
+  const handleSubmit = async () => {
+    try {
+      const res = await mockPromise(true);
+
+      setSubErr(false);
+      setSubSuccess(true);
+      setShowAlert(true);
+      form.reset();
+    } catch (err) {
+      setSubErr(true);
+      setShowAlert(true);
+    }
+  };
 
   return (
     <div
@@ -182,45 +181,46 @@ const ContactPage = (props: ContactProps) => {
         marginInline: "auto",
       }}
     >
-      <Paper shadow="md" radius="lg" id={props.id}>
-        <div className={classes.wrapper}>
-          <div className={classes.contacts}>
-            <Text
-              size="lg"
-              weight={700}
-              className={classes.title}
-              sx={{ color: "#F1F3F5" }}
+      <div className={classes.wrapper}>
+        <div className={classes.contacts}>
+          <Text
+            size="lg"
+            weight={700}
+            className={classes.title}
+            sx={{ color: "#F1F3F5" }}
+          >
+            Contact information
+          </Text>
+          <ContactIcons className={classes.contactIcon} />
+        </div>
+        <div
+          className={subSuccess ? classes.sucessAlert : classes.formAndAlert}
+        >
+          {subErr && showAlert && (
+            <Alert
+              style={{ margin: "0px 10px", marginTop: "10px" }}
+              icon={<ErrorIcon />}
+              title="Aww shucks"
+              color="red"
+              radius="md"
+              variant="light"
+              onClose={() => setShowAlert(false)}
             >
-              Contact information
-            </Text>
-            <ContactIcons className={classes.contactIcon} />
-          </div>
-          {subSuccess && showAlert && (
+              Message failed to send. Refresh and try again.
+            </Alert>
+          )}
+          {subSuccess && showAlert ? (
             <Alert
               icon={<CheckIcon />}
               title="Success!"
               color="lime"
               radius="md"
               variant="light"
-              withCloseButton
-              closeButtonLabel="Close alert"
-              onClose={() => setShowAlert(false)}
+              style={{}}
             >
               Thank you, your message has been received. I'll get back to you
               shortly. In the meantime connect with me through LinkedIn or
               GitHub.
-            </Alert>
-          )}
-          {subErr && showAlert ? (
-            <Alert
-              icon={<ErrorIcon />}
-              title="Message Failed to Send!"
-              color="red"
-              radius="md"
-              variant="light"
-              onClose={() => setShowAlert(false)}
-            >
-              Message failed to send.
             </Alert>
           ) : (
             <form
@@ -234,30 +234,36 @@ const ContactPage = (props: ContactProps) => {
               //     handleSubmit();
               //   }
               // }}
+              onChange={(event) => setSubErr(false)}
               onSubmit={form.onSubmit((values) => {
-                console.log("vals", values);
                 const form = document.querySelector(
                   "#contact-form"
                 ) as HTMLFormElement;
-                console.log("form", form);
-                emailjs
-                  .sendForm(
-                    "service_zxgnuxb",
-                    "contact-form",
-                    form,
-                    "IFkPW2qVHPTPcujnk"
-                  )
-                  .then(
-                    (result) => {
-                      console.log("success", result.text);
-                    },
-                    (error) => {
-                      console.log("fail", error.text);
-                    }
-                  )
-                  .catch((error) => {
-                    console.log("fail", error);
-                  });
+
+                handleSubmit();
+                // emailjs
+                //   .sendForm(
+                //     "service_zxgnuxb",
+                //     "contact-form",
+                //     form,
+                //     "IFkPW2qVHPTPcujnk"
+                //   )
+                //   .then(
+                //     (result) => {
+                //       console.log("success", result.text);
+                //       setSubSuccess(true);
+                //       setShowAlert(true);
+                //       form.reset();
+                //     },
+                //     (error) => {
+                //       console.log("fail", error.text);
+                //       setSubErr(true);
+                //       setShowAlert(true);
+                //     }
+                //   );
+                // .catch((error) => {
+                //   console.log("fail", error);
+                // });
               })}
             >
               <Text size="lg" weight={700} className={classes.title}>
@@ -318,7 +324,7 @@ const ContactPage = (props: ContactProps) => {
             </form>
           )}
         </div>
-      </Paper>
+      </div>
     </div>
   );
 };

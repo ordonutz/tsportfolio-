@@ -8,7 +8,7 @@ function LinkedIcon(props: linkedIconProps) {
     <div onClick={props.onClick} className={props.className}>
       <svg
         width="100%"
-        height="auto"
+        height="100%"
         viewBox="0 0 20 21"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -31,9 +31,9 @@ function LinkedIcon(props: linkedIconProps) {
             width="21.7443"
             height="21.7443"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feBlend
               mode="normal"
               in="SourceGraphic"

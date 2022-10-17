@@ -10,7 +10,7 @@ function MailIcon(props: mailIconProps) {
     <div onClick={props.onClick} className={props.className}>
       <svg
         width="100%"
-        height="auto"
+        height="100%"
         viewBox="0 0 20 20"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -36,9 +36,9 @@ function MailIcon(props: mailIconProps) {
             width="20.7443"
             height="21.243"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feBlend
               mode="normal"
               in="SourceGraphic"

@@ -117,7 +117,7 @@ const HomePage = (props: homeProps) => {
   const { classes } = useStyles();
   const theme = useMantineTheme();
   const [screenSize, setScreenSize] = useState<MantineSize | undefined>();
-  console.log("theme", theme.colors.green[8]);
+
   return (
     <div className={classes.outerContainer} id={props.id}>
       <div className={classes.inner}>

@@ -126,7 +126,7 @@ const HeaderResponsive = (props: HeaderResponsiveProps) => {
   return (
     <Header
       id={props.id}
-      height="auto"
+      height="100%"
       withBorder={false}
       className={classes.root}
       style={{ height: "auto" }}

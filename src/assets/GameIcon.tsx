@@ -7,8 +7,8 @@ interface IconProps {
 const GameIcon = (props: IconProps) => {
   return (
     <svg
-      width="auto"
-      height="auto"
+      width="100%"
+      height="100%"
       viewBox="0 0 71 63"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -44,9 +44,9 @@ const GameIcon = (props: IconProps) => {
           width="48.6135"
           height="31.1704"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
