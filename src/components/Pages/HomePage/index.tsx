@@ -19,9 +19,9 @@ import { Link } from "react-scroll";
  */
 const useStyles = createStyles((theme) => ({
   outerContainer: {
-    marginTop: "2rem",
-    border: "3px solid pink",
-    height: "100vh",
+    paddingTop: "3rem",
+    marginBottom: "10px",
+    minHeight: "100vh",
     width: "max(calc(1.23rem + 60%), 80%)",
     marginInline: "auto",
     [theme.fn.smallerThan("xs")]: {
@@ -32,7 +32,7 @@ const useStyles = createStyles((theme) => ({
     minWidth: "0",
     minHeight: "0",
     height: "100%",
-    border: "3px solid purple",
+
     display: "flex",
     flexDirection: "row",
     flexWrap: "nowrap",
@@ -41,8 +41,6 @@ const useStyles = createStyles((theme) => ({
   },
 
   content: {
-    border: "3px solid green",
-
     [theme.fn.smallerThan("md")]: {
       maxWidth: "100%",
     },
@@ -84,7 +82,6 @@ const useStyles = createStyles((theme) => ({
     },
   },
   buttonGroup: {
-    border: "3px solid red",
     [theme.fn.smallerThan("xs")]: {
       flex: 1,
     },
@@ -100,7 +97,6 @@ const useStyles = createStyles((theme) => ({
     },
   },
   icon: {
-    border: "3px solid yellow",
     height: "40em",
     [theme.fn.smallerThan("sm")]: {
       height: "60px",
@@ -121,7 +117,7 @@ const HomePage = (props: homeProps) => {
   const { classes } = useStyles();
   const theme = useMantineTheme();
   const [screenSize, setScreenSize] = useState<MantineSize | undefined>();
-  console.log("theme", theme.colors.green[8]);
+
   return (
     <div className={classes.outerContainer} id={props.id}>
       <div className={classes.inner}>
@@ -177,7 +173,6 @@ const HomePage = (props: homeProps) => {
                 size="md"
                 variant="gradient"
                 gradient={{ from: "#d6336c", to: "#ec8c69", deg: 35 }}
-                color="yellow"
                 className={classes.Button}
               >
                 Let's Connect

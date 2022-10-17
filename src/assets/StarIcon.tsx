@@ -8,8 +8,8 @@ export const StarIcon = (props: iconProps) => {
   return (
     <div className={props.className}>
       <svg
-        width="auto"
-        height="auto"
+        width="100%"
+        height="100%"
         viewBox="0 0 31 30"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -63,8 +63,8 @@ export const StarIcon = (props: iconProps) => {
             y2="2.83456"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0.00140872" stop-color="#FAB005" />
-            <stop offset="1" stop-color="#F2CB56" />
+            <stop offset="0.00140872" stopColor="#FAB005" />
+            <stop offset="1" stopColor="#F2CB56" />
           </linearGradient>
         </defs>
       </svg>

@@ -1,11 +1,14 @@
 import React from "react";
 
-function PhoneIcon() {
+interface PhoneProps {
+  className?: string;
+}
+function PhoneIcon(props: PhoneProps) {
   return (
-    <div>
+    <div className={props.className}>
       <svg
-        width="40"
-        height="40"
+        width="100%"
+        height="100%"
         viewBox="0 0 40 40"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

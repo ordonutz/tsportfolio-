@@ -19,14 +19,13 @@ const useStyles = createStyles((theme) => {
   return {
     root: {
       position: "absolute",
-      border: "3px pink solid",
+
       height: "auto",
-      // position: "sticky",
+
       top: "0",
-      // zIndex: 999,
+
       marginInline: "auto",
       width: "auto",
-      // background: "rgba(33, 37, 41, 0.75)",
     },
 
     dropdown: {
@@ -46,12 +45,11 @@ const useStyles = createStyles((theme) => {
     },
 
     header: {
-      border: "3px red solid",
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
       maxWidth: "2000px",
-      // background: "red",
+
       marginInline: "auto",
 
       padding: "0 max(calc(6.23rem + 4.77vw), 5.63rem)",
@@ -118,8 +116,6 @@ const HeaderResponsive = (props: HeaderResponsiveProps) => {
       to={link.label}
       spy={true}
       smooth={true}
-      offset={50}
-      duration={500}
       key={link.label}
       className={classes.link}
     >
@@ -130,7 +126,7 @@ const HeaderResponsive = (props: HeaderResponsiveProps) => {
   return (
     <Header
       id={props.id}
-      height="auto"
+      height="100%"
       withBorder={false}
       className={classes.root}
       style={{ height: "auto" }}
