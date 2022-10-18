@@ -155,24 +155,6 @@ const ContactPage = (props: ContactProps) => {
     });
   };
 
-  /**
-   * FUNCTION TO MOCK ON SUBMIT
-   * @param
-   */
-  const handleSubmit = async () => {
-    try {
-      const res = await mockPromise(true);
-
-      setSubErr(false);
-      setSubSuccess(true);
-      setShowAlert(true);
-      form.reset();
-    } catch (err) {
-      setSubErr(true);
-      setShowAlert(true);
-    }
-  };
-
   return (
     <div
       style={{
@@ -227,44 +209,29 @@ const ContactPage = (props: ContactProps) => {
             <form
               id="contact-form"
               className={classes.form}
-              /** MOCK SUBMIT FUNCTION */
-              // onSubmit={(event) => {
-              //   event.preventDefault();
-              //   if (form.validate().hasErrors) {
-              //   } else {
-              //     handleSubmit();
-              //   }
-              // }}
               onChange={(event) => setSubErr(false)}
               onSubmit={form.onSubmit((values) => {
                 const form = document.querySelector(
                   "#contact-form"
                 ) as HTMLFormElement;
-
-                handleSubmit();
-                // emailjs
-                //   .sendForm(
-                //     "service_zxgnuxb",
-                //     "contact-form",
-                //     form,
-                //     "IFkPW2qVHPTPcujnk"
-                //   )
-                //   .then(
-                //     (result) => {
-                //       console.log("success", result.text);
-                //       setSubSuccess(true);
-                //       setShowAlert(true);
-                //       form.reset();
-                //     },
-                //     (error) => {
-                //       console.log("fail", error.text);
-                //       setSubErr(true);
-                //       setShowAlert(true);
-                //     }
-                //   );
-                // .catch((error) => {
-                //   console.log("fail", error);
-                // });
+                emailjs
+                  .sendForm(
+                    "service_zxgnuxb",
+                    "contact-form",
+                    form,
+                    "IFkPW2qVHPTPcujnk"
+                  )
+                  .then(
+                    (result) => {
+                      setSubSuccess(true);
+                      setShowAlert(true);
+                      form.reset();
+                    },
+                    (error) => {
+                      setSubErr(true);
+                      setShowAlert(true);
+                    }
+                  );
               })}
             >
               <Text size="lg" weight={700} className={classes.title}>

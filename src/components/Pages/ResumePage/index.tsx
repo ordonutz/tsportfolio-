@@ -42,7 +42,6 @@ const useStyles = createStyles((theme) => ({
     },
   },
   paperResume: {
-    // position: "relative",
     borderRadius: "12px",
     marginTop: "1em",
     paddingBottom: "2em",
