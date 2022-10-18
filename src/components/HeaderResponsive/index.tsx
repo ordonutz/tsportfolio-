@@ -2,7 +2,6 @@ import { useState } from "react";
 import {
   createStyles,
   Header,
-  Container,
   Group,
   Burger,
   Paper,
@@ -19,11 +18,8 @@ const useStyles = createStyles((theme) => {
   return {
     root: {
       position: "absolute",
-
       height: "auto",
-
       top: "0",
-
       marginInline: "auto",
       width: "auto",
     },
@@ -94,7 +90,7 @@ const useStyles = createStyles((theme) => {
       height: "70px",
       width: "190px",
       [theme.fn.smallerThan("sm")]: {
-        border: "2px yellow solid",
+        border: "2px green solid",
         height: "50px",
         width: "129px",
       },
