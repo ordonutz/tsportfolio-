@@ -48,8 +48,7 @@ const useStyles = createStyles((theme) => {
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
-      maxWidth: "2000px",
-
+      maxWidth: "1800px",
       marginInline: "auto",
 
       padding: "0 max(calc(6.23rem + 4.77vw), 5.63rem)",
@@ -92,9 +91,9 @@ const useStyles = createStyles((theme) => {
     },
     logo: {
       height: "70px",
+      margin: "1.5rem 0",
       [theme.fn.smallerThan("sm")]: {
         border: "2px yellow solid",
-        width: "auto",
         height: "50px",
       },
     },

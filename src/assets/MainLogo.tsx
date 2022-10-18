@@ -17,10 +17,6 @@ const MainLogo = (props: mainLogoSpecs) => {
   return (
     <div
       className={props.className}
-      style={{
-        width: "auto",
-        margin: "1.5rem 0",
-      }}
     >
       <svg
         width="100%"
