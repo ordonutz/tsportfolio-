@@ -92,9 +92,11 @@ const useStyles = createStyles((theme) => {
     },
     logo: {
       height: "70px",
+      width: "190px",
       [theme.fn.smallerThan("sm")]: {
         border: "2px yellow solid",
         height: "50px",
+        width: "129px",
       },
     },
   };
@@ -139,13 +141,6 @@ const HeaderResponsive = (props: HeaderResponsiveProps) => {
           className={classes.burger}
           size="md"
         />
-
-        <MainLogo className={classes.logo} />
-
-        <Group spacing={10} className={classes.links}>
-          {items}
-        </Group>
-
         <Transition transition="pop-top-right" duration={200} mounted={opened}>
           {(styles) => (
             <Paper className={classes.dropdown} withBorder style={styles}>
@@ -153,6 +148,11 @@ const HeaderResponsive = (props: HeaderResponsiveProps) => {
             </Paper>
           )}
         </Transition>
+
+        <MainLogo className={classes.logo} />
+        <Group spacing={10} className={classes.links}>
+          {items}
+        </Group>
       </div>
     </Header>
   );
