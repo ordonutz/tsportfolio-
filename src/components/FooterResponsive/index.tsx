@@ -7,7 +7,7 @@ const useStyles = createStyles((theme) => ({
     marginInline: "auto",
     background: "transparent",
     maxWidth: "2000px",
-    paddingBottom: "20px",
+    paddingBottom: "50px",
   },
 
   inner: {
