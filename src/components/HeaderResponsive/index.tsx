@@ -26,13 +26,12 @@ const useStyles = createStyles((theme) => {
 
     dropdown: {
       position: "absolute",
-      top: "105px",
+      top: "90px",
       left: 0,
       right: 0,
       zIndex: 0,
-      borderTopRightRadius: 0,
-      borderTopLeftRadius: 0,
-      borderTopWidth: 0,
+      borderTop: "4px solid #ffdeeb",
+      background: "#373A40",
       overflow: "hidden",
 
       [theme.fn.largerThan("sm")]: {
@@ -116,6 +115,7 @@ const HeaderResponsive = (props: HeaderResponsiveProps) => {
       smooth={true}
       key={link.label}
       className={classes.link}
+      onClick={toggle}
     >
       {link.label}
     </Link>
@@ -138,9 +138,9 @@ const HeaderResponsive = (props: HeaderResponsiveProps) => {
         />
         <Transition transition="pop-top-right" duration={200} mounted={opened}>
           {(styles) => (
-            <Paper className={classes.dropdown} withBorder style={styles}>
+            <div className={classes.dropdown} style={styles}>
               {items}
-            </Paper>
+            </div>
           )}
         </Transition>
 
