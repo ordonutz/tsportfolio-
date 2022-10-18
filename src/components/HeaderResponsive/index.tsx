@@ -95,7 +95,7 @@ const useStyles = createStyles((theme) => {
       [theme.fn.smallerThan("sm")]: {
         border: "2px yellow solid",
         width: "auto",
-        height: "50px",
+        height: "20px",
       },
     },
   };
