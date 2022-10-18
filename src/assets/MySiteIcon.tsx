@@ -143,20 +143,20 @@ const MySiteIcon = (props: Props) => {
           fill="#F4A9C3"
         />
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M6.58129 13.4503C6.88471 13.4391 7.23449 13.2775 7.47389 13.4479C7.71679 13.6207 7.6126 13.9775 7.7001 14.2466C7.77281 14.4702 7.99316 14.6661 7.94441 14.8949C7.89588 15.1227 7.5932 15.2156 7.45245 15.409C7.27982 15.6462 7.31915 16.0441 7.02978 16.1517C6.74849 16.2563 6.47781 15.9618 6.18748 15.8795C5.90098 15.7982 5.56109 15.8517 5.33566 15.6713C5.10177 15.4841 4.92181 15.1862 4.97205 14.9066C5.02229 14.627 5.44455 14.5414 5.58415 14.2883C5.71648 14.0484 5.52457 13.6942 5.7412 13.5121C5.95181 13.3351 6.29477 13.461 6.58129 13.4503Z"
           fill="url(#paint0_linear_283_841)"
         />
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M6.58129 13.4503C6.88471 13.4391 7.23449 13.2775 7.47389 13.4479C7.71679 13.6207 7.6126 13.9775 7.7001 14.2466C7.77281 14.4702 7.99316 14.6661 7.94441 14.8949C7.89588 15.1227 7.5932 15.2156 7.45245 15.409C7.27982 15.6462 7.31915 16.0441 7.02978 16.1517C6.74849 16.2563 6.47781 15.9618 6.18748 15.8795C5.90098 15.7982 5.56109 15.8517 5.33566 15.6713C5.10177 15.4841 4.92181 15.1862 4.97205 14.9066C5.02229 14.627 5.44455 14.5414 5.58415 14.2883C5.71648 14.0484 5.52457 13.6942 5.7412 13.5121C5.95181 13.3351 6.29477 13.461 6.58129 13.4503Z"
           fill="url(#paint1_linear_283_841)"
         />
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M6.37625 14.6576C6.5178 14.2213 6.51504 13.793 6.37028 13.7166C6.36247 13.7124 6.34317 13.7081 6.32754 13.7067C6.27699 13.7035 6.24436 13.7278 6.21449 13.7921C6.14648 13.9371 6.12166 14.2246 6.1189 14.8963L6.11844 15.0577L6.09914 15.0948C6.07663 15.1393 6.04446 15.1745 6.01413 15.1886C5.98609 15.2012 5.91762 15.2041 5.91992 15.1923C5.92589 15.1661 5.92543 15.0943 5.91946 15.0488C5.90981 14.9794 5.89602 14.9386 5.87029 14.9043C5.84363 14.8682 5.81928 14.8546 5.78159 14.8546C5.71725 14.8546 5.67865 14.9057 5.67406 14.9977C5.669 15.0938 5.70806 15.1848 5.78021 15.2449L5.80962 15.2697L5.80273 15.2838C5.78848 15.311 5.74575 15.3499 5.71863 15.3589C5.67957 15.372 5.63362 15.3706 5.60191 15.3546C5.57158 15.3396 5.55641 15.3223 5.53803 15.2824C5.51321 15.2285 5.51597 15.1417 5.54492 15.0802C5.56238 15.0427 5.58674 15.0155 5.62672 14.9887C5.66027 14.9662 5.66349 14.9615 5.66349 14.9348C5.66349 14.8705 5.5895 14.8809 5.52332 14.954C5.49345 14.9873 5.46082 15.0446 5.44474 15.0938C5.43141 15.1337 5.43233 15.2482 5.44612 15.2932C5.46863 15.3659 5.52194 15.4278 5.58214 15.4508C5.60604 15.4602 5.61891 15.4621 5.66395 15.4621H5.71725L5.75678 15.4419C5.80365 15.4184 5.84179 15.3823 5.86891 15.3359L5.88729 15.3044L5.93968 15.303C5.96863 15.3021 5.99942 15.2988 6.00815 15.2955C6.0417 15.2838 6.06652 15.2707 6.08903 15.2528C6.1019 15.243 6.11339 15.2345 6.11477 15.2345C6.11615 15.2345 6.11844 15.2679 6.11982 15.3082C6.12258 15.3917 6.12718 15.4114 6.14969 15.4344C6.16256 15.4475 6.16854 15.4503 6.18554 15.4503C6.22782 15.4503 6.25309 15.4245 6.28802 15.3448C6.31835 15.2763 6.36982 15.1703 6.39739 15.1196C6.46357 14.9995 6.5155 14.9498 6.53204 14.9911C6.53664 15.0019 6.5371 15.0221 6.53388 15.0788C6.52791 15.1839 6.52975 15.2725 6.53894 15.3119C6.55364 15.3776 6.58443 15.4245 6.62304 15.4414C6.71954 15.4836 6.82524 15.4147 6.91899 15.2482C6.95575 15.1829 6.98792 15.1088 6.99068 15.084C6.99252 15.0652 6.99114 15.0605 6.97919 15.0474C6.96908 15.0357 6.96219 15.0319 6.94932 15.0314C6.94013 15.0314 6.9291 15.0338 6.92542 15.0375C6.92129 15.0408 6.90244 15.0765 6.8836 15.1163C6.84178 15.2041 6.80824 15.2571 6.76458 15.3021C6.73241 15.3354 6.70346 15.3518 6.67726 15.3518C6.65888 15.3518 6.63912 15.3349 6.63039 15.311C6.62304 15.2918 6.62166 15.2754 6.62166 15.197C6.62166 15.1468 6.62304 15.0821 6.62395 15.054C6.62763 14.9615 6.60511 14.9067 6.55272 14.8823C6.5132 14.8635 6.47184 14.8752 6.42818 14.9165C6.38269 14.9601 6.32019 15.0633 6.25034 15.2106C6.22414 15.266 6.21265 15.2857 6.2099 15.281C6.2076 15.2772 6.20576 15.2289 6.20622 15.1736L6.20714 15.0727L6.22322 15.0375C6.3041 14.8588 6.33857 14.7734 6.37625 14.6576ZM6.21495 14.4043C6.22782 14.0562 6.25493 13.8667 6.29859 13.8188C6.311 13.8062 6.32479 13.8057 6.34041 13.8184C6.37212 13.8437 6.38912 13.9272 6.38958 14.0586C6.38958 14.2776 6.3473 14.4873 6.24574 14.7664C6.23012 14.8096 6.21587 14.8452 6.21403 14.8452C6.20898 14.8452 6.20944 14.5502 6.21495 14.4043ZM5.76872 14.9606C5.76045 14.9709 5.75815 15.0127 5.76413 15.0427C5.77378 15.0901 5.81514 15.1642 5.83168 15.1642C5.84501 15.1642 5.83674 15.0624 5.81927 15.0047C5.80549 14.9597 5.78435 14.9414 5.76872 14.9606Z"
           fill="url(#paint2_radial_283_841)"
         />
@@ -469,8 +469,8 @@ const MySiteIcon = (props: Props) => {
             fill="#F1F3F5"
           />
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M59.7532 25.1419C59.6911 25.1234 59.6245 25.1276 59.5652 25.1538C59.506 25.1799 59.458 25.2264 59.4298 25.2847C59.4017 25.3431 59.3953 25.4096 59.4117 25.4722C59.4281 25.5349 59.4663 25.5897 59.5194 25.6268C59.5319 25.6331 59.5389 25.6263 59.541 25.6194C59.543 25.6125 59.5477 25.5967 59.5542 25.5749C59.4765 25.5691 59.4762 25.5135 59.4762 25.5135C59.4761 25.4963 59.4698 25.4797 59.4585 25.4666C59.4397 25.4435 59.4652 25.4511 59.4652 25.4511C59.4732 25.4547 59.4801 25.4601 59.4857 25.4668C59.4912 25.4736 59.4952 25.4815 59.4972 25.4899C59.4988 25.4974 59.5019 25.5045 59.5063 25.5108C59.5107 25.5171 59.5163 25.5224 59.5228 25.5266C59.5292 25.5307 59.5364 25.5335 59.544 25.5348C59.5515 25.5362 59.5593 25.536 59.5668 25.5343C59.5717 25.5214 59.5811 25.5107 59.5932 25.5041C59.5371 25.4803 59.4828 25.4397 59.5122 25.3404C59.5195 25.3143 59.5366 25.2921 59.5598 25.2782C59.5587 25.2534 59.5669 25.229 59.5829 25.2099C59.5829 25.2099 59.607 25.2093 59.6469 25.258C59.6932 25.2589 59.7384 25.2724 59.7778 25.2968C59.8377 25.2778 59.8574 25.2913 59.8574 25.2913C59.8606 25.3159 59.8545 25.3407 59.8403 25.361C59.8522 25.3852 59.8544 25.4132 59.8463 25.439C59.8165 25.5395 59.7488 25.5433 59.6888 25.5319C59.6932 25.5401 59.6958 25.5491 59.6964 25.5583C59.697 25.5675 59.6956 25.5767 59.6923 25.5854C59.6819 25.6203 59.6736 25.6486 59.671 25.6571C59.6685 25.6656 59.6712 25.6736 59.6853 25.6749C59.7495 25.6721 59.8107 25.6467 59.858 25.6032C59.9054 25.5597 59.9358 25.5008 59.9439 25.437C59.952 25.3732 59.9373 25.3086 59.9025 25.2546C59.8676 25.2006 59.8147 25.1607 59.7532 25.1419V25.1419Z"
             fill="#9B6A6C"
           />
@@ -1200,7 +1200,7 @@ const MySiteIcon = (props: Props) => {
         <path
           d="M10.0707 30.1704L10.0216 30.1213C10.0148 30.1145 10.0067 30.1112 9.99703 30.1112C9.98741 30.1112 9.97922 30.1145 9.97249 30.1213L9.7357 30.3584L9.62959 30.2519C9.62285 30.2452 9.61466 30.2418 9.60504 30.2418C9.59542 30.2418 9.58723 30.2452 9.58049 30.2519L9.53141 30.301C9.52467 30.3078 9.5213 30.3159 9.5213 30.3256C9.5213 30.3352 9.52467 30.3434 9.53141 30.3501L9.66207 30.4808L9.71116 30.5299C9.71789 30.5366 9.72608 30.54 9.7357 30.54C9.74533 30.54 9.75351 30.5366 9.76025 30.5299L9.80934 30.4808L10.0707 30.2195C10.0774 30.2127 10.0808 30.2045 10.0808 30.1949C10.0808 30.1853 10.0774 30.1771 10.0707 30.1704V30.1704Z"
           fill="white"
-          fill-opacity="0.850806"
+          fillOpacity="0.850806"
         />
         <path
           d="M9.80499 33.0288C10.0588 33.0288 10.2646 32.8231 10.2646 32.5692C10.2646 32.3154 10.0588 32.1097 9.80499 32.1097C9.55118 32.1097 9.34543 32.3154 9.34543 32.5692C9.34543 32.8231 9.55118 33.0288 9.80499 33.0288Z"
@@ -1209,7 +1209,7 @@ const MySiteIcon = (props: Props) => {
         <path
           d="M10.0707 32.4447L10.0216 32.3956C10.0148 32.3888 10.0067 32.3855 9.99703 32.3855C9.98741 32.3855 9.97922 32.3888 9.97249 32.3956L9.7357 32.6327L9.62959 32.5262C9.62285 32.5195 9.61466 32.5161 9.60504 32.5161C9.59542 32.5161 9.58723 32.5195 9.58049 32.5262L9.53141 32.5753C9.52467 32.5821 9.5213 32.5903 9.5213 32.5999C9.5213 32.6095 9.52467 32.6177 9.53141 32.6244L9.66207 32.7551L9.71116 32.8042C9.71789 32.8109 9.72608 32.8143 9.7357 32.8143C9.74533 32.8143 9.75351 32.8109 9.76025 32.8042L9.80934 32.7551L10.0707 32.4938C10.0774 32.487 10.0808 32.4788 10.0808 32.4692C10.0808 32.4596 10.0774 32.4514 10.0707 32.4447V32.4447Z"
           fill="white"
-          fill-opacity="0.850806"
+          fillOpacity="0.850806"
         />
         <path
           d="M9.80499 35.3031C10.0588 35.3031 10.2646 35.0974 10.2646 34.8436C10.2646 34.5897 10.0588 34.384 9.80499 34.384C9.55118 34.384 9.34543 34.5897 9.34543 34.8436C9.34543 35.0974 9.55118 35.3031 9.80499 35.3031Z"
@@ -1218,7 +1218,7 @@ const MySiteIcon = (props: Props) => {
         <path
           d="M10.0707 34.719L10.0216 34.6699C10.0148 34.6632 10.0067 34.6598 9.99703 34.6598C9.98741 34.6598 9.97922 34.6632 9.97249 34.6699L9.7357 34.907L9.62959 34.8006C9.62285 34.7938 9.61466 34.7905 9.60504 34.7905C9.59542 34.7905 9.58723 34.7938 9.58049 34.8006L9.53141 34.8496C9.52467 34.8564 9.5213 34.8646 9.5213 34.8742C9.5213 34.8838 9.52467 34.892 9.53141 34.8987L9.66207 35.0294L9.71116 35.0785C9.71789 35.0852 9.72608 35.0886 9.7357 35.0886C9.74533 35.0886 9.75351 35.0852 9.76025 35.0785L9.80934 35.0294L10.0707 34.7681C10.0774 34.7613 10.0808 34.7532 10.0808 34.7435C10.0808 34.7339 10.0774 34.7257 10.0707 34.719V34.719Z"
           fill="white"
-          fill-opacity="0.850806"
+          fillOpacity="0.850806"
         />
         <rect
           x="9.34543"
@@ -1356,9 +1356,9 @@ const MySiteIcon = (props: Props) => {
             width="27.26"
             height="29.4772"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -1409,9 +1409,9 @@ const MySiteIcon = (props: Props) => {
             width="26.5309"
             height="26.4724"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -1462,9 +1462,9 @@ const MySiteIcon = (props: Props) => {
             width="25.9191"
             height="26.9498"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -1515,9 +1515,9 @@ const MySiteIcon = (props: Props) => {
             width="15.8094"
             height="10.3362"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -1568,9 +1568,9 @@ const MySiteIcon = (props: Props) => {
             width="15.8094"
             height="10.3362"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -1621,9 +1621,9 @@ const MySiteIcon = (props: Props) => {
             width="15.8094"
             height="10.3362"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -1674,9 +1674,9 @@ const MySiteIcon = (props: Props) => {
             width="21.9433"
             height="13.5064"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -1727,9 +1727,9 @@ const MySiteIcon = (props: Props) => {
             width="21.6375"
             height="31.4286"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -1781,8 +1781,8 @@ const MySiteIcon = (props: Props) => {
             y2="16.1714"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#545860" stop-opacity="0.47" />
-            <stop offset="1" stop-color="#373A40" />
+            <stop stopColor="#545860" stopOpacity="0.47" />
+            <stop offset="1" stopColor="#373A40" />
           </linearGradient>
           <linearGradient
             id="paint1_linear_283_841"
@@ -1792,8 +1792,8 @@ const MySiteIcon = (props: Props) => {
             y2="16.1714"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#545860" stop-opacity="0.47" />
-            <stop offset="1" stop-color="#373A40" />
+            <stop stopColor="#545860" stopOpacity="0.47" />
+            <stop offset="1" stopColor="#373A40" />
           </linearGradient>
           <radialGradient
             id="paint2_radial_283_841"
@@ -1803,8 +1803,8 @@ const MySiteIcon = (props: Props) => {
             gradientUnits="userSpaceOnUse"
             gradientTransform="translate(6.26789 13.1212) rotate(90.8909) scale(2.63373 2.33541)"
           >
-            <stop stop-color="#F8CCDB" />
-            <stop offset="1" stop-color="#E8417C" />
+            <stop stopColor="#F8CCDB" />
+            <stop offset="1" stopColor="#E8417C" />
           </radialGradient>
           <linearGradient
             id="paint3_linear_283_841"
@@ -1814,8 +1814,8 @@ const MySiteIcon = (props: Props) => {
             y2="14.0008"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0.00140872" stop-color="#FAB005" />
-            <stop offset="1" stop-color="#F2CB56" />
+            <stop offset="0.00140872" stopColor="#FAB005" />
+            <stop offset="1" stopColor="#F2CB56" />
           </linearGradient>
           <radialGradient
             id="paint4_radial_283_841"
@@ -1825,8 +1825,8 @@ const MySiteIcon = (props: Props) => {
             gradientUnits="userSpaceOnUse"
             gradientTransform="translate(50.6784 29.0863) rotate(-163.471) scale(7.49758 9.43805)"
           >
-            <stop stop-color="#68E1FD" />
-            <stop offset="1" stop-color="#59C5DE" stop-opacity="0.760417" />
+            <stop stopColor="#68E1FD" />
+            <stop offset="1" stopColor="#59C5DE" stopOpacity="0.760417" />
           </radialGradient>
           <radialGradient
             id="paint5_radial_283_841"
@@ -1836,8 +1836,8 @@ const MySiteIcon = (props: Props) => {
             gradientUnits="userSpaceOnUse"
             gradientTransform="translate(48.2614 30.1916) rotate(-163.471) scale(5.49491 11.1852)"
           >
-            <stop stop-color="#68E1FD" />
-            <stop offset="0.984375" stop-color="#59C5DE" />
+            <stop stopColor="#68E1FD" />
+            <stop offset="0.984375" stopColor="#59C5DE" />
           </radialGradient>
           <linearGradient
             id="paint6_linear_283_841"
@@ -1847,9 +1847,9 @@ const MySiteIcon = (props: Props) => {
             y2="25.7656"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FCD43E" />
-            <stop offset="0.466381" stop-color="#A2CE86" />
-            <stop offset="1" stop-color="#41CAD7" />
+            <stop stopColor="#FCD43E" />
+            <stop offset="0.466381" stopColor="#A2CE86" />
+            <stop offset="1" stopColor="#41CAD7" />
           </linearGradient>
           <linearGradient
             id="paint7_linear_283_841"
@@ -1859,9 +1859,9 @@ const MySiteIcon = (props: Props) => {
             y2="25.7656"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FCD43E" />
-            <stop offset="0.466381" stop-color="#A2CE86" />
-            <stop offset="1" stop-color="#41CAD7" />
+            <stop stopColor="#FCD43E" />
+            <stop offset="0.466381" stopColor="#A2CE86" />
+            <stop offset="1" stopColor="#41CAD7" />
           </linearGradient>
           <linearGradient
             id="paint8_linear_283_841"
@@ -1871,9 +1871,9 @@ const MySiteIcon = (props: Props) => {
             y2="25.7656"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FCD43E" />
-            <stop offset="0.466381" stop-color="#A2CE86" />
-            <stop offset="1" stop-color="#41CAD7" />
+            <stop stopColor="#FCD43E" />
+            <stop offset="0.466381" stopColor="#A2CE86" />
+            <stop offset="1" stopColor="#41CAD7" />
           </linearGradient>
           <linearGradient
             id="paint9_linear_283_841"
@@ -1883,9 +1883,9 @@ const MySiteIcon = (props: Props) => {
             y2="25.7656"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FCD43E" />
-            <stop offset="0.466381" stop-color="#A2CE86" />
-            <stop offset="1" stop-color="#41CAD7" />
+            <stop stopColor="#FCD43E" />
+            <stop offset="0.466381" stopColor="#A2CE86" />
+            <stop offset="1" stopColor="#41CAD7" />
           </linearGradient>
           <linearGradient
             id="paint10_linear_283_841"
@@ -1895,9 +1895,9 @@ const MySiteIcon = (props: Props) => {
             y2="25.7656"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FCD43E" />
-            <stop offset="0.466381" stop-color="#A2CE86" />
-            <stop offset="1" stop-color="#41CAD7" />
+            <stop stopColor="#FCD43E" />
+            <stop offset="0.466381" stopColor="#A2CE86" />
+            <stop offset="1" stopColor="#41CAD7" />
           </linearGradient>
           <linearGradient
             id="paint11_linear_283_841"
@@ -1907,9 +1907,9 @@ const MySiteIcon = (props: Props) => {
             y2="25.7656"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FCD43E" />
-            <stop offset="0.466381" stop-color="#A2CE86" />
-            <stop offset="1" stop-color="#41CAD7" />
+            <stop stopColor="#FCD43E" />
+            <stop offset="0.466381" stopColor="#A2CE86" />
+            <stop offset="1" stopColor="#41CAD7" />
           </linearGradient>
           <linearGradient
             id="paint12_linear_283_841"
@@ -1919,9 +1919,9 @@ const MySiteIcon = (props: Props) => {
             y2="25.7656"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FCD43E" />
-            <stop offset="0.466381" stop-color="#A2CE86" />
-            <stop offset="1" stop-color="#41CAD7" />
+            <stop stopColor="#FCD43E" />
+            <stop offset="0.466381" stopColor="#A2CE86" />
+            <stop offset="1" stopColor="#41CAD7" />
           </linearGradient>
           <linearGradient
             id="paint13_linear_283_841"
@@ -1931,9 +1931,9 @@ const MySiteIcon = (props: Props) => {
             y2="25.7656"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FCD43E" />
-            <stop offset="0.466381" stop-color="#A2CE86" />
-            <stop offset="1" stop-color="#41CAD7" />
+            <stop stopColor="#FCD43E" />
+            <stop offset="0.466381" stopColor="#A2CE86" />
+            <stop offset="1" stopColor="#41CAD7" />
           </linearGradient>
           <linearGradient
             id="paint14_linear_283_841"
@@ -1943,9 +1943,9 @@ const MySiteIcon = (props: Props) => {
             y2="25.7656"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FCD43E" />
-            <stop offset="0.466381" stop-color="#A2CE86" />
-            <stop offset="1" stop-color="#41CAD7" />
+            <stop stopColor="#FCD43E" />
+            <stop offset="0.466381" stopColor="#A2CE86" />
+            <stop offset="1" stopColor="#41CAD7" />
           </linearGradient>
           <linearGradient
             id="paint15_linear_283_841"
@@ -1955,9 +1955,9 @@ const MySiteIcon = (props: Props) => {
             y2="25.7656"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FCD43E" />
-            <stop offset="0.466381" stop-color="#A2CE86" />
-            <stop offset="1" stop-color="#41CAD7" />
+            <stop stopColor="#FCD43E" />
+            <stop offset="0.466381" stopColor="#A2CE86" />
+            <stop offset="1" stopColor="#41CAD7" />
           </linearGradient>
           <linearGradient
             id="paint16_linear_283_841"
@@ -1967,9 +1967,9 @@ const MySiteIcon = (props: Props) => {
             y2="25.7656"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FCD43E" />
-            <stop offset="0.466381" stop-color="#A2CE86" />
-            <stop offset="1" stop-color="#41CAD7" />
+            <stop stopColor="#FCD43E" />
+            <stop offset="0.466381" stopColor="#A2CE86" />
+            <stop offset="1" stopColor="#41CAD7" />
           </linearGradient>
           <linearGradient
             id="paint17_linear_283_841"
@@ -1979,9 +1979,9 @@ const MySiteIcon = (props: Props) => {
             y2="25.7656"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FCD43E" />
-            <stop offset="0.466381" stop-color="#A2CE86" />
-            <stop offset="1" stop-color="#41CAD7" />
+            <stop stopColor="#FCD43E" />
+            <stop offset="0.466381" stopColor="#A2CE86" />
+            <stop offset="1" stopColor="#41CAD7" />
           </linearGradient>
           <linearGradient
             id="paint18_linear_283_841"
@@ -1991,9 +1991,9 @@ const MySiteIcon = (props: Props) => {
             y2="25.7656"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FCD43E" />
-            <stop offset="0.466381" stop-color="#A2CE86" />
-            <stop offset="1" stop-color="#41CAD7" />
+            <stop stopColor="#FCD43E" />
+            <stop offset="0.466381" stopColor="#A2CE86" />
+            <stop offset="1" stopColor="#41CAD7" />
           </linearGradient>
           <linearGradient
             id="paint19_linear_283_841"
@@ -2003,9 +2003,9 @@ const MySiteIcon = (props: Props) => {
             y2="25.7656"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FCD43E" />
-            <stop offset="0.466381" stop-color="#A2CE86" />
-            <stop offset="1" stop-color="#41CAD7" />
+            <stop stopColor="#FCD43E" />
+            <stop offset="0.466381" stopColor="#A2CE86" />
+            <stop offset="1" stopColor="#41CAD7" />
           </linearGradient>
           <linearGradient
             id="paint20_linear_283_841"
@@ -2015,9 +2015,9 @@ const MySiteIcon = (props: Props) => {
             y2="25.7656"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FCD43E" />
-            <stop offset="0.466381" stop-color="#A2CE86" />
-            <stop offset="1" stop-color="#41CAD7" />
+            <stop stopColor="#FCD43E" />
+            <stop offset="0.466381" stopColor="#A2CE86" />
+            <stop offset="1" stopColor="#41CAD7" />
           </linearGradient>
           <linearGradient
             id="paint21_linear_283_841"
@@ -2027,9 +2027,9 @@ const MySiteIcon = (props: Props) => {
             y2="25.7656"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FCD43E" />
-            <stop offset="0.466381" stop-color="#A2CE86" />
-            <stop offset="1" stop-color="#41CAD7" />
+            <stop stopColor="#FCD43E" />
+            <stop offset="0.466381" stopColor="#A2CE86" />
+            <stop offset="1" stopColor="#41CAD7" />
           </linearGradient>
           <linearGradient
             id="paint22_linear_283_841"
@@ -2039,8 +2039,8 @@ const MySiteIcon = (props: Props) => {
             y2="37.4563"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#DD2A56" />
-            <stop offset="1" stop-color="#EC5D40" />
+            <stop stopColor="#DD2A56" />
+            <stop offset="1" stopColor="#EC5D40" />
           </linearGradient>
         </defs>
       </svg>

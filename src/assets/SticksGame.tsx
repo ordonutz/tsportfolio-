@@ -36,7 +36,7 @@ function SticksGame(props: IconProps) {
           height="0.743197"
           rx="0.371599"
           stroke="#373A41"
-          stroke-width="0.05"
+          strokeWidth="0.05"
         />
       </g>
       <g filter="url(#filter1_d_283_995)">
@@ -55,7 +55,7 @@ function SticksGame(props: IconProps) {
           rx="0.377158"
           transform="matrix(0.952171 -0.305566 0.37177 0.928325 13.4262 38.8218)"
           stroke="#373A41"
-          stroke-width="0.05"
+          strokeWidth="0.05"
         />
       </g>
       <g filter="url(#filter2_d_283_995)">
@@ -74,7 +74,7 @@ function SticksGame(props: IconProps) {
           rx="0.393179"
           transform="matrix(0.776603 -0.629991 0.711424 0.702763 26.7286 49.4362)"
           stroke="#373A41"
-          stroke-width="0.05"
+          strokeWidth="0.05"
         />
       </g>
       <g filter="url(#filter3_d_283_995)">
@@ -93,7 +93,7 @@ function SticksGame(props: IconProps) {
           height="0.743197"
           rx="0.371599"
           stroke="#373A41"
-          stroke-width="0.05"
+          strokeWidth="0.05"
         />
       </g>
       <g filter="url(#filter4_d_283_995)">
@@ -112,7 +112,7 @@ function SticksGame(props: IconProps) {
           rx="0.392815"
           transform="matrix(0.781432 0.623991 -0.705861 0.70835 19.3607 18.5741)"
           stroke="#373A41"
-          stroke-width="0.05"
+          strokeWidth="0.05"
         />
       </g>
       <g filter="url(#filter5_d_283_995)">
@@ -131,7 +131,7 @@ function SticksGame(props: IconProps) {
           rx="0.373603"
           transform="matrix(0.98335 -0.18172 0.224712 0.974425 21.4012 38.6394)"
           stroke="#373A41"
-          stroke-width="0.05"
+          strokeWidth="0.05"
         />
       </g>
       <g filter="url(#filter6_d_283_995)">
@@ -150,7 +150,7 @@ function SticksGame(props: IconProps) {
           rx="0.378038"
           transform="matrix(0.944106 0.329641 -0.399446 0.916757 15.5378 24.116)"
           stroke="#373A41"
-          stroke-width="0.05"
+          strokeWidth="0.05"
         />
       </g>
       <g filter="url(#filter7_d_283_995)">
@@ -169,7 +169,7 @@ function SticksGame(props: IconProps) {
           rx="0.373945"
           transform="matrix(0.980444 -0.196798 0.242979 0.970032 11.6542 30.5213)"
           stroke="#373A41"
-          stroke-width="0.05"
+          strokeWidth="0.05"
         />
       </g>
       <g filter="url(#filter8_d_283_995)">
@@ -188,7 +188,7 @@ function SticksGame(props: IconProps) {
           rx="0.386043"
           transform="matrix(0.863201 0.50486 -0.589541 0.807739 9.50493 27.2936)"
           stroke="#373A41"
-          stroke-width="0.05"
+          strokeWidth="0.05"
         />
       </g>
       <g filter="url(#filter9_d_283_995)">
@@ -207,7 +207,7 @@ function SticksGame(props: IconProps) {
           height="0.743197"
           rx="0.371599"
           stroke="#373A41"
-          stroke-width="0.05"
+          strokeWidth="0.05"
         />
       </g>
       <g filter="url(#filter10_d_283_995)">
@@ -226,7 +226,7 @@ function SticksGame(props: IconProps) {
           height="0.743197"
           rx="0.371599"
           stroke="#373A41"
-          stroke-width="0.05"
+          strokeWidth="0.05"
         />
       </g>
       <g filter="url(#filter11_d_283_995)">
@@ -245,7 +245,7 @@ function SticksGame(props: IconProps) {
           rx="0.374768"
           transform="matrix(0.97337 0.229238 -0.28197 0.959423 14.5508 31.2539)"
           stroke="#373A41"
-          stroke-width="0.05"
+          strokeWidth="0.05"
         />
       </g>
       <g filter="url(#filter12_d_283_995)">
@@ -264,7 +264,7 @@ function SticksGame(props: IconProps) {
           height="0.743197"
           rx="0.371599"
           stroke="#373A41"
-          stroke-width="0.05"
+          strokeWidth="0.05"
         />
       </g>
       <g filter="url(#filter13_d_283_995)">
@@ -283,7 +283,7 @@ function SticksGame(props: IconProps) {
           rx="0.400437"
           transform="matrix(0.667768 -0.74437 0.811968 0.583702 18.7625 46.2474)"
           stroke="#373A41"
-          stroke-width="0.05"
+          strokeWidth="0.05"
         />
       </g>
       <g filter="url(#filter14_d_283_995)">
@@ -302,7 +302,7 @@ function SticksGame(props: IconProps) {
           rx="0.373584"
           transform="matrix(0.983508 -0.180867 0.223677 0.974663 13.4265 42.571)"
           stroke="#373A41"
-          stroke-width="0.05"
+          strokeWidth="0.05"
         />
       </g>
       <path
@@ -521,9 +521,9 @@ function SticksGame(props: IconProps) {
           width="48.7597"
           height="8.7932"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -556,9 +556,9 @@ function SticksGame(props: IconProps) {
           width="46.4252"
           height="20.8536"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -591,9 +591,9 @@ function SticksGame(props: IconProps) {
           width="38.4344"
           height="32.7636"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -626,9 +626,9 @@ function SticksGame(props: IconProps) {
           width="48.7597"
           height="8.7932"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -661,9 +661,9 @@ function SticksGame(props: IconProps) {
           width="38.6436"
           height="32.5558"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -696,9 +696,9 @@ function SticksGame(props: IconProps) {
           width="47.9384"
           height="16.0222"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -731,9 +731,9 @@ function SticksGame(props: IconProps) {
           width="46.0389"
           height="21.7785"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -766,9 +766,9 @@ function SticksGame(props: IconProps) {
           width="47.7959"
           height="16.6161"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -801,9 +801,9 @@ function SticksGame(props: IconProps) {
           width="42.2721"
           height="28.3252"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -836,9 +836,9 @@ function SticksGame(props: IconProps) {
           width="48.7597"
           height="8.7932"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -871,9 +871,9 @@ function SticksGame(props: IconProps) {
           width="48.7597"
           height="8.7932"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -906,9 +906,9 @@ function SticksGame(props: IconProps) {
           width="47.4505"
           height="17.889"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -941,9 +941,9 @@ function SticksGame(props: IconProps) {
           width="48.7597"
           height="8.7932"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -976,9 +976,9 @@ function SticksGame(props: IconProps) {
           width="33.8479"
           height="36.6207"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -1011,9 +1011,9 @@ function SticksGame(props: IconProps) {
           width="47.9461"
           height="15.9886"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
