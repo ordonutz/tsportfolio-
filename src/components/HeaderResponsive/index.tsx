@@ -93,6 +93,7 @@ const useStyles = createStyles((theme) => {
     logo: {
       height: "70px",
       [theme.fn.smallerThan("sm")]: {
+        border: "2px yellow solid",
         height: "50px",
       },
     },
