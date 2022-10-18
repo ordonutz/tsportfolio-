@@ -216,7 +216,7 @@ const ContactPage = (props: ContactProps) => {
                 ) as HTMLFormElement;
                 emailjs
                   .sendForm(
-                    "service_zxgnuxb",
+                    "service_!GmAiL$",
                     "contact-form",
                     form,
                     "IFkPW2qVHPTPcujnk"
