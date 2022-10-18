@@ -90,7 +90,7 @@ const useStyles = createStyles((theme) => {
       height: "70px",
       width: "190px",
       [theme.fn.smallerThan("sm")]: {
-        border: "2px green solid",
+        border: "2px blue solid",
         height: "50px",
         width: "129px",
       },

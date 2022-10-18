@@ -18,6 +18,7 @@ const MainLogo = (props: mainLogoSpecs) => {
     <div
       className={props.className}
       style={{
+        width: "auto",
         margin: "1.5rem 0",
       }}
     >
