@@ -33,7 +33,7 @@ import { resumeData } from "./resumeData";
  */
 const useStyles = createStyles((theme) => ({
   container: {
-    height: "auto",
+    minHeight: "auto",
     marginBottom: "5em",
     width: "max(calc(1.23rem + 60%), 80%)",
     marginInline: "auto",

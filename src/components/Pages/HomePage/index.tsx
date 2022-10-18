@@ -32,7 +32,6 @@ const useStyles = createStyles((theme) => ({
     minWidth: "0",
     minHeight: "0",
     height: "100%",
-
     display: "flex",
     flexDirection: "row",
     flexWrap: "nowrap",
