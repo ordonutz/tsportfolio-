@@ -36,7 +36,7 @@ const mockdata: Array<projectData> = [
     tools: ["React.js", "TypeScript", "Mantine UI", "EmailJS"],
   },
   {
-    title: "Simulating Game of Pickup Sticks",
+    title: "Game of Pickup Sticks",
     description:
       "This c++ console program simulates a simplified version of the game of pickup sticks. The game consists of a group of sticks placed randomly on top of each other in a tangled mess. I modified depth-first search to perform a topological sort to determine if a solution existed through cycle detection. This project was an assignment in the CS302 Data Structures course I took during my undergrad at UNLV. My plan is to recreate this as a part of a browser application to visually animate different data structures from old assignments.",
     icon: (

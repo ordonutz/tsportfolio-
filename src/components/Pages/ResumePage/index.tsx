@@ -341,7 +341,7 @@ const ResumePage = (props: resumeProps) => {
           >
             Leslie Ordonez-Hernandez
           </Text>
-          <Group>
+          <Group style={{ border: "2px green solid" }}>
             <Link to="Contact" smooth={true} duration={500}>
               <MailIcon className={classes.resumeIcon} />
             </Link>
