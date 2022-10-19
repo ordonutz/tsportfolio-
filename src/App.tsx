@@ -42,13 +42,13 @@ const MY_THEME: MantineThemeOverride = {
 const useStyles = createStyles((MY_THEME) => {
   return {
     wrapperImg: {
-      backgroundImage: "url(" + "/backgroundImg.png" + ")",
+      backgroundImage: "url(" + "/backgroundImg-min.png" + ")",
       backgroundAttachment: "scroll",
       backgroundSize: "100%",
       backgroundPosition: "top",
       marginTop: "110px",
       [MY_THEME.fn.smallerThan("sm")]: {
-        backgroundImage: "url(" + "/backgroundImgSM.png" + ")",
+        backgroundImage: "url(" + "/backgroundImg-sm-min.png" + ")",
         marginTop: "105px",
       },
     },

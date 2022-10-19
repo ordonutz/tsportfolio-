@@ -150,7 +150,6 @@ const useStyles = createStyles((theme) => ({
   },
   actionButtons: {
     padding: "10px",
-    borderRadius: "5px",
     background: "rgb(33,37,41,0.7)",
     zIndex: 999,
     position: "sticky",

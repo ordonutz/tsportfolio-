@@ -84,7 +84,7 @@ export const resumeData: Array<resumeSectionData> = [
     section: "Leadership Experience",
     subsection0: {
       location: "Credit One Bank College Programs and Recruitment",
-      date: "February 2022 - April 2020",
+      date: "February 2022 - April 2022",
       description: [
         "Traveled with HR to the University of AZ and University of UT to assist with recruitment at the career fair booths",
         "Volunteered and collaborated with colleagues at the Las Vegas Rescue Mission to serve over 200 meals",

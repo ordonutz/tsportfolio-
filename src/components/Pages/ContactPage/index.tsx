@@ -119,6 +119,13 @@ const useStyles = createStyles((theme) => {
     contactIcon: {
       width: "1.5em",
     },
+    link: {
+      color: "#F1F3F5",
+      "&:hover": {
+        cursor: "pointer",
+        textDecoration: "underline",
+      },
+    },
   };
 });
 
@@ -198,11 +205,26 @@ const ContactPage = (props: ContactProps) => {
               color="lime"
               radius="md"
               variant="light"
-              style={{}}
             >
               Thank you, your message has been received. I'll get back to you
-              shortly. In the meantime connect with me through LinkedIn or
-              GitHub.
+              shortly. In the meantime connect with me through
+              <Text
+                component="a"
+                href="https://www.linkedin.com/in/leslie-ordonez/"
+                target="-blank"
+                className={classes.link}
+              >
+                LinkedIn
+              </Text>{" "}
+              or
+              <Text
+                component="a"
+                href="https://www.linkedin.com/in/leslie-ordonez/"
+                target="-blank"
+                className={classes.link}
+              >
+                GitHub.
+              </Text>
             </Alert>
           ) : (
             <form
