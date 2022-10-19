@@ -76,6 +76,7 @@ const useStyles = createStyles((theme) => ({
     },
   },
   image: {
+    marginLeft: "10em",
     display: "flex",
     flexDirection: "column",
     flexWrap: "nowrap",
