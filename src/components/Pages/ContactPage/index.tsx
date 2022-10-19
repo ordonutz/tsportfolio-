@@ -205,7 +205,7 @@ const ContactPage = (props: ContactProps) => {
                 variant="light"
               >
                 Thank you, your message has been received. I'll get back to you
-                shortly. In the meantime connect with me through
+                shortly. In the meantime connect with me through{" "}
                 <Text
                   component="a"
                   href="https://www.linkedin.com/in/leslie-ordonez/"
@@ -214,7 +214,7 @@ const ContactPage = (props: ContactProps) => {
                 >
                   LinkedIn
                 </Text>{" "}
-                or
+                or{" "}
                 <Text
                   component="a"
                   href="https://www.linkedin.com/in/leslie-ordonez/"
