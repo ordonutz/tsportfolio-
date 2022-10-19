@@ -157,7 +157,7 @@ const useStyles = createStyles((theme) => ({
     marginInline: "auto",
     width: "70%",
 
-    [theme.fn.smallerThan("sm")]: {
+    [theme.fn.smallerThan("md")]: {
       width: "100%",
       justifyContent: "center",
     },
