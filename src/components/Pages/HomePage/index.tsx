@@ -146,7 +146,7 @@ const HomePage = (props: homeProps) => {
             </Text>
           </Title>
           <Text mt="md" className={classes.subTitle}>
-            excited about everything web development
+            everything web development
           </Text>
 
           <List
@@ -163,7 +163,7 @@ const HomePage = (props: homeProps) => {
               <b>Recent computer science b.s. grad</b>
             </List.Item>
             <List.Item>
-              <b>Proficient undergrad background in C++</b>
+              <b>Undergrad background in C++</b>
             </List.Item>
           </List>
           <Group
