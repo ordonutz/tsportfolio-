@@ -25,7 +25,6 @@ const useStyles = createStyles((theme) => {
       display: "flex",
       backgroundColor: theme.colors.dark[8],
       borderRadius: theme.radius.lg,
-
       [BREAKPOINT]: {
         flexDirection: "column",
       },

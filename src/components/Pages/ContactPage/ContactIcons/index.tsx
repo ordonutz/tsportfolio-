@@ -1,9 +1,4 @@
 import { Text, Group, Stack, createStyles } from "@mantine/core";
-import React from "react";
-import GitIcon from "../../../../assets/GitIcon";
-import LinkedIcon from "../../../../assets/LinkedIcon";
-import MailIcon from "../../../../assets/MailIcon";
-import PhoneIcon from "../../../../assets/PhoneIcon";
 
 interface ContactProps {
   className?: string;
@@ -18,6 +13,13 @@ const useStyles = createStyles(() => {
       justifyContent: "flex-start",
       alignItems: "flex-start",
       alignContent: "flex-start",
+    },
+    link: {
+      color: "#F1F3F5",
+      "&:hover": {
+        cursor: "pointer",
+        textDecoration: "underline",
+      },
     },
   };
 });
@@ -45,7 +47,13 @@ const ContactIcons = (props: ContactProps) => {
           <Text size="sm" weight="400" sx={{ color: "#F1F3F5" }}>
             Email
           </Text>
-          <Text size="md" weight="500" sx={{ color: "#F1F3F5" }}>
+          <Text
+            component="a"
+            href="mailto:lezordonez@gmail.com"
+            size="md"
+            weight="500"
+            className={classes.link}
+          >
             lezordonez@gmail.com
           </Text>
         </div>
@@ -69,7 +77,13 @@ const ContactIcons = (props: ContactProps) => {
           <Text size="sm" weight="400" sx={{ color: "#F1F3F5" }}>
             Phone
           </Text>
-          <Text size="md" weight="500" sx={{ color: "#F1F3F5" }}>
+          <Text
+            component="a"
+            href="tel:+17026080278"
+            size="md"
+            weight="500"
+            className={classes.link}
+          >
             702-608-0278
           </Text>
         </div>
@@ -93,8 +107,15 @@ const ContactIcons = (props: ContactProps) => {
           <Text size="sm" weight="400" sx={{ color: "#F1F3F5" }}>
             LinkedIn
           </Text>
-          <Text size="md" weight="500" sx={{ color: "#F1F3F5" }}>
-            /leslie-ordonez
+          <Text
+            component="a"
+            href="https://www.linkedin.com/in/leslie-ordonez/"
+            target="-blank"
+            size="md"
+            weight="500"
+            className={classes.link}
+          >
+            /in/leslie-ordonez
           </Text>
         </div>
       </Group>
@@ -119,7 +140,15 @@ const ContactIcons = (props: ContactProps) => {
           <Text size="sm" weight="400" sx={{ color: "#F1F3F5" }}>
             GitHub
           </Text>
-          <Text size="md" weight="500" sx={{ color: "#F1F3F5" }}>
+
+          <Text
+            component="a"
+            href="https://github.com/ordonutz"
+            target="-blank"
+            size="md"
+            weight="500"
+            className={classes.link}
+          >
             /ordonutz
           </Text>
         </div>
