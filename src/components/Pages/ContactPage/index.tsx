@@ -9,6 +9,7 @@ import {
   createStyles,
   Alert,
   CheckIcon,
+  Loader,
 } from "@mantine/core";
 
 import emailjs from "@emailjs/browser";
@@ -139,7 +140,7 @@ const ContactPage = (props: ContactProps) => {
   const [subSuccess, setSubSuccess] = useState(false); // true if form is successfully submitted to conditionally render success message
   const [subErr, setSubErr] = useState(false); // true if form failed to submit to conditionally render error message
   const [showAlert, setShowAlert] = useState(false); // true if alert is visible the onClose of alert changes it to false
-
+  const [loading, setLoading] = useState(false);
   /**
    * @param hi
    */
@@ -154,12 +155,6 @@ const ContactPage = (props: ContactProps) => {
       email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
     },
   });
-
-  const mockPromise = (flag: boolean) => {
-    return new Promise((resolve, reject) => {
-      flag ? resolve("Mock Success") : reject("Mock error");
-    });
-  };
 
   return (
     <div
@@ -182,137 +177,144 @@ const ContactPage = (props: ContactProps) => {
           </Text>
           <ContactIcons className={classes.contactIcon} />
         </div>
-        <div
-          className={subSuccess ? classes.sucessAlert : classes.formAndAlert}
-        >
-          {subErr && showAlert && (
-            <Alert
-              style={{ margin: "0px 10px", marginTop: "10px" }}
-              icon={<ErrorIcon />}
-              title="Aww shucks"
-              color="red"
-              radius="md"
-              variant="light"
-              onClose={() => setShowAlert(false)}
-            >
-              Message failed to send. Refresh and try again.
-            </Alert>
-          )}
-          {subSuccess && showAlert ? (
-            <Alert
-              icon={<CheckIcon />}
-              title="Success!"
-              color="lime"
-              radius="md"
-              variant="light"
-            >
-              Thank you, your message has been received. I'll get back to you
-              shortly. In the meantime connect with me through
-              <Text
-                component="a"
-                href="https://www.linkedin.com/in/leslie-ordonez/"
-                target="-blank"
-                className={classes.link}
+        {loading ? (
+          <Loader variant="oval" size="lg" style={{ margin: "auto" }} />
+        ) : (
+          <div
+            className={subSuccess ? classes.sucessAlert : classes.formAndAlert}
+          >
+            {subErr && showAlert && (
+              <Alert
+                style={{ margin: "0px 10px", marginTop: "10px" }}
+                icon={<ErrorIcon />}
+                title="Aww shucks"
+                color="red"
+                radius="md"
+                variant="light"
+                onClose={() => setShowAlert(false)}
               >
-                LinkedIn
-              </Text>{" "}
-              or
-              <Text
-                component="a"
-                href="https://www.linkedin.com/in/leslie-ordonez/"
-                target="-blank"
-                className={classes.link}
+                Message failed to send. Refresh and try again.
+              </Alert>
+            )}
+            {subSuccess && showAlert ? (
+              <Alert
+                icon={<CheckIcon />}
+                title="Success!"
+                color="lime"
+                radius="md"
+                variant="light"
               >
-                GitHub.
-              </Text>
-            </Alert>
-          ) : (
-            <form
-              id="contact-form"
-              className={classes.form}
-              onChange={(event) => setSubErr(false)}
-              onSubmit={form.onSubmit((values) => {
-                const form = document.querySelector(
-                  "#contact-form"
-                ) as HTMLFormElement;
-                emailjs
-                  .sendForm(
-                    "service_!GmAiL$",
-                    "contact-form",
-                    form,
-                    "IFkPW2qVHPTPcujnk"
-                  )
-                  .then(
-                    (result) => {
-                      setSubSuccess(true);
-                      setShowAlert(true);
-                      form.reset();
-                    },
-                    (error) => {
-                      setSubErr(true);
-                      setShowAlert(true);
-                    }
-                  );
-              })}
-            >
-              <Text size="lg" weight={700} className={classes.title}>
-                Get in touch
-              </Text>
-
-              <div className={classes.fields}>
-                <SimpleGrid
-                  cols={1}
-                  breakpoints={[{ maxWidth: "sm", cols: 1 }]}
+                Thank you, your message has been received. I'll get back to you
+                shortly. In the meantime connect with me through
+                <Text
+                  component="a"
+                  href="https://www.linkedin.com/in/leslie-ordonez/"
+                  target="-blank"
+                  className={classes.link}
                 >
-                  <TextInput
-                    name="user_name"
-                    aria-label="Your name"
-                    label="Your name"
-                    {...form.getInputProps("name")}
-                  />
-                  <TextInput
-                    name="user_email"
-                    aria-label="Your email"
-                    label="Your email"
-                    required
-                    {...form.getInputProps("email")}
-                  />
-                </SimpleGrid>
+                  LinkedIn
+                </Text>{" "}
+                or
+                <Text
+                  component="a"
+                  href="https://www.linkedin.com/in/leslie-ordonez/"
+                  target="-blank"
+                  className={classes.link}
+                >
+                  GitHub.
+                </Text>
+              </Alert>
+            ) : (
+              <form
+                id="contact-form"
+                className={classes.form}
+                onChange={(event) => setSubErr(false)}
+                onSubmit={form.onSubmit((values) => {
+                  setLoading(true);
+                  const form = document.querySelector(
+                    "#contact-form"
+                  ) as HTMLFormElement;
+                  emailjs
+                    .sendForm(
+                      "service_!GmAiL$",
+                      "contact-form",
+                      form,
+                      "IFkPW2qVHPTPcujnk"
+                    )
+                    .then(
+                      (result) => {
+                        setLoading(false);
+                        setSubSuccess(true);
+                        setShowAlert(true);
+                        form.reset();
+                      },
+                      (error) => {
+                        setLoading(false);
+                        setSubErr(true);
+                        setShowAlert(true);
+                      }
+                    );
+                })}
+              >
+                <Text size="lg" weight={700} className={classes.title}>
+                  Get in touch
+                </Text>
 
-                <TextInput
-                  name="subject"
-                  aria-label="Subject"
-                  mt="md"
-                  label="Subject"
-                  required
-                  {...form.getInputProps("subject")}
-                />
-
-                <Textarea
-                  name="message"
-                  aria-label="Your message"
-                  mt="md"
-                  placeholder="Thanks for reaching out :)"
-                  minRows={3}
-                  required
-                  {...form.getInputProps("message")}
-                />
-
-                <Group position="right" mt="md">
-                  <Button
-                    radius="lg"
-                    aria-label="submit"
-                    type="submit"
-                    className={classes.control}
-                    color="blue"
+                <div className={classes.fields}>
+                  <SimpleGrid
+                    cols={1}
+                    breakpoints={[{ maxWidth: "sm", cols: 1 }]}
                   >
-                    Send message
-                  </Button>
-                </Group>
-              </div>
-            </form>
-          )}
-        </div>
+                    <TextInput
+                      name="user_name"
+                      aria-label="Your name"
+                      label="Your name"
+                      {...form.getInputProps("name")}
+                    />
+                    <TextInput
+                      name="user_email"
+                      aria-label="Your email"
+                      label="Your email"
+                      required
+                      {...form.getInputProps("email")}
+                    />
+                  </SimpleGrid>
+
+                  <TextInput
+                    name="subject"
+                    aria-label="Subject"
+                    mt="md"
+                    label="Subject"
+                    required
+                    {...form.getInputProps("subject")}
+                  />
+
+                  <Textarea
+                    name="message"
+                    aria-label="Your message"
+                    mt="md"
+                    placeholder="Thanks for reaching out :)"
+                    minRows={3}
+                    required
+                    {...form.getInputProps("message")}
+                  />
+
+                  <Group position="right" mt="md">
+                    <Button
+                      radius="lg"
+                      aria-label="submit"
+                      type="submit"
+                      className={classes.control}
+                      color="blue"
+                    >
+                      Send message
+                    </Button>
+                  </Group>
+                </div>
+              </form>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
