@@ -1,12 +1,4 @@
-import { useState } from "react";
-import {
-  createStyles,
-  Header,
-  Group,
-  Burger,
-  Paper,
-  Transition,
-} from "@mantine/core";
+import { createStyles, Header, Group, Burger, Transition } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import MainLogo from "../../assets/MainLogo";
 import React from "react";
@@ -74,7 +66,6 @@ const useStyles = createStyles((theme) => {
       color: theme.colors.dark[0],
       fontSize: theme.fontSizes.md,
       fontWeight: 500,
-
       "&:hover": {
         cursor: "pointer",
         backgroundColor: theme.colors.dark[6],
@@ -104,7 +95,7 @@ interface HeaderResponsiveProps {
 }
 
 const HeaderResponsive = (props: HeaderResponsiveProps) => {
-  const [opened, { toggle, close }] = useDisclosure(false);
+  const [opened, { toggle }] = useDisclosure(false);
 
   const { classes } = useStyles();
 
@@ -116,6 +107,7 @@ const HeaderResponsive = (props: HeaderResponsiveProps) => {
       key={link.label}
       className={classes.link}
       onClick={toggle}
+      duration={400}
     >
       {link.label}
     </Link>
@@ -130,6 +122,7 @@ const HeaderResponsive = (props: HeaderResponsiveProps) => {
       style={{ height: "auto" }}
     >
       <div className={classes.header}>
+        <MainLogo className={classes.logo} />
         <Burger
           opened={opened}
           onClick={toggle}
@@ -144,7 +137,6 @@ const HeaderResponsive = (props: HeaderResponsiveProps) => {
           )}
         </Transition>
 
-        <MainLogo className={classes.logo} />
         <Group spacing={10} className={classes.links}>
           {items}
         </Group>

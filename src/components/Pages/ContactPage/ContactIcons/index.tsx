@@ -1,4 +1,4 @@
-import { ThemeIcon, Text, Group, Stack, createStyles } from "@mantine/core";
+import { Text, Group, Stack, createStyles } from "@mantine/core";
 import React from "react";
 import GitIcon from "../../../../assets/GitIcon";
 import LinkedIcon from "../../../../assets/LinkedIcon";

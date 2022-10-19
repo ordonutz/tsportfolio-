@@ -4,14 +4,10 @@ import {
   Card,
   Text,
   Paper,
-  ScrollArea,
   Group,
   useMantineTheme,
   List,
-  ThemeIcon,
   Button,
-  ActionIcon,
-  Tooltip,
 } from "@mantine/core";
 import { NONAME } from "dns";
 import React, { forwardRef, LegacyRef, RefObject } from "react";
@@ -37,7 +33,7 @@ const useStyles = createStyles((theme) => ({
     marginBottom: "5em",
     width: "max(calc(1.23rem + 60%), 80%)",
     marginInline: "auto",
-    [theme.fn.smallerThan("xs")]: {
+    [theme.fn.smallerThan("md")]: {
       width: "100%",
     },
   },
@@ -52,7 +48,7 @@ const useStyles = createStyles((theme) => ({
     boxShadow:
       "inset -4px 4px 4px rgba(255, 255, 255, 0.25), inset 4px -4px 4px rgba(0, 0, 0, 0.25)",
     width: "70%",
-    [theme.fn.smallerThan("sm")]: {
+    [theme.fn.smallerThan("md")]: {
       width: "100%",
     },
   },
@@ -153,6 +149,7 @@ const useStyles = createStyles((theme) => ({
     },
   },
   actionButtons: {
+    padding: "10px",
     borderRadius: "5px",
     background: "rgb(33,37,41,0.7)",
     zIndex: 999,
@@ -180,14 +177,16 @@ const useStyles = createStyles((theme) => ({
   },
   icon: {
     width: "30px",
-    [theme.fn.smallerThan("sm")]: {
+    [theme.fn.smallerThan("xs")]: {
       width: "20px",
     },
   },
   resumeIcon: {
     height: "2.5em",
-    [theme.fn.smallerThan("sm")]: {
+    marginLeft: "30px",
+    [theme.fn.smallerThan("xs")]: {
       height: "30px",
+      marginLeft: 0,
     },
     "&:hover": {
       transform: "scale(1.01)",
@@ -195,7 +194,7 @@ const useStyles = createStyles((theme) => ({
       cursor: "pointer",
     },
   },
-  cardSection: {},
+
   resumeSection: {
     display: "flex",
     flexDirection: "row",
@@ -207,6 +206,22 @@ const useStyles = createStyles((theme) => ({
       flexWrap: "nowrap",
       justifyContent: "flex-start",
       alignItems: "flex-start",
+    },
+  },
+  headerIcons: {
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
+    [theme.fn.smallerThan("xs")]: {
+      width: "50%",
+      justifyContent: "space-evenly",
+    },
+  },
+  downloadButton: {
+    [theme.fn.smallerThan("md")]: {
+      display: "none",
     },
   },
 }));
@@ -274,7 +289,7 @@ const ResumePage = (props: resumeProps) => {
    */
   const getSectionData = (section: resumeSectionData) => {
     return (
-      <div className={classes.cardSection}>
+      <div>
         <Text className={classes.resumeTitle}>{section.section}</Text>
         {getSubSectionData(section.subsection0)}
         {section.subsection1 !== undefined &&
@@ -309,6 +324,7 @@ const ResumePage = (props: resumeProps) => {
           variant="filled"
           color="blue"
           leftIcon={<DownloadIcon />}
+          className={classes.downloadButton}
         >
           Download PDF
         </Button>
@@ -341,7 +357,7 @@ const ResumePage = (props: resumeProps) => {
           >
             Leslie Ordonez-Hernandez
           </Text>
-          <Group style={{ border: "2px green solid" }}>
+          <div className={classes.headerIcons}>
             <Link to="Contact" smooth={true} duration={500}>
               <MailIcon className={classes.resumeIcon} />
             </Link>
@@ -361,7 +377,7 @@ const ResumePage = (props: resumeProps) => {
               }}
               className={classes.resumeIcon}
             />
-          </Group>
+          </div>
         </div>
         <SimpleGrid cols={1} breakpoints={[{ maxWidth: "sm", cols: 1 }]}>
           {cards}

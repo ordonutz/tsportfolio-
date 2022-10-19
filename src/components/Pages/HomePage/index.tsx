@@ -5,7 +5,6 @@ import {
   Group,
   Text,
   List,
-  ThemeIcon,
   CheckIcon,
   MantineSize,
   useMantineTheme,
@@ -13,6 +12,7 @@ import {
 import { useState } from "react";
 import FolderIcon from "../../../assets/FolderIcon";
 import { Link } from "react-scroll";
+import CheckMarkIcon from "../../../assets/CheckMarkIcon";
 
 /**
  * @param theme MantineTheme object that stores styling properties to be used everywhere in the app
@@ -20,14 +20,15 @@ import { Link } from "react-scroll";
 const useStyles = createStyles((theme) => ({
   outerContainer: {
     paddingTop: "3rem",
-    marginBottom: "10px",
-    minHeight: "100vh",
+    marginBottom: "10%",
     width: "max(calc(1.23rem + 60%), 80%)",
     marginInline: "auto",
-    [theme.fn.smallerThan("xs")]: {
+    [theme.fn.smallerThan("sm")]: {
       width: "90%",
+      marginBottom: "30%",
     },
   },
+
   inner: {
     minWidth: "0",
     minHeight: "0",
@@ -37,11 +38,19 @@ const useStyles = createStyles((theme) => ({
     flexWrap: "nowrap",
     justifyContent: "center",
     alignItems: "center",
+    [theme.fn.smallerThan("md")]: {
+      flexDirection: "column",
+    },
   },
 
   content: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
     [theme.fn.smallerThan("md")]: {
       maxWidth: "100%",
+      marginInline: "auto",
     },
   },
 
@@ -60,7 +69,7 @@ const useStyles = createStyles((theme) => ({
 
   listItemsText: {
     fontSize: "1.5em",
-    color: theme.colors.gray[4],
+    color: theme.white,
     fontWeight: 340,
     [theme.fn.smallerThan("xs")]: {
       fontSize: "1em",
@@ -75,9 +84,10 @@ const useStyles = createStyles((theme) => ({
     alignContent: "center",
     height: "auto",
     width: "auto",
-
     [theme.fn.smallerThan("md")]: {
-      display: "none",
+      maxWidth: "100%",
+      marginInline: "auto",
+      marginTop: "10em",
     },
   },
   buttonGroup: {
@@ -97,8 +107,8 @@ const useStyles = createStyles((theme) => ({
   },
   icon: {
     height: "40em",
-    [theme.fn.smallerThan("sm")]: {
-      height: "60px",
+    [theme.fn.smallerThan("md")]: {
+      height: "20em",
     },
   },
 }));
@@ -136,7 +146,7 @@ const HomePage = (props: homeProps) => {
             </Text>
           </Title>
           <Text mt="md" className={classes.subTitle}>
-            intrigued, curious, and excited about everything web development
+            excited about everything web development
           </Text>
 
           <List
@@ -144,11 +154,7 @@ const HomePage = (props: homeProps) => {
             spacing="sm"
             size="md"
             className={classes.listItemsText}
-            icon={
-              <ThemeIcon color={theme.colors.green[6]} size={22} radius="xl">
-                <CheckIcon />
-              </ThemeIcon>
-            }
+            icon={<CheckMarkIcon />}
           >
             <List.Item>
               <b>Industry experience in React.js</b>

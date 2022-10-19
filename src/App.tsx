@@ -10,6 +10,7 @@ import ProjectPage from "./components/Pages/ProjectPage";
 import ContactPage from "./components/Pages/ContactPage";
 import HeaderResponsive from "./components/HeaderResponsive/index";
 import FooterResponsive from "./components/FooterResponsive";
+import { useEffect, useState } from "react";
 
 /**
  * used to overWrite default theme settings
@@ -46,7 +47,8 @@ const useStyles = createStyles((MY_THEME) => {
       backgroundSize: "100%",
       backgroundPosition: "top",
       marginTop: "110px",
-      [MY_THEME.fn.smallerThan("md")]: {
+      [MY_THEME.fn.smallerThan("sm")]: {
+        backgroundImage: "url(" + "/backgroundImgSM.png" + ")",
         marginTop: "105px",
       },
     },
@@ -71,7 +73,7 @@ export default function App() {
   const { classes } = useStyles();
 
   return (
-    <div className={classes.wrapperImg}>
+    <div className={classes.wrapperImg} id="backgroundImg">
       <MantineProvider theme={MY_THEME} withGlobalStyles withNormalizeCSS>
         <AppShell
           style={{

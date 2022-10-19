@@ -93,7 +93,7 @@ const useStyles = createStyles((theme) => {
       background:
         "linear-gradient(242deg, rgba(194,37,92,1) 0%, rgba(25,113,194,1) 100%)",
 
-      border: "1px solid transparent",
+      border: "1px solid #F1F3F5",
       padding: theme.spacing.xl,
       flex: "0 0 280px",
 
