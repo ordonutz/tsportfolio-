@@ -27,7 +27,7 @@ const mockdata: Array<projectData> = [
   {
     title: "Personal Portfolio Website",
     description:
-      "I created this personal website to display my resume and projects. This single-page static website is made with React.js + TypeScript, Mantine component library, EmailJS, and React Scroll. This was my first time using inline styling compared to importing stylesheets. A huge shoutout to the Mantine UI library and Figma for helping with the overall design.",
+      "I created this personal website to display my resume and projects. This single-page static website is made with React.js + TypeScript, Mantine component library, EmailJS, and React Scroll. This site is hosted on Cloudflare pages and has CI/CD integration; any local changes I push to my main branch on Github are updated for the user automatically. This was my first time using inline styling compared to importing stylesheets. A huge shoutout to the Mantine UI library and Figma for helping with the overall design.",
     icon: (
       <div style={{ width: "60%" }}>
         <MySiteIcon />
