@@ -27,9 +27,9 @@ const mockdata: Array<projectData> = [
   {
     title: "Personal Portfolio Website",
     description:
-      "I created this personal website to display my resume and projects. This single-page static website is made with React.js + TypeScript, Mantine component library, EmailJS, and React Scroll. This was my first time using inline styling compared to using SCSS. A huge shoutout to the Mantine UI library and Figma for helping with the overall design.",
+      "I created this personal website to display my resume and projects. This single-page static website is made with React.js + TypeScript, Mantine component library, EmailJS, and React Scroll. This was my first time using inline styling compared to importing stylesheets. A huge shoutout to the Mantine UI library and Figma for helping with the overall design.",
     icon: (
-      <div style={{ width: "80%" }}>
+      <div style={{ width: "60%" }}>
         <MySiteIcon />
       </div>
     ),
@@ -40,7 +40,7 @@ const mockdata: Array<projectData> = [
     description:
       "This c++ console program simulates a simplified version of the game of pickup sticks. The game consists of a group of sticks placed randomly on top of each other in a tangled mess. I modified depth-first search to perform a topological sort to determine if a solution existed through cycle detection. This project was an assignment in the CS302 Data Structures course I took during my undergrad at UNLV. My plan is to recreate this as a part of a browser application to visually animate different data structures from old assignments.",
     icon: (
-      <div style={{ width: "80%" }}>
+      <div style={{ width: "60%" }}>
         <SticksGame />
       </div>
     ),
@@ -51,7 +51,7 @@ const mockdata: Array<projectData> = [
     description:
       "A website to display updates, stats, and other info from my favorite games. Will grab information through various APIs to beautifully display info about the current games I'm playing in one place.",
     icon: (
-      <div style={{ width: "80%" }}>
+      <div style={{ width: "60%" }}>
         <GameIcon />
       </div>
     ),
