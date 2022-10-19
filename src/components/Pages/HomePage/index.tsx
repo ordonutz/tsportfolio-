@@ -146,7 +146,7 @@ const HomePage = (props: homeProps) => {
               Software Engineer
             </Text>
           </Title>
-          <Text mt="md" className={classes.subTitle}>
+          <Text italic mt="md" className={classes.subTitle}>
             everything web development
           </Text>
 
