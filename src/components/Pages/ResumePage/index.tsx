@@ -9,17 +9,16 @@ import {
   List,
   Button,
 } from "@mantine/core";
-import { NONAME } from "dns";
-import React, { forwardRef, LegacyRef, RefObject } from "react";
+
 import { Link } from "react-scroll";
 import DownloadIcon from "../../../assets/DownloadIcon";
 
 import GitIcon from "../../../assets/GitIcon";
 import LinkedIcon from "../../../assets/LinkedIcon";
 import MailIcon from "../../../assets/MailIcon";
-import PhoneIcon from "../../../assets/PhoneIcon";
+
 import PreviewIcon from "../../../assets/PreviewIcon";
-import PrinterIcon from "../../../assets/PrinterIcon";
+
 import { StarIcon } from "../../../assets/StarIcon";
 import { resumeSectionData, resumeSubSection } from "./interfaces";
 import { resumeData } from "./resumeData";
@@ -335,7 +334,7 @@ const ResumePage = (props: resumeProps) => {
           color="blue"
           onClick={() =>
             window.open(
-              "Leslie_Ordonez_Hernandez_Resume.pdf",
+              "Resume_Leslie_Ordonez_Hernandez.pdf",
               "_blank",
               "noopener,noreferrer"
             )
