@@ -6,14 +6,10 @@ import {
   Text,
   Card,
   SimpleGrid,
-  Container,
-  Image,
 } from "@mantine/core";
 import React from "react";
 import GameIcon from "../../../assets/GameIcon";
 import GitIcon from "../../../assets/GitIcon";
-import MailIcon from "../../../assets/MailIcon";
-import PhoneIcon from "../../../assets/PhoneIcon";
 import SticksGame from "../../../assets/SticksGame";
 import MySiteIcon from "../../../assets/MySiteIcon";
 
@@ -27,7 +23,7 @@ const mockdata: Array<projectData> = [
   {
     title: "Personal Portfolio Website",
     description:
-      "I created this personal website to display my resume and projects. This single-page static website is made with React.js + TypeScript, Mantine component library, EmailJS, and React Scroll. This site is hosted on Cloudflare pages and has CI/CD integration; any local changes I push to my main branch on Github are updated for the user automatically. This was my first time using inline styling compared to importing stylesheets. A huge shoutout to the Mantine UI library and Figma for helping with the overall design.",
+      "I created this personal website to display my resume and projects. This single-page static website is made with React.js + TypeScript, Mantine component library, EmailJS, and React Scroll. This site is hosted on Cloudflare pages and has CI/CD integration; any local changes I push to my main branch on Github are updated for the user automatically. This was my first time using CSS-in-JS compared to importing stylesheets. A huge shout-out to the Mantine UI library and Figma for helping with the overall design.",
     icon: (
       <div style={{ width: "60%" }}>
         <MySiteIcon />

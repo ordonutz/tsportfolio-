@@ -316,8 +316,8 @@ const ResumePage = (props: resumeProps) => {
       <Group className={classes.actionButtons}>
         <Button
           component="a"
-          href="Leslie_Ordonez_Hernandez_Resume.pdf"
-          download="Leslie_Ordonez_Hernandez_Resume.pdf"
+          href="Resume_Leslie_Ordonez_Hernandez.pdf"
+          download="Resume_Leslie_Ordonez_Hernandez.pdf"
           radius="lg"
           size="xs"
           variant="filled"
