@@ -107,13 +107,13 @@ const useStyles = createStyles((theme) => ({
   },
   resumeLocation: {
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-    fontWeight: 600,
+    fontWeight: 700,
     fontSize: "clamp(1rem, 2vw, 1.2rem)",
     color: "#3B3923",
   },
   resumeSubTitle: {
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-    fontWeight: 650,
+    fontWeight: 500,
     fontSize: "clamp(1rem, 2vw, 1.2rem)",
     color: "#3B3923",
   },
@@ -253,14 +253,28 @@ const ResumePage = (props: resumeProps) => {
       <>
         <div id={props.id}>
           <div className={classes.resumeSection}>
-            <Text align="left" className={classes.resumeLocation}>
-              {subSection.location}
-            </Text>
-            <Text className={classes.resumeDate}>{subSection.date}</Text>
+            {subSection.location !== undefined && (
+              <>
+                <Text align="left" className={classes.resumeLocation}>
+                  {subSection.location}
+                </Text>
+                <Text className={classes.resumeDate}>{subSection.date}</Text>
+              </>
+            )}
           </div>
-          <Text align="left" className={classes.resumeSubTitle}>
-            {subSection.title}
-          </Text>
+
+          {subSection.location === undefined ? (
+            <div className={classes.resumeSection}>
+              <Text align="left" className={classes.resumeSubTitle}>
+                {subSection.title}
+              </Text>
+              <Text className={classes.resumeDate}>{subSection.date}</Text>
+            </div>
+          ) : (
+            <Text align="left" className={classes.resumeSubTitle}>
+              {subSection.title}
+            </Text>
+          )}
           <List
             spacing="sm"
             center

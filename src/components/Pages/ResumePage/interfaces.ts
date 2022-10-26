@@ -3,9 +3,9 @@
  * each subsection in the @resumeSectionData object
  */
 export interface resumeSubSection {
-  location: string;
+  location?: string;
   title?: string
-  date: string;
+  date?: string;
   description: Array<string>;
 }
 
@@ -18,4 +18,6 @@ export interface resumeSectionData {
   subsection0: resumeSubSection;
   subsection1?: resumeSubSection;
   subsection2?: resumeSubSection;
+  subsection3?: resumeSubSection;
+  subsection4?: resumeSubSection;
 }
