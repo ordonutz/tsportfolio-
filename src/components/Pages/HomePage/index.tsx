@@ -147,7 +147,7 @@ const HomePage = (props: homeProps) => {
             </Text>
           </Title>
           <Text italic mt="md" className={classes.subTitle}>
-            everything web development
+            full-stack web development
           </Text>
 
           <List
