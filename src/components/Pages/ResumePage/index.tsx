@@ -329,8 +329,8 @@ const ResumePage = (props: resumeProps) => {
       <Group className={classes.actionButtons}>
         <Button
           component="a"
-          href="Resume_Leslie_Ordonez_Hernandez.pdf"
-          download="Resume_Leslie_Ordonez_Hernandez.pdf"
+          href="ResumeLeslieOH.pdf"
+          download="ResumeLeslieOH.pdf"
           radius="lg"
           size="xs"
           variant="filled"
@@ -347,11 +347,7 @@ const ResumePage = (props: resumeProps) => {
           variant="filled"
           color="blue"
           onClick={() =>
-            window.open(
-              "Resume_Leslie_Ordonez_Hernandez.pdf",
-              "_blank",
-              "noopener,noreferrer"
-            )
+            window.open("ResumeLeslieOH.pdf", "_blank", "noopener,noreferrer")
           }
         >
           View PDF
